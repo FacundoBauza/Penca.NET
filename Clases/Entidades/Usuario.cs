@@ -11,7 +11,6 @@ namespace Clases.Entidades
         public string Id { get; set; }
         public string nickname { get; set; }
         public string password { get; set; }
-        public Subscripcion subscripcion { get; set; }
 
 
     }

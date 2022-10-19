@@ -13,4 +13,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\Clases\Dominio.csproj" />
+    <ProjectReference Include="..\DataAccesLayer\DataAccesLayer.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Dominio": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        }
+      },
+      "Dominio/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Dominio.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Dominio.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
+    },
+    "Dominio/1.0.0": {
+      "type": "project",
+      "path": "../Clases/Dominio.csproj",
+      "msbuildProject": "../Clases/Dominio.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "BusinessLogic >= 1.0.0",
+      "Dominio >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\visua\\.nuget\\packages\\": {}
@@ -33,7 +71,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj"
+            },
+            "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj": {
+              "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

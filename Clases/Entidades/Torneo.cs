@@ -12,6 +12,8 @@ namespace Clases.Entidades
         public string nombre { get; set; }
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
+        public string Equipo1 { get; set; }
+        public string Equipo2 { get; set; }
 
     }
 }

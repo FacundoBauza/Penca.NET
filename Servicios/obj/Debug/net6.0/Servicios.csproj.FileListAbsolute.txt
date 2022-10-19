@@ -25,3 +25,9 @@ C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\refint\Servicios.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.pdb
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.genruntimeconfig.cache
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\ref\Servicios.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\BusinessLogic.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\DataAccesLayer.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\Dominio.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\BusinessLogic.pdb
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\Dominio.pdb
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\DataAccesLayer.pdb
