@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Clases\Dominio.c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servicios", "Servicios\Servicios.csproj", "{CF52DE95-512A-404C-A3F5-890CA196B8EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccesLayer", "DataAccesLayer\DataAccesLayer.csproj", "{B8E46143-212A-46AB-B470-9C5C27E6FAD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccesLayer", "DataAccesLayer\DataAccesLayer.csproj", "{B8E46143-212A-46AB-B470-9C5C27E6FAD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{64F4A938-1D9A-4BB2-AB5B-1E8A81031F89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{64F4A938-1D9A-4BB2-AB5B-1E8A81031F89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{B67D8BB3-3D95-458E-8FB7-0D92CC200DB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
