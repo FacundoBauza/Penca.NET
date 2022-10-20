@@ -1,3 +1,13 @@
+using DataAccesLayer;
+using DataAccesLayer.Implementacion;
+using DataAccesLayer.Interfaces;
+using Dominio.Entidades;
+using System.Data.SqlClient;
+
+I_ManejadorPenca x = new ManejadorPenca();
+
+x.agregar();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

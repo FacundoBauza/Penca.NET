@@ -66,6 +66,10 @@
               "target": "Package",
               "version": "[2.0.0-preview1-final, )"
             },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22472.3, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.4, )"
@@ -143,6 +147,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer.Design": {
               "target": "Package",
               "version": "[2.0.0-preview1-final, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22472.3, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -233,6 +241,10 @@
               "target": "Package",
               "version": "[2.0.0-preview1-final, )"
             },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22472.3, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.4, )"
@@ -281,9 +293,6 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj": {
-                "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj"
-              },
               "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj": {
                 "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj"
               },
@@ -328,6 +337,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22472.3, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

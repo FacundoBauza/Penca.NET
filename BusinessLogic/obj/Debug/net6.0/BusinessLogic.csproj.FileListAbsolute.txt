@@ -13,3 +13,5 @@ C:\Users\visua\Desktop\Penca.NET\BusinessLogic\obj\Debug\net6.0\BusinessLogic.dl
 C:\Users\visua\Desktop\Penca.NET\BusinessLogic\obj\Debug\net6.0\refint\BusinessLogic.dll
 C:\Users\visua\Desktop\Penca.NET\BusinessLogic\obj\Debug\net6.0\BusinessLogic.pdb
 C:\Users\visua\Desktop\Penca.NET\BusinessLogic\obj\Debug\net6.0\ref\BusinessLogic.dll
+C:\Users\visua\Desktop\Penca.NET\BusinessLogic\bin\Debug\net6.0\BusinessLogic.runtimeconfig.json
+C:\Users\visua\Desktop\Penca.NET\BusinessLogic\obj\Debug\net6.0\BusinessLogic.genruntimeconfig.cache

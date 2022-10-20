@@ -66,6 +66,10 @@
               "target": "Package",
               "version": "[2.0.0-preview1-final, )"
             },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22472.3, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.4, )"
@@ -143,6 +147,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer.Design": {
               "target": "Package",
               "version": "[2.0.0-preview1-final, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22472.3, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
@@ -232,6 +240,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer.Design": {
               "target": "Package",
               "version": "[2.0.0-preview1-final, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0-rc.2.22472.3, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
