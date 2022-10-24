@@ -1082,6 +1082,25 @@
           }
         }
       },
+      "DataAccesLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Dominio": "1.0.0",
+          "EntityFramework": "6.4.4",
+          "Microsoft.EntityFrameworkCore": "7.0.0-rc.2.22472.11",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0-rc.2.22472.11",
+          "Microsoft.EntityFrameworkCore.SqlServer.Design": "2.0.0-preview1-final",
+          "System.Configuration.ConfigurationManager": "7.0.0-rc.2.22472.3",
+          "System.Data.SqlClient": "4.8.4"
+        },
+        "compile": {
+          "bin/placeholder/DataAccesLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccesLayer.dll": {}
+        }
+      },
       "Dominio/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3887,6 +3906,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "DataAccesLayer/1.0.0": {
+      "type": "project",
+      "path": "../DataAccesLayer/DataAccesLayer.csproj",
+      "msbuildProject": "../DataAccesLayer/DataAccesLayer.csproj"
+    },
     "Dominio/1.0.0": {
       "type": "project",
       "path": "../Clases/Dominio.csproj",
@@ -3895,6 +3919,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DataAccesLayer >= 1.0.0",
       "Dominio >= 1.0.0",
       "EntityFramework >= 6.4.4",
       "Microsoft.EntityFrameworkCore >= 7.0.0-rc.2.22472.11",
@@ -3934,6 +3959,9 @@
           "projectReferences": {
             "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj": {
               "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj"
+            },
+            "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj": {
+              "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj"
             }
           }
         }

@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio.Entidades;
 using System.Data.SqlClient;
-
+using DataAccesLayer.Interfaces;
 
 namespace DataAccesLayer.Implementacion
 {
-    public class ManejadorPenca: Interfaces.I_ManejadorPenca
+    public class ManejadorPenca : I_ManejadorPenca
     {
-        public void agregar()
+        public bool addPenca()
         {
-            Conexion x = new Conexion();
+            /*Conexion x = new Conexion();
 
             string conect = x.conect();
 
@@ -26,7 +26,9 @@ namespace DataAccesLayer.Implementacion
 
                 connection.Open();
                 int result = com.ExecuteNonQuery();
-            }
+            }*/
+
+            return true;
         }
     }
 }

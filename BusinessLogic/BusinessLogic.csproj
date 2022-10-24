@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Implementacion\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0-rc.2.22472.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0-rc.2.22472.11">
@@ -26,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Clases\Dominio.csproj" />
+    <ProjectReference Include="..\DataAccesLayer\DataAccesLayer.csproj" />
   </ItemGroup>
 
 </Project>

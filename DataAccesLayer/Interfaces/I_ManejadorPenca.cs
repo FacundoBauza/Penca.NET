@@ -8,6 +8,6 @@ namespace DataAccesLayer.Interfaces
 {
     public interface I_ManejadorPenca
     {
-        public void agregar();
+        public abstract bool addPenca();
     }
 }

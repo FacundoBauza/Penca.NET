@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "BusinessLogic/1.0.0": {
         "dependencies": {
+          "DataAccesLayer": "1.0.0",
           "Dominio": "1.0.0",
           "EntityFramework": "6.4.4",
           "Microsoft.EntityFrameworkCore": "7.0.0-rc.2.22472.11",
@@ -802,6 +803,20 @@
           }
         }
       },
+      "DataAccesLayer/1.0.0": {
+        "dependencies": {
+          "Dominio": "1.0.0",
+          "EntityFramework": "6.4.4",
+          "Microsoft.EntityFrameworkCore": "7.0.0-rc.2.22472.11",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0-rc.2.22472.11",
+          "Microsoft.EntityFrameworkCore.SqlServer.Design": "2.0.0-preview1-final",
+          "System.Configuration.ConfigurationManager": "7.0.0-rc.2.22472.3",
+          "System.Data.SqlClient": "4.8.4"
+        },
+        "runtime": {
+          "DataAccesLayer.dll": {}
+        }
+      },
       "Dominio/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.0-rc.2.22472.11",
@@ -1367,6 +1382,11 @@
       "sha512": "sha512-xBwPi8E0uCi/HueVzbKrOCns6t23saqzkwg0+tXFLKWbpOEll5DnzhvNFG4OplGSRSllACY7X+VuzMz7Dz6yiA==",
       "path": "system.windows.extensions/7.0.0-rc.2.22472.3",
       "hashPath": "system.windows.extensions.7.0.0-rc.2.22472.3.nupkg.sha512"
+    },
+    "DataAccesLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Dominio/1.0.0": {
       "type": "project",

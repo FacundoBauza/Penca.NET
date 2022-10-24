@@ -32,7 +32,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Clases\Dominio.csproj" />
-    <ProjectReference Include="..\DataAccesLayer\DataAccesLayer.csproj" />
   </ItemGroup>
 
 </Project>

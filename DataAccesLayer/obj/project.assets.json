@@ -1082,25 +1082,6 @@
           }
         }
       },
-      "BusinessLogic/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Dominio": "1.0.0",
-          "EntityFramework": "6.4.4",
-          "Microsoft.EntityFrameworkCore": "7.0.0-rc.2.22472.11",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0-rc.2.22472.11",
-          "Microsoft.EntityFrameworkCore.SqlServer.Design": "2.0.0-preview1-final",
-          "System.Configuration.ConfigurationManager": "7.0.0-rc.2.22472.3",
-          "System.Data.SqlClient": "4.8.4"
-        },
-        "compile": {
-          "bin/placeholder/BusinessLogic.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BusinessLogic.dll": {}
-        }
-      },
       "Dominio/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3906,11 +3887,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "BusinessLogic/1.0.0": {
-      "type": "project",
-      "path": "../BusinessLogic/BusinessLogic.csproj",
-      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
-    },
     "Dominio/1.0.0": {
       "type": "project",
       "path": "../Clases/Dominio.csproj",
@@ -3919,7 +3895,6 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BusinessLogic >= 1.0.0",
       "Dominio >= 1.0.0",
       "EntityFramework >= 6.4.4",
       "Microsoft.EntityFrameworkCore >= 7.0.0-rc.2.22472.11",
@@ -3957,9 +3932,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj": {
-              "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj"
-            },
             "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj": {
               "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj"
             }
