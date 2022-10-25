@@ -17,8 +17,20 @@ namespace DataAccesLayer.Models
         public string nombre { get; set; }
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
-        //public List<Evento> eventos { get; set; }
         public List<PencaCompartida> pencasCompartidas { get; set; }
         public List<PencaEmpresarial> pencasEmpresariales { get; set; }
+
+
+        public Dominio.Entidades.Torneo GetEntity()
+        {
+            return new Dominio.Entidades.Torneo()
+            {
+                Id = Id,
+                nombre = nombre,
+                fechaInicio = fechaInicio,
+                fechaFin = fechaFin,
+                //penasCompartidas = pencasCompartidas.Select(x => x.)
+            };
+        }
     }
 }

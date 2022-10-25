@@ -4,14 +4,14 @@
     "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj": {
+    "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj",
-        "projectName": "Dominio",
-        "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj",
+        "projectName": "DataAccesLayer",
+        "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj",
         "packagesPath": "C:\\Users\\visua\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\obj\\",
+        "outputPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\visua\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\visua\\Desktop\\Penca.NET\\Dominio\\Dominio.csproj": {
+                "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Dominio\\Dominio.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -40,6 +44,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.AspNet.WebApi.Cors": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.0-rc.2.22472.11, )"
@@ -86,14 +98,14 @@
         }
       }
     },
-    "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj": {
+    "C:\\Users\\visua\\Desktop\\Penca.NET\\Dominio\\Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj",
-        "projectName": "DataAccesLayer",
-        "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj",
+        "projectUniqueName": "C:\\Users\\visua\\Desktop\\Penca.NET\\Dominio\\Dominio.csproj",
+        "projectName": "Dominio",
+        "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Dominio\\Dominio.csproj",
         "packagesPath": "C:\\Users\\visua\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\obj\\",
+        "outputPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\visua\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -109,11 +121,7 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj": {
-                "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Clases\\Dominio.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -126,35 +134,17 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "EntityFramework": {
+            "Microsoft.AspNet.WebApi.Cors": {
               "target": "Package",
-              "version": "[6.4.4, )"
+              "version": "[5.2.9, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.0-rc.2.22472.11, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.0-rc.2.22472.11, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.0-rc.2.22472.11, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
-              "target": "Package",
-              "version": "[2.0.0-preview1-final, )"
+              "version": "[6.0.10, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[7.0.0-rc.2.22472.3, )"
-            },
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.4, )"
             }
           },
           "imports": [

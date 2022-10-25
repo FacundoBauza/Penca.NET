@@ -1,4 +1,7 @@
+using BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using BusinessLogic.Implementacion;
+using Dominio.Entidades;
 
 namespace Servicios.Controllers
 {
@@ -6,25 +9,20 @@ namespace Servicios.Controllers
     [Route("[controller]")]
     public class TorneoController : ControllerBase
     {
-       
-    };
-    /*
-        private readonly ILogger<TorneoController> _logger;
-
-        public TorneoController(ILogger<TorneoController> logger)
+        private IB_Torneo bl;
+        public TorneoController(IB_Torneo _bl)
         {
-            _logger = logger;
+            bl = _bl;
         }
 
-
         [HttpGet(Name = "GetTorneo")]
-        public IEnumerable<Torneo> Get()
+        public List<Torneo> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new Torneo
-            {
-                
-            })
-            .ToArray();
-        }*/
+       
+            return bl.getTorneos();
+        
+        }
+
+    };
     
 }

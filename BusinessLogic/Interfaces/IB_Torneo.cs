@@ -9,6 +9,6 @@ namespace BusinessLogic.Interfaces
 {
     public interface IB_Torneo
     {
-        public abstract List<>
+        List<Torneo> getTorneos();
     }
 }
