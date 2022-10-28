@@ -13,8 +13,6 @@ namespace DataAccesLayer.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int id { get; set; }
-        public int cantGanadores { get; set; }
-        
-
+        public int cantGanadores { get; set; }     
     }
 }

@@ -9,17 +9,24 @@ namespace Dominio.Entidades
     public class PencaCompartida
     {
         public int id { get; set; }
-        public CriterioPremios criterioPremio { get; set; }
+        public CriterioPremio criterioPremio { get; set; }
+        public Torneo torneo { get; set; }
+        List<Usuario> participantes { get; set; }
+
 
         public PencaCompartida()
         {
-            this.criterioPremio = new CriterioPremios();
+            this.criterioPremio = new CriterioPremio();
+            this.torneo = new Torneo();
+            this.participantes = new List<Usuario>();
         }
 
-        public PencaCompartida(int id, CriterioPremios criterioPremio)
+        public PencaCompartida(int id, CriterioPremio criterioPremio, Torneo torneo, List<Usuario> participantes)
         {
             this.id = id;
             this.criterioPremio = criterioPremio;
+            this.torneo = torneo;
+            this.participantes = participantes;
         }
     }
 }

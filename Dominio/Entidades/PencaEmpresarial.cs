@@ -12,17 +12,23 @@ namespace Dominio.Entidades
         public string link { get; set; }
 
         public Usuario usuarioCreador;
+        public Torneo torneo { get; set; }
+        List<Usuario> participantes { get; set; }
 
         public PencaEmpresarial()
         {
-            usuarioCreador = new Usuario();
+            this.usuarioCreador = new Usuario();
+            this.torneo = new Torneo();
+            this.participantes = new List<Usuario>();
         }
 
-        public PencaEmpresarial(int id, string link, Usuario usuarioCreador)
+        public PencaEmpresarial(int id, string link, Usuario usuarioCreador, Torneo torneo, List<Usuario> participantes)
         {
             this.id = id;
             this.link = link;
             this.usuarioCreador = usuarioCreador;
+            this.torneo = torneo;
+            this.participantes = participantes;
         }
     }
 }

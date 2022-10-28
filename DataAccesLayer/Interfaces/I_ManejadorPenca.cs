@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace DataAccesLayer.Interfaces
 {
     public interface I_ManejadorPenca
     {
-        public abstract bool addPenca();
+        List<PencaCompartida> ListPencaCompartida();
+        List<PencaEmpresarial> ListPencaEmpresarial();
     }
 }

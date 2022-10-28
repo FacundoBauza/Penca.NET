@@ -23,92 +23,92 @@ namespace DataAccesLayer.Models
             }
         }
 
-        public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<PencaCompartida> PencasCompartidas { get; set; }
-        public DbSet<PencaEmpresarial> PencasEmpresariales { get; set; }
-        public DbSet<Torneo> Torneos { get; set; }
-        public DbSet<Subscripcion> Subscripciones { get; set; }
-        public DbSet<Premio> Premios { get; set; }
-        public DbSet<Evento> Eventos { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<PencaCompartidas> PencasCompartidas { get; set; }
+        public DbSet<PencaEmpresariales> PencasEmpresariales { get; set; }
+        public DbSet<Torneos> Torneos { get; set; }
+        public DbSet<Subscripciones> Subscripciones { get; set; }
+        public DbSet<Premios> Premios { get; set; }
+        public DbSet<Eventos> Eventos { get; set; }
         public DbSet<CriterioPremios> criterioPremios { get; set; }
-        public DbSet<PorcentajesPremio> porcentajePremios { get; set; }
-        public DbSet<PencaUsuario_Compartida> pencaUsuarioCompartida { get; set; }
-        public DbSet<PencaUsuario_Empresarial> pencaUsuarioEmpresarial { get; set; }
+        public DbSet<PorcentajesPremios> porcentajePremios { get; set; }
+        public DbSet<PencaUsuario_Compartidas> pencaUsuarioCompartida { get; set; }
+        public DbSet<PencaUsuario_Empresariales> pencaUsuarioEmpresarial { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Torneo>()
+            modelBuilder.Entity<Torneos>()
                 .HasMany(c => c.pencasEmpresariales)
                 .WithOne(p => p.torneo)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Torneo>()
+            modelBuilder.Entity<Torneos>()
                 .HasMany(c => c.pencasCompartidas)
                 .WithOne(p => p.torneo)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Subscripcion>()
+            modelBuilder.Entity<Subscripciones>()
                 .HasKey(su => new { su.id_Usuario, su.id_Penca });
-            modelBuilder.Entity<Subscripcion>()
+            modelBuilder.Entity<Subscripciones>()
                 .HasOne(su => su.usuario)
                 .WithMany(su => su.Subscripciones)
                 .HasForeignKey(su => su.id_Usuario);
-            modelBuilder.Entity<Subscripcion>()
+            modelBuilder.Entity<Subscripciones>()
                 .HasOne(su => su.pencaEmpresarial)
                 .WithMany(su => su.Subscripciones)
                 .HasForeignKey(su => su.id_Penca)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Premio>()
+            modelBuilder.Entity<Premios>()
                .HasKey(p => new { p.id_Usuario, p.id_Penca });
-            modelBuilder.Entity<Premio>()
+            modelBuilder.Entity<Premios>()
                 .HasOne(p => p.usuario)
                 .WithMany(p => p.Premios)
                 .HasForeignKey(p => p.id_Usuario)
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Premio>()
+            modelBuilder.Entity<Premios>()
                 .HasOne(p => p.pencaCompartida)
-                .WithMany(p => p.Premios)
+                .WithMany(p => p.premios)
                 .HasForeignKey(p => p.id_Penca)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<PencaUsuario_Compartida>()
+            modelBuilder.Entity<PencaUsuario_Compartidas>()
               .HasKey(p => new { p.id_Usuario, p.id_Penca });
-            modelBuilder.Entity<PencaUsuario_Compartida>()
+            modelBuilder.Entity<PencaUsuario_Compartidas>()
                 .HasOne(p => p.usuario)
                 .WithMany(p => p.pencaUsuarioCompartida)
                 .HasForeignKey(p => p.id_Usuario)
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<PencaUsuario_Compartida>()
+            modelBuilder.Entity<PencaUsuario_Compartidas>()
                 .HasOne(p => p.pencaCompartida)
                 .WithMany(p => p.pencaUsuarioCompartida)
                 .HasForeignKey(p => p.id_Penca)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<PencaUsuario_Empresarial>()
+            modelBuilder.Entity<PencaUsuario_Empresariales>()
               .HasKey(p => new { p.id_Usuario, p.id_Penca });
-            modelBuilder.Entity<PencaUsuario_Empresarial>()
+            modelBuilder.Entity<PencaUsuario_Empresariales>()
                 .HasOne(p => p.usuario)
                 .WithMany(p => p.pencaUsuarioEmpresarial)
                 .HasForeignKey(p => p.id_Usuario)
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<PencaUsuario_Empresarial>()
+            modelBuilder.Entity<PencaUsuario_Empresariales>()
                 .HasOne(p => p.pencaEmpresarial)
                 .WithMany(p => p.pencaUsuarioEmpresarial)
                 .HasForeignKey(p => p.id_Penca)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<PorcentajesPremio>()
+            modelBuilder.Entity<PorcentajesPremios>()
                 .HasOne(p => p.criterio)
                 .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Evento>()
+            modelBuilder.Entity<Eventos>()
                 .HasOne(e => e.torneo)
                 .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Premio>()
+            modelBuilder.Entity<Premios>()
                 .HasOne(p => p.criterioPremios)
                 .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);

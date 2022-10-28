@@ -8,7 +8,6 @@ namespace Dominio.Entidades
 {
     public class Subscripcion
     {
-        public int id { get; set; }
         public string nroTar_Credito { get; set; }
         public string rut { get; set; }
         public Usuario usuario { get; set; }

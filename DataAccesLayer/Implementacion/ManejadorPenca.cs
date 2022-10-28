@@ -5,29 +5,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using DataAccesLayer.Interfaces;
+using DataAccesLayer.Models;
+using Dominio.Entidades;
 
 namespace DataAccesLayer.Implementacion
 {
     public class ManejadorPenca : I_ManejadorPenca
     {
-        public bool addPenca()
+        private readonly SolutionContext _db;
+
+        public ManejadorPenca(SolutionContext db)
         {
-            /*Conexion x = new Conexion();
+            _db = db;
+        }
 
-            string conect = x.conect();
+        public List<PencaCompartida> ListPencaCompartida()
+        {
+            /*return _db.Torneos
+            .Include(x => x.pencasCompartidas)
+            .Include(x => x.pencasEmpresariales)
+            .Where(x => x.nombre == "Copa Libertadores" && x.nombre == "Copa Sudamericana")
+            .Select(x => x.GetEntity()).ToList();*/
+            return null;
+        }
 
-            using (SqlConnection connection = new SqlConnection(conect))
-            {
-                string query = "INSERT INTO Usuario(Nombre) VALUES (@Nombre)";
-                SqlCommand com = new SqlCommand(query, connection);
-
-                com.Parameters.AddWithValue("@Nombre", "Facundo2X");
-
-                connection.Open();
-                int result = com.ExecuteNonQuery();
-            }*/
-
-            return true;
+        public List<PencaEmpresarial> ListPencaEmpresarial()
+        {
+            /*return _db.Torneos
+            .Include(x => x.pencasCompartidas)
+            .Include(x => x.pencasEmpresariales)
+            .Where(x => x.nombre == "Copa Libertadores" && x.nombre == "Copa Sudamericana")
+            .Select(x => x.GetEntity()).ToList();*/
+            return null;
         }
     }
 }

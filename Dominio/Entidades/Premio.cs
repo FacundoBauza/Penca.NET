@@ -8,11 +8,10 @@ namespace Dominio.Entidades
 {
     public class Premio
     {
-        public int id { get; set; }
-        public PencaCompartida penca { get; set; }
-        public Usuario usuario { get; set; }
         public float valorPremio { get; set; }
         public bool pago { get; set; }
+        public PencaCompartida penca { get; set; }
+        public Usuario usuario { get; set; }
 
         public Premio()
         {
@@ -26,7 +25,7 @@ namespace Dominio.Entidades
             this.penca = penca;
             this.usuario = usuario;
             this.valorPremio = valorPremio;
-            this.pago = true;
+            this.pago = false;
         }
 
     }

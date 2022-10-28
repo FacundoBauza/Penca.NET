@@ -19,13 +19,9 @@ namespace DataAccesLayer.Implementacion
             _db = db;
         }
 
-        List<Dominio.Entidades.Torneo> I_ManejadorTorneo.ListTorneos()
+        List<Torneo> I_ManejadorTorneo.ListTorneos()
         {
-            return _db.Torneos
-            .Include(x => x.pencasCompartidas)
-            .Include(x => x.pencasEmpresariales)
-            .Where(x => x.nombre=="Copa Libertadores" && x.nombre == "Copa Sudamericana")
-            .Select(x => x.GetEntity()).ToList();
+            return _db.Torneos.Select(x => x.GetEntity(_db)).ToList();
         }
     }
 }
