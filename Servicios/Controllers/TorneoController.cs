@@ -15,13 +15,34 @@ namespace Servicios.Controllers
             bl = _bl;
         }
 
-        [HttpGet(Name = "GetTorneo")]
+        //Agregar
+        [HttpPost]
+        public ActionResult<Torneo> Post([FromBody] Torneo value)
+        {
+            return Ok(bl.agregar_Torneo(value));
+        }
+
+        //Actualizar    
+        [HttpPut]
+        public ActionResult<Torneo> Put(int id, [FromBody] Torneo value)
+        {
+            return Ok(bl.actualizar_Torneo(value));
+        }
+
+        //Listar
+        [HttpGet]
         public List<Torneo> Get()
         {  
-            bool x = bl.agregar_Torneo(new Torneo(0, "Copa de Campeones", new DateTime(), new DateTime(), null));
             return bl.listar_Torneos();
         }
 
+        //Eliminar
+  
+        [HttpDelete("{id:int}")]
+        public ActionResult<bool> Delete(int id)
+        {
+            return Ok(bl.eliminar_Torneo(id));
+        }
     };
     
 }

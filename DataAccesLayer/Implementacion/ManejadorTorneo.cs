@@ -18,24 +18,24 @@ namespace DataAccesLayer.Implementacion
             _db = db;
         }
 
-        //Agregar
+        //Agregar => Etapa: Terminado para Testear
         bool I_ManejadorTorneo.add_Torneo(Torneo t)
         {
-            Torneos t1 = new Torneos();
-            t1.addData(t);
-            _db.Add(t1);
+            Torneos aux = Torneos.GetObjetAdd(t);
+            _db.Torneos.Add(aux);
+            _db.SaveChanges();
 
             return true;
         }
 
-        //Actuaizar
+        //Actuaizar => Etapa: Sin Empezar
         bool I_ManejadorTorneo.update_Torneo(Torneo t)
         {
             //PAra implementar
             return true;
         }
 
-        //Listar
+        //Listar => Etapa: Terminado para Testear
         List<Torneo> I_ManejadorTorneo.get_Torneos()
         {
             List<Torneo> list = _db.Torneos.Include(x => x.eventos)
@@ -57,7 +57,7 @@ namespace DataAccesLayer.Implementacion
             return list;
         }
 
-        //Eliminar
+        //Eliminar => Etapa: Sin Empezar
         bool I_ManejadorTorneo.delete_Torneo(int id_Torneo)
         {
             //PAra implementar

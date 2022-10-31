@@ -18,7 +18,6 @@ namespace DataAccesLayer.Models
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
         public List<Eventos> eventos { get; set; }
-
         public List<PencaCompartidas> pencasCompartidas { get; set; }
         public List<PencaEmpresariales> pencasEmpresariales { get; set; }
 
@@ -34,11 +33,32 @@ namespace DataAccesLayer.Models
             return aux;
         }
 
-        public void addData(Torneo t)
+        public static Torneos GetObjetAdd(Torneo t)
         {
-            this.nombre = t.nombre;
-            this.fechaInicio = t.fechaInicio;
-            this.fechaFin = t.fechaFin;
+            Torneos aux = new Torneos();
+
+            aux.id = t.id;
+            aux.nombre = t.nombre;
+            aux.fechaInicio = t.fechaInicio;
+            aux.fechaFin = t.fechaFin;
+
+            return aux;
+        }
+
+        public static Torneos GetObjetAdd2(Torneo t)
+        {
+            Torneos aux = new Torneos();
+
+            aux.id = t.id;
+            aux.nombre = t.nombre;
+            aux.fechaInicio = t.fechaInicio;
+            aux.fechaFin = t.fechaFin;
+          
+            //aux.eventos = Eventos.GetObjetAdd();
+            //aux.pencasCompartidas = PencaCompartidas.GetObjetAdd(x.torneo);
+            //aux.pencasEmpresariales = PencaEmpresariales.GetObjetAdd(x.torneo);
+
+            return aux;
         }
     }
 }

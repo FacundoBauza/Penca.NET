@@ -17,25 +17,29 @@ namespace DataAccesLayer.Implementacion
             _db = db;
         }
 
-        //Agregar
+        //Agregar => Etapa: Terminada para Testear
         bool I_ManejadorEvento.set_Evento(Evento e)
         {
-            return false;
+            Eventos aux = Eventos.GetObjetAdd(e);
+            _db.Eventos.Add(aux);
+            _db.SaveChanges();
+
+            return true;
         }
 
-        //Actualizar
+        //Actualizar => Etapa: Sin Empezar
         bool I_ManejadorEvento.update_Evento(Evento e)
         {
             return false;
         }
 
-        //Listar
+        //Listar => Etapa: Sin Empezar
         List<Evento> I_ManejadorEvento.get_Eventos()
         {
             return new List<Evento>();
         }
 
-        //Eliminar
+        //Eliminar => Etapa: Sin Empezar
         bool I_ManejadorEvento.delete_Evento(int id_Evento)
         {
             return false;

@@ -38,9 +38,14 @@ builder.Services.AddTransient<IB_Usuario, B_Usuario>();
 builder.Services.AddTransient<I_ManejadorPenca, ManejadorPenca>();
 builder.Services.AddTransient<IB_Penca, B_Penca>();
 
+builder.Services.AddTransient<I_ManejadorEvento, ManejadorEvento>();
+builder.Services.AddTransient<IB_Evento, B_Evento>();
 
+builder.Services.AddTransient<I_ManejadorPremio, ManejadorPremio>();
+builder.Services.AddTransient<IB_Premio, B_Premio>();
 
-
+builder.Services.AddTransient<I_ManejadorSubscripcion, ManejadorSubscripcion>();
+builder.Services.AddTransient<IB_Subscripcion, B_Subscripcion>();
 
 var app = builder.Build();
 

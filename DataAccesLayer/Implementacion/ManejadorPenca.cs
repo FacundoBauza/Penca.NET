@@ -18,45 +18,49 @@ namespace DataAccesLayer.Implementacion
             _db = db;
         }
 
-        //Agregar
+        //Agregar Compartida => Etapa: Sin Empezar
         bool I_ManejadorPenca.set_PencaCompartida(PencaCompartida pc)
         {
             return false;
         }
 
+        //Agregar Empresarial => Etapa: Sin Empezar
         bool I_ManejadorPenca.set_PencaEmpresarial(PencaEmpresarial pe)
         {
             return false;
         }
 
-        //Actualizar
+        //Actualizar Compartida => Etapa: Sin Empezar
         bool I_ManejadorPenca.update_PencaCompartida(PencaCompartida pc)
         {
             return false;
         }
 
+        //Actualizar Empresarial => Etapa: Sin Empezar
         bool I_ManejadorPenca.update_PencaEmpresarial(PencaEmpresarial pe)
         {
             return false;
         }
 
-        //Listar
+        //Listar Compartida => Etapa: Sin Empezar
         List<PencaCompartida> I_ManejadorPenca.get_PencaCompartida()
         {
             return new List<PencaCompartida>();
         }
 
+        //Listar Empresarial => Etapa: Sin Empezar
         List<PencaEmpresarial> I_ManejadorPenca.get_PencaEmpresarial()
         {
             return new List<PencaEmpresarial>();
         }
 
-        //Eliminar
+        //Eliminar Compartida => Etapa: Sin Empezar
         bool I_ManejadorPenca.delete_PencaCompartida(int id_PencaC)
         {
             return false;
         }
 
+        //Eliminar Empresarial => Etapa: Sin Empezar
         bool I_ManejadorPenca.delete_PencaEmpresarial(int id_PencaE)
         {
             return false;
