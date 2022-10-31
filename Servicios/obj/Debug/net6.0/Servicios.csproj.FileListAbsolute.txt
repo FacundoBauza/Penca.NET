@@ -103,3 +103,4 @@ C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\System.Web.Http.Cors.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\libman.json

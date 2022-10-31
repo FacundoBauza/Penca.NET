@@ -13,15 +13,55 @@ namespace DataAccesLayer.Implementacion
     public class ManejadorTorneo: I_ManejadorTorneo
     {
         private readonly SolutionContext _db;
-
         public ManejadorTorneo(SolutionContext db)
         {
             _db = db;
         }
 
-        List<Torneo> I_ManejadorTorneo.ListTorneos()
+        //Agregar
+        bool I_ManejadorTorneo.add_Torneo(Torneo t)
         {
-            return _db.Torneos.Select(x => x.GetEntity(_db)).ToList();
+            Torneos t1 = new Torneos();
+            t1.addData(t);
+            _db.Add(t1);
+
+            return true;
+        }
+
+        //Actuaizar
+        bool I_ManejadorTorneo.update_Torneo(Torneo t)
+        {
+            //PAra implementar
+            return true;
+        }
+
+        //Listar
+        List<Torneo> I_ManejadorTorneo.get_Torneos()
+        {
+            List<Torneo> list = _db.Torneos.Include(x => x.eventos)
+                                           .Select(x => x.GetEntity())
+                                           .ToList();
+            List<Evento> list2 = _db.Eventos.Select(x => x.GetEntity())
+                                            .ToList();
+            foreach(Torneo t in list)
+            {
+                foreach(Evento e in list2)
+                {
+                    if(e.torneo.id == t.id)
+                    {
+                        t.eventos.Add(e);
+                    }
+                }
+            }
+
+            return list;
+        }
+
+        //Eliminar
+        bool I_ManejadorTorneo.delete_Torneo(int id_Torneo)
+        {
+            //PAra implementar
+            return true;
         }
     }
 }

@@ -9,7 +9,20 @@ namespace DataAccesLayer.Interfaces
 {
     public interface I_ManejadorPenca
     {
-        List<PencaCompartida> ListPencaCompartida();
-        List<PencaEmpresarial> ListPencaEmpresarial();
+        //Agregar
+        bool set_PencaCompartida(PencaCompartida pc);
+        bool set_PencaEmpresarial(PencaEmpresarial pe);
+
+        //Actualizar
+        bool update_PencaCompartida(PencaCompartida pc);
+        bool update_PencaEmpresarial(PencaEmpresarial pe);
+
+        //Listar
+        List<PencaCompartida> get_PencaCompartida();
+        List<PencaEmpresarial> get_PencaEmpresarial();
+
+        //Eliminar
+        bool delete_PencaCompartida(int id_PencaC);
+        bool delete_PencaEmpresarial(int id_PencaL);
     }
 }

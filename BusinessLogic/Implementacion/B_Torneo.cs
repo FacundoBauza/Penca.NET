@@ -13,15 +13,33 @@ namespace BusinessLogic.Implementacion
     public class B_Torneo : IB_Torneo
     {
         private I_ManejadorTorneo _dal;
-
         public B_Torneo(I_ManejadorTorneo dal)
         {
             _dal = dal;
         }
 
-        List<Torneo> IB_Torneo.getTorneos()
+        //Agregar
+        bool IB_Torneo.agregar_Torneo(Torneo t)
         {
-            return _dal.ListTorneos();
+            return _dal.add_Torneo(t);
+        }
+
+        //Actualizar
+        bool IB_Torneo.actualizar_Torneo(Torneo t)
+        {
+            return _dal.update_Torneo(t);
+        }
+
+        //Listar
+        List<Torneo> IB_Torneo.listar_Torneos()
+        {
+            return _dal.get_Torneos();
+        }
+
+        //Eliminar
+        bool IB_Torneo.eliminar_Torneo(int id_Torneo)
+        {
+            return _dal.delete_Torneo(id_Torneo);
         }
     }
 }

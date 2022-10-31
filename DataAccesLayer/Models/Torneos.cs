@@ -17,11 +17,13 @@ namespace DataAccesLayer.Models
         public string nombre { get; set; }
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
+        public List<Eventos> eventos { get; set; }
+
         public List<PencaCompartidas> pencasCompartidas { get; set; }
         public List<PencaEmpresariales> pencasEmpresariales { get; set; }
 
 
-        public Torneo GetEntity(SolutionContext s)
+        public Torneo GetEntity()
         {
             Torneo aux = new Torneo();
             
@@ -29,10 +31,14 @@ namespace DataAccesLayer.Models
             aux.nombre = nombre;
             aux.fechaInicio = fechaInicio;
             aux.fechaFin = fechaFin;
-            if(s.Eventos.ToList().Count>0) 
-                aux.eventos = s.Eventos.Where(x => x.id_Torneo==id).Select(x => x.GetEntity()).ToList();
-               
             return aux;
+        }
+
+        public void addData(Torneo t)
+        {
+            this.nombre = t.nombre;
+            this.fechaInicio = t.fechaInicio;
+            this.fechaFin = t.fechaFin;
         }
     }
 }

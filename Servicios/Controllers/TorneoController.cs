@@ -17,10 +17,9 @@ namespace Servicios.Controllers
 
         [HttpGet(Name = "GetTorneo")]
         public List<Torneo> Get()
-        {
-       
-            return bl.getTorneos();
-        
+        {  
+            bool x = bl.agregar_Torneo(new Torneo(0, "Copa de Campeones", new DateTime(), new DateTime(), null));
+            return bl.listar_Torneos();
         }
 
     };

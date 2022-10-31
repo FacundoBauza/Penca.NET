@@ -37,6 +37,7 @@ namespace DataAccesLayer.Models
             aux.golesEquipo1 = golesEquipo1;
             aux.golesEquipo2 = golesEquipo2;
             aux.resultado = resultado;
+            aux.torneo = torneo.GetEntity();
 
             return aux;
         }

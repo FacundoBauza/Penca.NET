@@ -38,13 +38,16 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("criterioPremios");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Evento", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Eventos", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<int?>("Torneosid")
+                        .HasColumnType("int");
 
                     b.Property<string>("equipo1")
                         .IsRequired()
@@ -72,17 +75,19 @@ namespace DataAccesLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("torneoId")
+                    b.Property<int>("torneoid")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
-                    b.HasIndex("torneoId");
+                    b.HasIndex("Torneosid");
+
+                    b.HasIndex("torneoid");
 
                     b.ToTable("Eventos");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaCompartida", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaCompartidas", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -93,19 +98,19 @@ namespace DataAccesLayer.Migrations
                     b.Property<int>("criterioPremiosid")
                         .HasColumnType("int");
 
-                    b.Property<int>("torneoId")
+                    b.Property<int>("torneoid")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
                     b.HasIndex("criterioPremiosid");
 
-                    b.HasIndex("torneoId");
+                    b.HasIndex("torneoid");
 
                     b.ToTable("PencasCompartidas");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaEmpresarial", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaEmpresariales", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -117,7 +122,7 @@ namespace DataAccesLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("torneoId")
+                    b.Property<int>("torneoid")
                         .HasColumnType("int");
 
                     b.Property<int>("usuarioCreadorid")
@@ -125,14 +130,14 @@ namespace DataAccesLayer.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("torneoId");
+                    b.HasIndex("torneoid");
 
                     b.HasIndex("usuarioCreadorid");
 
                     b.ToTable("PencasEmpresariales");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Compartida", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Compartidas", b =>
                 {
                     b.Property<int>("id_Usuario")
                         .HasColumnType("int");
@@ -147,7 +152,7 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("pencaUsuarioCompartida");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Empresarial", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Empresariales", b =>
                 {
                     b.Property<int>("id_Usuario")
                         .HasColumnType("int");
@@ -162,7 +167,7 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("pencaUsuarioEmpresarial");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PorcentajesPremio", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PorcentajesPremios", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -189,7 +194,7 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("porcentajePremios");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Premio", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Premios", b =>
                 {
                     b.Property<int>("id_Usuario")
                         .HasColumnType("int");
@@ -218,7 +223,7 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("Premios");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Subscripcion", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Subscripciones", b =>
                 {
                     b.Property<int>("id_Usuario")
                         .HasColumnType("int");
@@ -241,13 +246,13 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("Subscripciones");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Torneo", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Torneos", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<DateTime>("fechaFin")
                         .HasColumnType("datetime2");
@@ -259,12 +264,12 @@ namespace DataAccesLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Torneos");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Usuario", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Usuarios", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -285,18 +290,22 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Evento", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Eventos", b =>
                 {
-                    b.HasOne("DataAccesLayer.Models.Torneo", "torneo")
+                    b.HasOne("DataAccesLayer.Models.Torneos", null)
+                        .WithMany("eventos")
+                        .HasForeignKey("Torneosid");
+
+                    b.HasOne("DataAccesLayer.Models.Torneos", "torneo")
                         .WithMany()
-                        .HasForeignKey("torneoId")
+                        .HasForeignKey("torneoid")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("torneo");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaCompartida", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaCompartidas", b =>
                 {
                     b.HasOne("DataAccesLayer.Models.CriterioPremios", "criterioPremios")
                         .WithMany()
@@ -304,9 +313,9 @@ namespace DataAccesLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Torneo", "torneo")
+                    b.HasOne("DataAccesLayer.Models.Torneos", "torneo")
                         .WithMany("pencasCompartidas")
-                        .HasForeignKey("torneoId")
+                        .HasForeignKey("torneoid")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -315,15 +324,15 @@ namespace DataAccesLayer.Migrations
                     b.Navigation("torneo");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaEmpresarial", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaEmpresariales", b =>
                 {
-                    b.HasOne("DataAccesLayer.Models.Torneo", "torneo")
+                    b.HasOne("DataAccesLayer.Models.Torneos", "torneo")
                         .WithMany("pencasEmpresariales")
-                        .HasForeignKey("torneoId")
+                        .HasForeignKey("torneoid")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuario", "usuarioCreador")
+                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuarioCreador")
                         .WithMany()
                         .HasForeignKey("usuarioCreadorid")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -334,15 +343,15 @@ namespace DataAccesLayer.Migrations
                     b.Navigation("usuarioCreador");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Compartida", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Compartidas", b =>
                 {
-                    b.HasOne("DataAccesLayer.Models.PencaCompartida", "pencaCompartida")
+                    b.HasOne("DataAccesLayer.Models.PencaCompartidas", "pencaCompartida")
                         .WithMany("pencaUsuarioCompartida")
                         .HasForeignKey("id_Penca")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuario", "usuario")
+                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuario")
                         .WithMany("pencaUsuarioCompartida")
                         .HasForeignKey("id_Usuario")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -353,15 +362,15 @@ namespace DataAccesLayer.Migrations
                     b.Navigation("usuario");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Empresarial", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Empresariales", b =>
                 {
-                    b.HasOne("DataAccesLayer.Models.PencaEmpresarial", "pencaEmpresarial")
+                    b.HasOne("DataAccesLayer.Models.PencaEmpresariales", "pencaEmpresarial")
                         .WithMany("pencaUsuarioEmpresarial")
                         .HasForeignKey("id_Penca")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuario", "usuario")
+                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuario")
                         .WithMany("pencaUsuarioEmpresarial")
                         .HasForeignKey("id_Usuario")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -372,7 +381,7 @@ namespace DataAccesLayer.Migrations
                     b.Navigation("usuario");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PorcentajesPremio", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PorcentajesPremios", b =>
                 {
                     b.HasOne("DataAccesLayer.Models.CriterioPremios", "criterio")
                         .WithMany()
@@ -383,7 +392,7 @@ namespace DataAccesLayer.Migrations
                     b.Navigation("criterio");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Premio", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Premios", b =>
                 {
                     b.HasOne("DataAccesLayer.Models.CriterioPremios", "criterioPremios")
                         .WithMany()
@@ -391,13 +400,13 @@ namespace DataAccesLayer.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.PencaCompartida", "pencaCompartida")
-                        .WithMany("Premios")
+                    b.HasOne("DataAccesLayer.Models.PencaCompartidas", "pencaCompartida")
+                        .WithMany("premios")
                         .HasForeignKey("id_Penca")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuario", "usuario")
+                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuario")
                         .WithMany("Premios")
                         .HasForeignKey("id_Usuario")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -410,15 +419,15 @@ namespace DataAccesLayer.Migrations
                     b.Navigation("usuario");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Subscripcion", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Subscripciones", b =>
                 {
-                    b.HasOne("DataAccesLayer.Models.PencaEmpresarial", "pencaEmpresarial")
+                    b.HasOne("DataAccesLayer.Models.PencaEmpresariales", "pencaEmpresarial")
                         .WithMany("Subscripciones")
                         .HasForeignKey("id_Penca")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuario", "usuario")
+                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuario")
                         .WithMany("Subscripciones")
                         .HasForeignKey("id_Usuario")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -429,28 +438,30 @@ namespace DataAccesLayer.Migrations
                     b.Navigation("usuario");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaCompartida", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaCompartidas", b =>
                 {
-                    b.Navigation("Premios");
-
                     b.Navigation("pencaUsuarioCompartida");
+
+                    b.Navigation("premios");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.PencaEmpresarial", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.PencaEmpresariales", b =>
                 {
                     b.Navigation("Subscripciones");
 
                     b.Navigation("pencaUsuarioEmpresarial");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Torneo", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Torneos", b =>
                 {
+                    b.Navigation("eventos");
+
                     b.Navigation("pencasCompartidas");
 
                     b.Navigation("pencasEmpresariales");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Usuario", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Usuarios", b =>
                 {
                     b.Navigation("Premios");
 

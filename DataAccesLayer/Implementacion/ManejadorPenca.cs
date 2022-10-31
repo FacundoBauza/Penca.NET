@@ -13,30 +13,53 @@ namespace DataAccesLayer.Implementacion
     public class ManejadorPenca : I_ManejadorPenca
     {
         private readonly SolutionContext _db;
-
         public ManejadorPenca(SolutionContext db)
         {
             _db = db;
         }
 
-        public List<PencaCompartida> ListPencaCompartida()
+        //Agregar
+        bool I_ManejadorPenca.set_PencaCompartida(PencaCompartida pc)
         {
-            /*return _db.Torneos
-            .Include(x => x.pencasCompartidas)
-            .Include(x => x.pencasEmpresariales)
-            .Where(x => x.nombre == "Copa Libertadores" && x.nombre == "Copa Sudamericana")
-            .Select(x => x.GetEntity()).ToList();*/
-            return null;
+            return false;
         }
 
-        public List<PencaEmpresarial> ListPencaEmpresarial()
+        bool I_ManejadorPenca.set_PencaEmpresarial(PencaEmpresarial pe)
         {
-            /*return _db.Torneos
-            .Include(x => x.pencasCompartidas)
-            .Include(x => x.pencasEmpresariales)
-            .Where(x => x.nombre == "Copa Libertadores" && x.nombre == "Copa Sudamericana")
-            .Select(x => x.GetEntity()).ToList();*/
-            return null;
+            return false;
+        }
+
+        //Actualizar
+        bool I_ManejadorPenca.update_PencaCompartida(PencaCompartida pc)
+        {
+            return false;
+        }
+
+        bool I_ManejadorPenca.update_PencaEmpresarial(PencaEmpresarial pe)
+        {
+            return false;
+        }
+
+        //Listar
+        List<PencaCompartida> I_ManejadorPenca.get_PencaCompartida()
+        {
+            return new List<PencaCompartida>();
+        }
+
+        List<PencaEmpresarial> I_ManejadorPenca.get_PencaEmpresarial()
+        {
+            return new List<PencaEmpresarial>();
+        }
+
+        //Eliminar
+        bool I_ManejadorPenca.delete_PencaCompartida(int id_PencaC)
+        {
+            return false;
+        }
+
+        bool I_ManejadorPenca.delete_PencaEmpresarial(int id_PencaE)
+        {
+            return false;
         }
     }
 }

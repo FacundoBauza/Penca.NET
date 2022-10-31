@@ -9,6 +9,17 @@ namespace BusinessLogic.Interfaces
 {
     public interface IB_Torneo
     {
-        List<Torneo> getTorneos();
+        //Agregar
+        bool agregar_Torneo(Torneo t);
+
+        //Actualizar
+        bool actualizar_Torneo(Torneo t);
+
+        //Listar
+        List<Torneo> listar_Torneos();
+
+        //Eliminar
+        bool eliminar_Torneo(int id_Torneo);
+        
     }
 }

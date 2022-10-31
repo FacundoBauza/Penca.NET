@@ -10,6 +10,16 @@ namespace DataAccesLayer.Interfaces
 {
     public interface I_ManejadorTorneo
     {
-        List<Torneo> ListTorneos();
+        //Agregar
+        bool add_Torneo(Torneo t);
+
+        //Actualizar
+        bool update_Torneo(Torneo t);
+
+        //Listar
+        List<Torneo> get_Torneos();
+
+        //Eliminar
+        bool delete_Torneo(int id_Torneo);
     }
 }

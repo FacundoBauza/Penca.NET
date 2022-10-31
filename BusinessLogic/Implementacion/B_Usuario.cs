@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Implementacion
 {
-    internal class B_Usuario: IB_Usuario
+    public class B_Usuario: IB_Usuario
     {
+
     }
 }

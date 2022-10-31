@@ -15,6 +15,7 @@ namespace Dominio.Entidades
         public string golesEquipo1 { get; set; }
         public string golesEquipo2 { get; set; }
         public string resultado { get; set; }
+        public Torneo torneo { get; set; }
         
         public Evento(){}
 
@@ -27,6 +28,7 @@ namespace Dominio.Entidades
             this.golesEquipo1 = golesEquipo1;
             this.golesEquipo2 = golesEquipo2;
             this.resultado = resultado;
+            this.torneo = torneo;
         }
     }
 }
