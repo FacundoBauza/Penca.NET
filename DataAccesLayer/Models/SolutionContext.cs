@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Dominio.Entidades;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace DataAccesLayer.Models
 {
-    public class SolutionContext: DbContext
+    public class SolutionContext: IdentityDbContext<Users>
     {
         Conexion x = new Conexion();
         public SolutionContext() { }
@@ -37,6 +38,8 @@ namespace DataAccesLayer.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Torneos>()
                 .HasMany(c => c.pencasEmpresariales)
                 .WithOne(p => p.torneo)
@@ -112,6 +115,7 @@ namespace DataAccesLayer.Models
                 .HasOne(p => p.criterioPremios)
                 .WithMany()
                 .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

@@ -37,7 +37,6 @@ namespace Servicios.Controllers
         }
 
         //Eliminar
-
         [HttpDelete("{id:int}")]
         public ActionResult<bool> Delete(int id)
         {
