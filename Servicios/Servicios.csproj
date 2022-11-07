@@ -44,4 +44,6 @@
     <EditorConfigFiles Remove="C:\Users\visua\Desktop\Penca.NET\Servicios\Models\.editorconfig" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 </Project>

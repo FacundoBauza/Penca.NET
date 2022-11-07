@@ -14,5 +14,10 @@ namespace DataAccesLayer.Models
         public string? Nombre { get; set; }
         [MaxLength(128), MinLength(3), Required]
         public string? Apellido { get; set; }
+        public List<Subscripciones> Subscripciones { get; set; }
+        public List<Premios> Premios { get; set; }
+        public List<PencaUsuario_Compartidas> pencaUsuarioCompartida { get; set; }
+        public List<PencaUsuario_Empresariales> pencaUsuarioEmpresarial { get; set; }
+
     }
 }

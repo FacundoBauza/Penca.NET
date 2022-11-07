@@ -17,14 +17,14 @@ namespace Servicios.Controllers
         }
 
         //Agregar Suscripcion
-        [HttpPost]
+        [HttpPost("/api/agregarSubscripcion")]
         public ActionResult<Subscripcion> Post([FromBody] Subscripcion value)
         {
             return Ok(bl.agregar_Subscripcion(value));
         }
 
         //Listar Subscripciones
-        [HttpGet("{id_User:int}")]
+        [HttpGet("/api/listarSubscripciones/{id_User:int}")]
         public List<Subscripcion> Get(int id_User)
         {
             return bl.listar_Subscripciones(id_User);

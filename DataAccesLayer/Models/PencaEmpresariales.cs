@@ -15,7 +15,7 @@ namespace DataAccesLayer.Models
         public int id { get; set; }
         public string link { get; set; }
         public Torneos torneo { get; set; }
-        public Usuarios usuarioCreador { get; set; }
+        public Users usuarioCreador { get; set; }
 
         public List<Subscripciones> Subscripciones { get; set; }
         public List<PencaUsuario_Empresariales> pencaUsuarioEmpresarial { get; set; }

@@ -16,21 +16,21 @@ namespace Servicios.Controllers
         }
 
         //Agregar
-        [HttpPost]
+        [HttpPost("/api/agregarPremio")]
         public ActionResult<Torneo> Post([FromBody] Premio value)
         {
             return Ok(bl.agregar_Premio(value));
         }
 
         //Listar
-        [HttpGet("{id_User:int}")]
+        [HttpGet("/api/listarPremios/{id_User:int}")]
         public List<Premio> Get(int id_User)
         {
             return bl.listar_Premios(id_User);
         }
 
         //Cobrar Premio    
-        [HttpPut("{id_User:int}/{id_Penca:int}")]
+        [HttpPut("/api/cobrarPremio/{id_User:int}/{id_Penca:int}")]
         public ActionResult<Premio> Put(int id_User, int id_Penca)
         {
             return Ok(bl.Cobrar_Premio(id_User, id_Penca));

@@ -24,7 +24,7 @@ namespace DataAccesLayer.Models
             }
         }
 
-        public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Users> Usuarios { get; set; }
         public DbSet<PencaCompartidas> PencasCompartidas { get; set; }
         public DbSet<PencaEmpresariales> PencasEmpresariales { get; set; }
         public DbSet<Torneos> Torneos { get; set; }

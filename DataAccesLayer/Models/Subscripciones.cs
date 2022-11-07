@@ -13,11 +13,11 @@ namespace DataAccesLayer.Models
     {
         public string nroTar_Credito { get; set; }
         public string rut { get; set; }
-        public virtual Usuarios usuario { get; set; }
+        public virtual Users usuario { get; set; }
         public virtual PencaEmpresariales pencaEmpresarial { get; set; }
 
         [ForeignKey("Usuario")]
-        public virtual int id_Usuario { get; set; }
+        public virtual string id_Usuario { get; set; }
         [ForeignKey("Penca")]
         public virtual int id_Penca { get; set; }
     }

@@ -16,28 +16,28 @@ namespace Servicios.Controllers
         }
 
         //Agregar
-        [HttpPost]
+        [HttpPost("/api/agregarTorneo")]
         public ActionResult<Torneo> Post([FromBody] Torneo value)
         {
             return Ok(bl.agregar_Torneo(value));
         }
 
         //Actualizar    
-        [HttpPut]
+        [HttpPut("/api/actualizarTorneo")]
         public ActionResult<Torneo> Put(int id, [FromBody] Torneo value)
         {
             return Ok(bl.actualizar_Torneo(value));
         }
 
         //Listar
-        [HttpGet]
+        [HttpGet("/api/listarTorneos")]
         public List<Torneo> Get()
         {  
             return bl.listar_Torneos();
         }
 
         //Eliminar
-        [HttpDelete("{id:int}")]
+        [HttpDelete("/api/eliminarTorneo/{id:int}")]
         public ActionResult<bool> Delete(int id)
         {
             return Ok(bl.eliminar_Torneo(id));

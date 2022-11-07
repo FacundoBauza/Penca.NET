@@ -13,7 +13,7 @@ namespace DataAccesLayer.Models
         public float valorPremio { get; set; }
         public bool pago { get; set; }
         public virtual PencaCompartidas pencaCompartida { get; set; }
-        public virtual Usuarios usuario { get; set; }
+        public virtual Users usuario { get; set; }
         public virtual CriterioPremios criterioPremios { get; set; }
 
 
@@ -21,7 +21,7 @@ namespace DataAccesLayer.Models
         public virtual int id_CriterioPremio { get; set; }
 
         [ForeignKey("Usuario")]
-        public virtual int id_Usuario { get; set; }
+        public virtual string id_Usuario { get; set; }
 
         [ForeignKey("Penca")]
         public virtual int id_Penca { get; set; }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccesLayer.Migrations
 {
     [DbContext(typeof(SolutionContext))]
-    [Migration("20221101223540_Migracion4")]
-    partial class Migracion4
+    [Migration("20221107054827_Migracion")]
+    partial class Migracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -128,22 +128,22 @@ namespace DataAccesLayer.Migrations
                     b.Property<int>("torneoid")
                         .HasColumnType("int");
 
-                    b.Property<int>("usuarioCreadorid")
-                        .HasColumnType("int");
+                    b.Property<string>("usuarioCreadorId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("id");
 
                     b.HasIndex("torneoid");
 
-                    b.HasIndex("usuarioCreadorid");
+                    b.HasIndex("usuarioCreadorId");
 
                     b.ToTable("PencasEmpresariales");
                 });
 
             modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Compartidas", b =>
                 {
-                    b.Property<int>("id_Usuario")
-                        .HasColumnType("int");
+                    b.Property<string>("id_Usuario")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("id_Penca")
                         .HasColumnType("int");
@@ -157,8 +157,8 @@ namespace DataAccesLayer.Migrations
 
             modelBuilder.Entity("DataAccesLayer.Models.PencaUsuario_Empresariales", b =>
                 {
-                    b.Property<int>("id_Usuario")
-                        .HasColumnType("int");
+                    b.Property<string>("id_Usuario")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("id_Penca")
                         .HasColumnType("int");
@@ -199,8 +199,8 @@ namespace DataAccesLayer.Migrations
 
             modelBuilder.Entity("DataAccesLayer.Models.Premios", b =>
                 {
-                    b.Property<int>("id_Usuario")
-                        .HasColumnType("int");
+                    b.Property<string>("id_Usuario")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("id_Penca")
                         .HasColumnType("int");
@@ -228,8 +228,8 @@ namespace DataAccesLayer.Migrations
 
             modelBuilder.Entity("DataAccesLayer.Models.Subscripciones", b =>
                 {
-                    b.Property<int>("id_Usuario")
-                        .HasColumnType("int");
+                    b.Property<string>("id_Usuario")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("id_Penca")
                         .HasColumnType("int");
@@ -345,27 +345,6 @@ namespace DataAccesLayer.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("DataAccesLayer.Models.Usuarios", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<string>("nickname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -543,11 +522,9 @@ namespace DataAccesLayer.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuarioCreador")
+                    b.HasOne("DataAccesLayer.Models.Users", "usuarioCreador")
                         .WithMany()
-                        .HasForeignKey("usuarioCreadorid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("usuarioCreadorId");
 
                     b.Navigation("torneo");
 
@@ -562,7 +539,7 @@ namespace DataAccesLayer.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuario")
+                    b.HasOne("DataAccesLayer.Models.Users", "usuario")
                         .WithMany("pencaUsuarioCompartida")
                         .HasForeignKey("id_Usuario")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -581,7 +558,7 @@ namespace DataAccesLayer.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuario")
+                    b.HasOne("DataAccesLayer.Models.Users", "usuario")
                         .WithMany("pencaUsuarioEmpresarial")
                         .HasForeignKey("id_Usuario")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -617,7 +594,7 @@ namespace DataAccesLayer.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuario")
+                    b.HasOne("DataAccesLayer.Models.Users", "usuario")
                         .WithMany("Premios")
                         .HasForeignKey("id_Usuario")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -638,7 +615,7 @@ namespace DataAccesLayer.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("DataAccesLayer.Models.Usuarios", "usuario")
+                    b.HasOne("DataAccesLayer.Models.Users", "usuario")
                         .WithMany("Subscripciones")
                         .HasForeignKey("id_Usuario")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -723,7 +700,7 @@ namespace DataAccesLayer.Migrations
                     b.Navigation("pencasEmpresariales");
                 });
 
-            modelBuilder.Entity("DataAccesLayer.Models.Usuarios", b =>
+            modelBuilder.Entity("DataAccesLayer.Models.Users", b =>
                 {
                     b.Navigation("Premios");
 
