@@ -15,7 +15,7 @@ namespace Servicios.Controllers
             bl = _bl;
         }
 
-        //Agregar
+        //Agregar 
         [HttpPost]
         public ActionResult<Evento> Post([FromBody] Evento value)
         {

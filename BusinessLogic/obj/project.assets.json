@@ -6982,24 +6982,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\visua\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\leand\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj",
+      "projectUniqueName": "C:\\Users\\leand\\OneDrive\\Escritorio\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj",
       "projectName": "BusinessLogic",
-      "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj",
-      "packagesPath": "C:\\Users\\visua\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\BusinessLogic\\obj\\",
+      "projectPath": "C:\\Users\\leand\\OneDrive\\Escritorio\\Penca.NET\\BusinessLogic\\BusinessLogic.csproj",
+      "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\leand\\OneDrive\\Escritorio\\Penca.NET\\BusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\visua\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\leand\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7013,11 +7008,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj": {
-              "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj"
+            "C:\\Users\\leand\\OneDrive\\Escritorio\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj": {
+              "projectPath": "C:\\Users\\leand\\OneDrive\\Escritorio\\Penca.NET\\DataAccesLayer\\DataAccesLayer.csproj"
             },
-            "C:\\Users\\visua\\Desktop\\Penca.NET\\Dominio\\Dominio.csproj": {
-              "projectPath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Dominio\\Dominio.csproj"
+            "C:\\Users\\leand\\OneDrive\\Escritorio\\Penca.NET\\Dominio\\Dominio.csproj": {
+              "projectPath": "C:\\Users\\leand\\OneDrive\\Escritorio\\Penca.NET\\Dominio\\Dominio.csproj"
             }
           }
         }
@@ -7083,7 +7078,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },

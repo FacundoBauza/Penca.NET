@@ -28,11 +28,21 @@ namespace DataAccesLayer.Implementacion
             return true;
         }
 
-        //Actuaizar => Etapa: Sin Empezar
+        //Actuaizar => Etapa: Trabajando en el
         bool I_ManejadorTorneo.update_Torneo(Torneo t)
         {
-            //PAra implementar
-            return true;
+            var torneo = _db.Torneos.SingleOrDefault(tor => tor.id == t.id);
+            if (torneo != null)
+            {
+                if(t.nombre != null) torneo.nombre = t.nombre;
+                torneo.fechaInicio = t.fechaInicio;
+                torneo.fechaFin = t.fechaFin;
+                _db.SaveChanges();
+
+                return true;
+            }
+            return false;
+
         }
 
         //Listar => Etapa: Terminado para Testear
