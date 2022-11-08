@@ -176,7 +176,7 @@ namespace WebAPI.Controllers
         }
 
         private JwtSecurityToken GetToken(List<Claim> authClaims)
-        {
+        {  
             string? JWT_SECRET = Environment.GetEnvironmentVariable("JWT_SECRET");
             if (string.IsNullOrEmpty(JWT_SECRET))
                 JWT_SECRET = _configuration["JWT:Secret"];
