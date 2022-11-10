@@ -10,7 +10,7 @@ namespace Dominio.Entidades
     {
         public int id { get; set; }
         public int cantGanadores { get; set; }
-        List<int> porcentajes { get; set; } 
+        public List<int> porcentajes { get; set; } 
 
         public CriterioPremio()
         {

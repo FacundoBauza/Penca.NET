@@ -9,9 +9,10 @@ namespace Dominio.Entidades
     public class PencaCompartida
     {
         public int id { get; set; }
+        public string nombre { get; set; }
         public CriterioPremio criterioPremio { get; set; }
         public Torneo torneo { get; set; }
-        List<Usuario> participantes { get; set; }
+        public List<Usuario> participantes { get; set; }
 
 
         public PencaCompartida()

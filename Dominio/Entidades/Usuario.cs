@@ -8,7 +8,10 @@ namespace Dominio.Entidades
 {
     public class Usuario
     {
-        public int id { get; set; }
+        public string id { get; set; }
+
+        public string nombre { get; set; }
+        public string apellido { get; set; }
         public string nickname { get; set; }
         public string password { get; set; }
         public List<Subscripcion> subscripcions { get; set; }
@@ -23,7 +26,7 @@ namespace Dominio.Entidades
             pencasCompartidas = new List<PencaCompartida>();
         }
 
-        public Usuario(int id, string nickname, string password)
+        public Usuario(string id, string nickname, string password)
         {
             this.id = id;
             this.nickname = nickname;

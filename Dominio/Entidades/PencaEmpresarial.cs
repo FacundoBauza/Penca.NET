@@ -10,10 +10,11 @@ namespace Dominio.Entidades
     {
         public int id { get; set; }
         public string link { get; set; }
+        public string nombre { get; set; }
 
         public Usuario usuarioCreador;
         public Torneo torneo { get; set; }
-        List<Usuario> participantes { get; set; }
+        public List<Usuario> participantes { get; set; }
 
         public PencaEmpresarial()
         {

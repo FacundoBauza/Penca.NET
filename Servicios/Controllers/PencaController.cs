@@ -19,7 +19,7 @@ namespace Servicios.Controllers
         [HttpPost("/api/agregarCompartida")]
         public ActionResult<PencaCompartida> Post([FromBody] PencaCompartida value)
         {
-            return Ok(bl.actualizar_PencaCompartida(value));
+            return Ok(bl.agregar_PencaCompartida(value));
         }
 
         //Agregar Penca Empresarial

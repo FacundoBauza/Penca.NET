@@ -16,5 +16,6 @@ namespace DataAccesLayer.Models
         public virtual string id_Usuario { get; set; }
         [ForeignKey("Penca")]
         public virtual int id_Penca { get; set; }
+
     }
 }

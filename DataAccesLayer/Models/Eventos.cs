@@ -45,6 +45,7 @@ namespace DataAccesLayer.Models
         public static Eventos GetObjetAdd(Evento x)
         {
             Eventos aux = new Eventos();
+            SolutionContext sol = new SolutionContext();
 
             aux.id = x.id;
             aux.equipo1 = x.equipo1;
@@ -53,7 +54,6 @@ namespace DataAccesLayer.Models
             aux.golesEquipo1 = x.golesEquipo1;
             aux.golesEquipo2 = x.golesEquipo2;
             aux.resultado = x.resultado;
-            aux.torneo = Torneos.GetObjetAdd(x.torneo);
 
             return aux;
         }

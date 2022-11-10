@@ -14,6 +14,7 @@ namespace DataAccesLayer.Models
         [Key]
         public int id { get; set; }
         public string link { get; set; }
+        public string nombre { get; set; }
         public Torneos torneo { get; set; }
         public Users usuarioCreador { get; set; }
 

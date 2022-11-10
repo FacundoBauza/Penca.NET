@@ -21,6 +21,17 @@ namespace DataAccesLayer.Implementacion
         bool I_ManejadorEvento.set_Evento(Evento e)
         {
             Eventos aux = Eventos.GetObjetAdd(e);
+            if(e.torneo.id != 0)
+            {
+                foreach(Torneos t in _db.Torneos)
+                {
+                    if (t.id == e.torneo.id)
+                    {
+                        aux.torneo = t;
+                    }
+                }
+            }
+          
             _db.Eventos.Add(aux);
             _db.SaveChanges();
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -19,5 +20,15 @@ namespace DataAccesLayer.Models
         [ForeignKey("CriterioPremios")]
         public virtual int id_CriterioPremio { get; set; }
         public virtual CriterioPremios criterio { get; set; }
+
+        public PorcentajesPremios GetEntity()
+        {
+            PorcentajesPremios p = new PorcentajesPremios();
+
+            p.posicion = posicion;
+            p.porcentaje = porcentaje;
+
+            return p;
+        }
     }
 }
