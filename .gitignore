@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # SolutionContext FacuB
-./DataAccesLayer/Models/SolutionContext.cs
+DataAccesLayer/Models/SolutionContext.cs

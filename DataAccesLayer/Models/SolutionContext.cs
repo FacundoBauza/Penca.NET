@@ -20,7 +20,7 @@ namespace DataAccesLayer.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-L7LID20\\SQLEXPRESS;Initial Catalog=PencaNet;Encrypt=False;User ID=sa;Password=1234");
+                optionsBuilder.UseSqlServer("Data Source=ADESKTOP-L7LID20\\SQLEXPRESS;Initial Catalog=PencaNet;Encrypt=False;User ID=sa;Password=1234");
             }
         }
 
