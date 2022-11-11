@@ -1,5 +1,6 @@
 ﻿using DataAccesLayer.Interfaces;
 using DataAccesLayer.Models;
+using Dominio.DT;
 using Dominio.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,7 +20,7 @@ namespace DataAccesLayer.Implementacion
         }
 
         //Agregar => Etapa: Terminado para Testear
-        bool I_ManejadorTorneo.add_Torneo(Torneo t)
+        bool I_ManejadorTorneo.add_Torneo(DTTorneo t)
         {
             Torneos aux = Torneos.GetObjetAdd(t);
             _db.Torneos.Add(aux);
@@ -31,8 +32,17 @@ namespace DataAccesLayer.Implementacion
         //Actuaizar => Etapa: Sin Empezar
         bool I_ManejadorTorneo.update_Torneo(Torneo t)
         {
-            //PAra implementar
-            return true;
+            var torneo = _db.Torneos.SingleOrDefault(tor => tor.id == t.id);
+            if (torneo != null)
+            {
+                if (t.nombre != null) torneo.nombre = t.nombre;
+                torneo.fechaInicio = t.fechaInicio;
+                torneo.fechaFin = t.fechaFin;
+                _db.SaveChanges();
+
+                return true;
+            }
+            return false;
         }
 
         //Listar => Etapa: Terminado para Testear

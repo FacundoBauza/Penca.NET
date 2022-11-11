@@ -2,6 +2,7 @@
 using DataAccesLayer.Models;
 using Dominio.DT;
 using Dominio.Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,13 +43,29 @@ namespace DataAccesLayer.Implementacion
         //Actualizar => Etapa: Sin Empezar
         bool I_ManejadorEvento.update_Evento(Evento e)
         {
+            var evento = _db.Eventos.SingleOrDefault(evt => evt.id == e.id);
+            if (evento != null)
+            {
+                if (e.equipo1 != null) evento.equipo1 = e.equipo1;
+                if (e.equipo2 != null) evento.equipo2 = e.equipo2;
+                if (e.resultado != null) evento.resultado = e.resultado;
+                if (e.golesEquipo1 != null) evento.golesEquipo1 = e.golesEquipo1;
+                if (e.golesEquipo2 != null) evento.golesEquipo2 = e.golesEquipo2;
+                _db.SaveChanges();
+
+                return true;
+            }
             return false;
         }
 
         //Listar => Etapa: Sin Empezar
         List<Evento> I_ManejadorEvento.get_Eventos()
         {
-            return new List<Evento>();
+            List<Evento> list = _db.Eventos
+                .Include(x => x.torneo)
+                .Select(x => x.GetEntity())
+                .ToList();
+            return list;
         }
 
         //Eliminar => Etapa: Sin Empezar

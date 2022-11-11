@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Dominio.DT;
 
 namespace DataAccesLayer.Models
 {
@@ -33,7 +34,7 @@ namespace DataAccesLayer.Models
             return aux;
         }
 
-        public static Torneos GetObjetAdd(Torneo t)
+        public static Torneos GetObjetAdd(DTTorneo t)
         {
             Torneos aux = new Torneos();
 

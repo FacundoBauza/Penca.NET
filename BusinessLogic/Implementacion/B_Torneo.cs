@@ -1,6 +1,7 @@
 ﻿using BusinessLogic.Interfaces;
 using DataAccesLayer.Implementacion;
 using DataAccesLayer.Interfaces;
+using Dominio.DT;
 using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace BusinessLogic.Implementacion
         }
 
         //Agregar
-        bool IB_Torneo.agregar_Torneo(Torneo t)
+        bool IB_Torneo.agregar_Torneo(DTTorneo t)
         {
             return _dal.add_Torneo(t);
         }

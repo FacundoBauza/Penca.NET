@@ -1,4 +1,5 @@
 ﻿using DataAccesLayer.Implementacion;
+using Dominio.DT;
 using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace DataAccesLayer.Interfaces
     public interface I_ManejadorTorneo
     {
         //Agregar
-        bool add_Torneo(Torneo t);
+        bool add_Torneo(DTTorneo t);
 
         //Actualizar
         bool update_Torneo(Torneo t);

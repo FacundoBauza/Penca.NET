@@ -2,6 +2,7 @@ using BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using BusinessLogic.Implementacion;
 using Dominio.Entidades;
+using Dominio.DT;
 
 namespace Servicios.Controllers
 {
@@ -17,7 +18,7 @@ namespace Servicios.Controllers
 
         //Agregar
         [HttpPost("/api/agregarTorneo")]
-        public ActionResult<Torneo> Post([FromBody] Torneo value)
+        public ActionResult<Torneo> Post([FromBody] DTTorneo value)
         {
             return Ok(bl.agregar_Torneo(value));
         }
