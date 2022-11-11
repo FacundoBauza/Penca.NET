@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DT;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace DataAccesLayer.Interfaces
     public interface I_ManejadorEvento
     {
         //Agregar
-        bool set_Evento(Evento e);
+        bool set_Evento(DTEvento e);
 
         //Actualizar
         bool update_Evento(Evento e);

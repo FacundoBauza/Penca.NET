@@ -68,7 +68,7 @@ namespace WebAPI.Controllers
                         Expiration = token.ValidTo,
                         Email = user.Email,
                         ExpirationMinutes = Convert.ToInt32((token.ValidTo - DateTime.UtcNow).TotalMinutes),
-                        //Nombre = user.Apellido + ", " + user.Nombre
+                        Nombre = user.apellido + ", " + user.nombre
                     });
                 }
             }
@@ -100,8 +100,8 @@ namespace WebAPI.Controllers
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Email,
-               // Nombre = model.Nombre,
-               // Apellido = model.Apellido
+                nombre = model.Nombre,
+                apellido = model.Apellido
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)
@@ -130,10 +130,10 @@ namespace WebAPI.Controllers
 
             DTUsuario response = new DTUsuario()
             {
-               // Apellido = usuario.Apellido,
+                Apellido = usuario.apellido,
                 Email = usuario.Email,
                 Id = usuario.Id,
-               // Nombre = usuario.Nombre,
+                Nombre = usuario.nombre,
                 Username = usuario.UserName
             };
 
@@ -148,8 +148,8 @@ namespace WebAPI.Controllers
         {
             return await _userManager.Users.Select(x => new DTUsuario()
             {
-               // Apellido = x.Apellido,
-                //Nombre = x.Nombre,
+                Apellido = x.apellido,
+                Nombre = x.nombre,
                 Email = x.Email,
                 Username = x.UserName,
             }).ToListAsync();

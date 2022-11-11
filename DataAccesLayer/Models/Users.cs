@@ -13,9 +13,9 @@ namespace DataAccesLayer.Models
     public class Users : IdentityUser
     {
         [MaxLength(128), MinLength(3), Required]
-        public string? nombre { get; set; }
+        public string nombre { get; set; }
         [MaxLength(128), MinLength(3), Required]
-        public string? apellido { get; set; }
+        public string apellido { get; set; }
         public List<Subscripciones> Subscripciones { get; set; }
         public List<Premios> Premios { get; set; }
         public List<PencaUsuario_Compartidas> pencaUsuarioCompartida { get; set; }

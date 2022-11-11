@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DT;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -42,7 +43,7 @@ namespace DataAccesLayer.Models
             return aux;
         }
 
-        public static Eventos GetObjetAdd(Evento x)
+        public static Eventos GetObjetAdd(DTEvento x)
         {
             Eventos aux = new Eventos();
             SolutionContext sol = new SolutionContext();

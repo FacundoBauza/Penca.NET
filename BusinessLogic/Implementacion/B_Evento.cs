@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.Interfaces;
 using DataAccesLayer.Interfaces;
+using Dominio.DT;
 using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace BusinessLogic.Implementacion
         }
 
         //Agregar
-        bool IB_Evento.agregar_Evento(Evento e)
+        bool IB_Evento.agregar_Evento(DTEvento e)
         {
             return _dal.set_Evento(e);
         }

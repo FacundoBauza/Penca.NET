@@ -1,5 +1,6 @@
 ﻿using DataAccesLayer.Interfaces;
 using DataAccesLayer.Models;
+using Dominio.DT;
 using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
@@ -18,14 +19,14 @@ namespace DataAccesLayer.Implementacion
         }
 
         //Agregar => Etapa: Terminada para Testear
-        bool I_ManejadorEvento.set_Evento(Evento e)
+        bool I_ManejadorEvento.set_Evento(DTEvento e)
         {
             Eventos aux = Eventos.GetObjetAdd(e);
-            if(e.torneo.id != 0)
+            if(e.nombre_torneo != "")
             {
                 foreach(Torneos t in _db.Torneos)
                 {
-                    if (t.id == e.torneo.id)
+                    if (t.nombre.Equals(e.nombre_torneo))
                     {
                         aux.torneo = t;
                     }

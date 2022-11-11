@@ -39,16 +39,9 @@ namespace DataAccesLayer.Implementacion
             _db.SaveChanges();
 
             int pos = 0;
-            int idCP = 0;
-
-            foreach(CriterioPremios c in _db.criterioPremios)
-            {
-                if(c.id > idCP)
-                    idCP = c.id;
-            }
             foreach (CriterioPremios c in _db.criterioPremios)
             {
-                if (c.id == idCP)
+                if (c.id == cp.id)
                 {
                     aux.criterioPremios = c;
                     cp = c;

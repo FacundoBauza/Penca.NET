@@ -17,7 +17,7 @@ namespace Servicios.Controllers
 
         //Agregar
         [HttpPost("/api/agregarEvento")]
-        public ActionResult<Evento> Post([FromBody] Evento value)
+        public ActionResult<DTEvento> Post([FromBody] DTEvento value)
         {
             return Ok(bl.agregar_Evento(value));
         }
