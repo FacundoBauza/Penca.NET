@@ -24,14 +24,12 @@ namespace DataAccesLayer.Models
 
         public DTTorneo GetEntity()
         {
-            I_Functions F = new Functions();
             DTTorneo aux = new DTTorneo();
             
             aux.id = id_Torneo;
             aux.nombre = nombre;
             aux.fechaInicio = fechaInicio;
             aux.fechaFin = fechaFin;
-            aux.eventos = F.obtenerEventosTorneo(id_Torneo);
 
             return aux;
         }
