@@ -4,6 +4,7 @@ using Dominio.DT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,9 +13,12 @@ namespace DataAccesLayer.Implementacion
     public class Functions: I_Functions
     {
         private readonly SolutionContext _db;
-        public Functions(SolutionContext db)
+       // private I_Functions _fu;
+        private I_Casteos _cas;
+        public Functions(SolutionContext db, I_Casteos cas)
         {
             _db = db;
+            _cas = cas;
         }
 
         public Functions()
@@ -59,11 +63,6 @@ namespace DataAccesLayer.Implementacion
             throw new NotImplementedException();
         }
 
-        List<DTEvento> I_Functions.obtenerEventos_Torneo(int id_Torneo)
-        {
-            throw new NotImplementedException();
-        }
-
         DTTorneo I_Functions.obtenerTorneo_Penca(int id_Penca)
         {
             throw new NotImplementedException();
@@ -93,7 +92,6 @@ namespace DataAccesLayer.Implementacion
         {
             throw new NotImplementedException();
         }
-
 
 
 

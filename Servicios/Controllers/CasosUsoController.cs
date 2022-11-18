@@ -9,17 +9,17 @@ namespace Servicios.Controllers
     [ApiController]
     public class CasosUsoController : ControllerBase
     {
-        private IB_Functions fu;
-        public CasosUsoController(IB_Functions _fu)
+        private IB_CasosUso fu;
+        public CasosUsoController(IB_CasosUso _fu)
         {
             fu = _fu;
         }
 
-        //Listar
-        /*[HttpGet("/api/listarEventos")]
-        public List<DTEvento> Get()
+        //Listar Eventos/Torneo
+        [HttpGet("/api/listarEventosTorneo")]
+        public List<DTEvento> Get(int id)
         {
-            return
-        }*/
+            return fu.obtenerEventos_Torneo(id);
+        }
     }
 }

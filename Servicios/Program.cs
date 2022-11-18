@@ -127,8 +127,14 @@ builder.Services.AddTransient<I_ManejadorSubscripcion, ManejadorSubscripcion>();
 builder.Services.AddTransient<IB_Subscripcion, B_Subscripcion>();
 
 builder.Services.AddTransient<I_Functions, Functions>();
-
 builder.Services.AddTransient<I_Casteos, Casteos>();
+
+builder.Services.AddTransient<IB_CasosUso, B_CasosUso>();
+builder.Services.AddTransient<I_CasosUso, CasosUso>();
+
+
+
+
 
 
 var app = builder.Build();
