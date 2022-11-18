@@ -3,6 +3,7 @@ using Dominio.DT;
 using Dominio.Entidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.Models;
 
 namespace Servicios.Controllers
 {
@@ -20,14 +21,16 @@ namespace Servicios.Controllers
         [HttpPost("/api/agregarEvento")]
         public ActionResult<DTEvento> Post([FromBody] DTEvento value)
         {
-            return Ok(bl.agregar_Evento(value));
+            MensajesEnum x = bl.agregar_Evento(value);
+            return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje });
         }
 
         //Actualizar    
         [HttpPut("/api/actualizarEvento")]
-        public ActionResult<Evento> Put(int id, [FromBody] Evento value)
+        public ActionResult<Evento> Put([FromBody] DTEvento value)
         {
-            return Ok(bl.actualizar_Evento(value));
+            MensajesEnum x = bl.actualizar_Evento(value);
+            return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje });
         }
 
         //Listar

@@ -15,7 +15,7 @@ namespace DataAccesLayer.Interfaces
         bool set_Evento(DTEvento e);
 
         //Actualizar
-        bool update_Evento(Evento e);
+        bool update_Evento(DTEvento e);
 
         //Listar
         List<Eventos> get_Eventos();

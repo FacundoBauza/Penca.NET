@@ -32,28 +32,32 @@ namespace Servicios.Controllers
         [HttpPost("/api/agregarCompartida")]
         public ActionResult<PencaCompartida> Post([FromBody] DTPencaCompartida2 value)
         {
-            return Ok(new StatusResponse {StatusMessage = bl.agregar_PencaCompartida(value).ToString()});
+            MensajesEnum x = bl.agregar_PencaCompartida(value);
+            return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje});
         }
 
         //Agregar Penca Empresarial
         [HttpPost("/api/agregarEmpresarial")]
         public ActionResult<PencaEmpresarial> Post([FromBody] DTPencaEmpresarial value)
         {
-            return Ok(new StatusResponse { StatusMessage = bl.agregar_PencaEmpresarial(value).ToString() });
+            MensajesEnum x = bl.agregar_PencaEmpresarial(value);
+            return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje });
         }
 
         //Actualizar Penca Compartida    
         [HttpPut("/api/actualizarCompartida")]
         public ActionResult<PencaCompartida> Put_Compartida([FromBody] DTPencaCompartida value)
         {
-            return Ok(bl.actualizar_PencaCompartida(value));
+            MensajesEnum x = bl.actualizar_PencaCompartida(value);
+            return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje });
         }
 
         //Actualizar Penca Empresarial
         [HttpPut("/api/actualizarEmpresarial")]
         public ActionResult<PencaEmpresarial> Put_Empresarial([FromBody] DTPencaEmpresarial value)
         {
-            return Ok(bl.actualizar_PencaEmpresarial(value));
+            MensajesEnum x = bl.actualizar_PencaEmpresarial(value);
+            return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje });
         }
 
         //Listar Penca Compartida
@@ -82,6 +86,14 @@ namespace Servicios.Controllers
         public ActionResult<bool> DeleteE_Empresarial(int id_PencaE)
         {
             return Ok(bl.eliminar_PencaEmpresarial(id_PencaE));
+        }
+
+        //Agregar Pronostico
+        [HttpPost("/api/agregarPronostico")]
+        public ActionResult<PencaCompartida> Post([FromBody] DTPronostico value)
+        {
+            MensajesEnum x = bl.agregar_Pronostico(value);
+            return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje });
         }
     };
 }

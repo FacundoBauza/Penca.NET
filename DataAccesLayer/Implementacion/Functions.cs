@@ -189,5 +189,22 @@ namespace DataAccesLayer.Implementacion
             else
                 return false;
         }
+
+        bool I_Functions.existePronostico(DTPronostico dp)
+        {
+            if (_db.Pronosticos.Count() > 0)
+            {
+                foreach (Pronostico e in _db.Pronosticos)
+                {
+                    if (e.Username_Usuario.Equals(dp.username) && e.id_Evento == dp.id_Evento)
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+                return false;
+        }
     }
 }

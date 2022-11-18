@@ -12,6 +12,7 @@ namespace Dominio.DT
         public string nombre { get; set; }
         public DateTime fechaInicio { get; set; }
         public DateTime fechaFin { get; set; }
+
         public List<int> eventos = new List<int>();
     }
 }

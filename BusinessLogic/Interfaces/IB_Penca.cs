@@ -16,8 +16,8 @@ namespace BusinessLogic.Interfaces
         MensajesEnum agregar_PencaEmpresarial(DTPencaEmpresarial pe);
 
         //Actualizar
-        bool actualizar_PencaCompartida(DTPencaCompartida pc);
-        bool actualizar_PencaEmpresarial(DTPencaEmpresarial pe);
+        MensajesEnum actualizar_PencaCompartida(DTPencaCompartida pc);
+        MensajesEnum actualizar_PencaEmpresarial(DTPencaEmpresarial pe);
 
         //Listar
         List<DTPencaCompartida> listar_PencaCompartida();
@@ -26,6 +26,9 @@ namespace BusinessLogic.Interfaces
         //Eliminar
         bool eliminar_PencaCompartida(int id_PencaC);
         bool eliminar_PencaEmpresarial(int id_PencaE);
+
+        //Agregar Pronostico
+        MensajesEnum agregar_Pronostico(DTPronostico dp);
 
     }
 }

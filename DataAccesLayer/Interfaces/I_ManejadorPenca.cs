@@ -26,5 +26,8 @@ namespace DataAccesLayer.Interfaces
         //Eliminar
         bool delete_PencaCompartida(int id_PencaC);
         bool delete_PencaEmpresarial(int id_PencaL);
+
+        //Agregar Pronostico
+        bool setPronostico(DTPronostico dp);
     }
 }

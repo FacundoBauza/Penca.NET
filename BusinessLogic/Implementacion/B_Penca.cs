@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BusinessLogic.Implementacion
@@ -27,6 +28,7 @@ namespace BusinessLogic.Implementacion
         //Agregar
         MensajesEnum IB_Penca.agregar_PencaCompartida(DTPencaCompartida2 pc) 
         {
+            MensajesEnum men = new MensajesEnum();
             if(pc != null)
             {
                 if (!_fu.existePencaCompartida(pc.nombre))
@@ -35,32 +37,36 @@ namespace BusinessLogic.Implementacion
                     {
                         if (_dal.set_PencaCompartida(PencaCompartidas.GetObjetAdd2(pc), pc.criterioPremio) == true)
                         {
-                            //return false;
-                            return MensajesEnum.La_PencaCompartida_se_guardo_Correctamente;
+                            men.La_PencaCompartida_se_guardo_Correctamente();
+                            return men;
                         }
                         else
                         {
-                            return MensajesEnum.Exepcion_no_Controlada;
+                            men.Exepcion_no_Controlada();
+                            return men;
                         }
                     }
                     else
-                        return MensajesEnum.No_existe_un_Torneo_con_el_Id_ingresado;
-
+                    {
+                        men.No_existe_un_Torneo_con_el_Id_ingresado();
+                        return men;
+                    }
 
                 }
                 else
                 {
-                    //return false;
-                    return MensajesEnum.Ya_existe_una_PencaCompartida_con_el_Nombre_ingresado;
+                    men.Ya_existe_una_PencaCompartida_con_el_Nombre_ingresado();
+                    return men;
                 }
             }
             
-            //return false;
-            return MensajesEnum.El_Objeto_enviado_es_Nulo;
+            men.El_Objeto_enviado_es_Nulo();
+            return men;
         }
 
         MensajesEnum IB_Penca.agregar_PencaEmpresarial(DTPencaEmpresarial pe) 
         {
+            MensajesEnum men = new MensajesEnum();
             if(pe != null)
             {
                 if (!_fu.existePencaEmpresarial(pe.nombre))
@@ -71,43 +77,85 @@ namespace BusinessLogic.Implementacion
                         {
                             if (_dal.set_PencaEmpresarial(PencaEmpresariales.GetObjetAdd(pe)) == true)
                             {
-                                //return false;
-                                return MensajesEnum.La_PencaEmpresarial_se_guardo_Correctamente;
+                                men.La_PencaEmpresarial_se_guardo_Correctamente();
+                                return men;
                             }
                             else
                             {
-                                return MensajesEnum.Exepcion_no_Controlada;
+                                men.Exepcion_no_Controlada();
+                                return men;
                             }
                         }
                         else
                         {
-                            return MensajesEnum.No_existe_un_Usuario_con_el_UserName_ingresado;
+                            men.No_existe_un_Usuario_con_el_UserName_ingresado();
+                            return men;
                         }
                     }
                     else
-                        return MensajesEnum.No_existe_un_Torneo_con_el_Id_ingresado;
+                    {
+                        men.No_existe_un_Torneo_con_el_Id_ingresado();
+                        return men;
+                    }
 
                 }
                 else
                 {
-                    //return false;
-                    return MensajesEnum.Ya_existe_una_PencaEmpresarial_con_el_Nombre_ingresado;
+                    men.Ya_existe_una_PencaEmpresarial_con_el_Nombre_ingresado();
+                    return men;
                 }
             }
 
-            //return false;
-            return MensajesEnum.El_Objeto_enviado_es_Nulo;
+            men.El_Objeto_enviado_es_Nulo();
+            return men;
         }
 
         //Actualizar
-        bool IB_Penca.actualizar_PencaCompartida(DTPencaCompartida pc) 
+        MensajesEnum IB_Penca.actualizar_PencaCompartida(DTPencaCompartida pc) 
         {
-            return _dal.update_PencaCompartida(pc);
+            MensajesEnum men = new MensajesEnum();
+            if (!_fu.existePencaCompartida(pc.nombre))
+            {
+                if (_dal.update_PencaCompartida(pc) == true)
+                {
+                    men.Se_Actualizo_Penca();
+                    return men;
+                }
+                else
+                {
+                    men.No_se_pudo_actualizar_la_Penca();
+                    return men;
+                }
+            }
+            else
+            {
+                men.Ya_existe_una_PencaCompartida_con_el_Nombre_ingresado();
+                return men;
+            }
         }
 
-        bool IB_Penca.actualizar_PencaEmpresarial(DTPencaEmpresarial pe) 
+        MensajesEnum IB_Penca.actualizar_PencaEmpresarial(DTPencaEmpresarial pe) 
         {
-            return _dal.update_PencaEmpresarial(pe);
+            MensajesEnum men = new MensajesEnum();
+            if (!_fu.existePencaEmpresarial(pe.nombre))
+            {
+                if (_dal.update_PencaEmpresarial(pe) == true)
+                {
+                    men.Se_Actualizo_Penca();
+                    return men;
+                }
+                else
+                {
+                    men.No_se_pudo_actualizar_la_Penca();
+                    return men;
+                }
+            }
+            else
+            {
+                men.Ya_existe_una_PencaEmpresarial_con_el_Nombre_ingresado();
+                return men;
+            }
+
         }
 
         //Listar
@@ -130,6 +178,38 @@ namespace BusinessLogic.Implementacion
         bool IB_Penca.eliminar_PencaEmpresarial(int id_PencaE)
         {
             return _dal.delete_PencaEmpresarial(id_PencaE);
+        }
+
+        //Agregar Pronostico
+        MensajesEnum IB_Penca.agregar_Pronostico(DTPronostico dp)
+        {
+            MensajesEnum men = new MensajesEnum();
+            if (_fu.existePronostico(dp))
+            {
+                if (_dal.setPronostico(dp) == true)
+                {
+                    men.El_Pronostico_se_actualizo_correctamente();
+                    return men;
+                }
+                else
+                {
+                    men.Exepcion_no_Controlada();
+                    return men;
+                }
+            }
+            else
+            {
+                if (_dal.setPronostico(dp) == true)
+                {
+                    men.El_Pronostico_se_agrego_correctamente();
+                    return men;
+                }
+                else
+                {
+                    men.Exepcion_no_Controlada();
+                    return men;
+                }
+            }  
         }
 
     }

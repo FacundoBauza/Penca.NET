@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "Dominio\Dominio.csproj", "{DBB10237-3CC5-4619-A334-DBF42CA5B788}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PencaNet-Movil", "PencaNet-Movil\PencaNet-Movil.fsproj", "{4D35FBDE-7B25-49EC-8AD1-3458FDD2913A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{DBB10237-3CC5-4619-A334-DBF42CA5B788}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBB10237-3CC5-4619-A334-DBF42CA5B788}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBB10237-3CC5-4619-A334-DBF42CA5B788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D35FBDE-7B25-49EC-8AD1-3458FDD2913A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D35FBDE-7B25-49EC-8AD1-3458FDD2913A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D35FBDE-7B25-49EC-8AD1-3458FDD2913A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4D35FBDE-7B25-49EC-8AD1-3458FDD2913A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D35FBDE-7B25-49EC-8AD1-3458FDD2913A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D35FBDE-7B25-49EC-8AD1-3458FDD2913A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

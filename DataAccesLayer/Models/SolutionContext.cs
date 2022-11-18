@@ -34,6 +34,7 @@ namespace DataAccesLayer.Models
         public DbSet<Premios> Premios { get; set; }
         public DbSet<Eventos> Eventos { get; set; }
         public DbSet<CriterioPremios> criterioPremios { get; set; }
+        public DbSet<Pronostico> Pronosticos { get; set; }
         public DbSet<PorcentajesPremios> porcentajePremios { get; set; }
         public DbSet<PencaUsuario_Compartidas> pencaUsuarioCompartida { get; set; }
         public DbSet<PencaUsuario_Empresariales> pencaUsuarioEmpresarial { get; set; }

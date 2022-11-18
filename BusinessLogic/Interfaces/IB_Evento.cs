@@ -11,10 +11,10 @@ namespace BusinessLogic.Interfaces
     public interface IB_Evento
     {
         //Agregar
-        bool agregar_Evento(DTEvento e);
+        MensajesEnum agregar_Evento(DTEvento e);
 
         //Actualizar
-        bool actualizar_Evento(Evento e);
+        MensajesEnum actualizar_Evento(DTEvento e);
 
         //Listar
         List<DTEvento> listar_Eventos();

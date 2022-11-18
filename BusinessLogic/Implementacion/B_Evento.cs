@@ -15,22 +15,86 @@ namespace BusinessLogic.Implementacion
     {
         private I_ManejadorEvento _dal;
         private I_Casteos _cas;
-        public B_Evento(I_ManejadorEvento dal, I_Casteos cas)
+        private I_Functions _fu;
+        public B_Evento(I_ManejadorEvento dal, I_Casteos cas, I_Functions fu)
         {
             _dal = dal;
             _cas = cas;
+            _fu = fu;
         }
 
         //Agregar
-        bool IB_Evento.agregar_Evento(DTEvento e)
+        MensajesEnum IB_Evento.agregar_Evento(DTEvento e)
         {
-            return _dal.set_Evento(e);
+            MensajesEnum men = new MensajesEnum();  
+            if(e != null)
+            {
+                if(!_fu.existeEvento(e))
+                {
+                    if (_fu.existeTorneoId(e.torneo))
+                    {
+                        if (_dal.set_Evento(e) == true)
+                        {
+                            men.El_Evento_se_guardo_Correctamente();
+                            return men;
+                        }
+                        else
+                        {
+                            men.Exepcion_no_Controlada();
+                            return men;
+                        }
+                    }
+                    else
+                    {
+                        men.No_existe_un_Torneo_con_el_Id_ingresado();
+                        return men;
+                    }
+                }
+                else
+                {
+                    men.Ya_existe_un_Evento_con_el_Nombre_ingresado();
+                    return men;
+                }
+            }
+            else
+            {
+                men.El_Objeto_enviado_es_Nulo();
+                return men;
+            }
+       
         }
 
         //Actualizar
-        bool IB_Evento.actualizar_Evento(Evento e)
+        MensajesEnum IB_Evento.actualizar_Evento(DTEvento e)
         {
-            return _dal.update_Evento(e);
+            MensajesEnum men = new MensajesEnum();
+            if (e != null)
+            {
+                if (_fu.existeTorneoId(e.torneo))
+                {
+                    if (_dal.update_Evento(e) == true)
+                    {
+                        men.El_Evento_se_actualizo_Correctamente();
+                        return men;
+                    }
+                    else
+                    {
+                        men.Exepcion_no_Controlada();
+                        return men;
+                    }
+                }
+                else
+                {
+                    men.No_existe_un_Torneo_con_el_Id_ingresado();
+                    return men;
+                }
+            }
+            else
+            {
+                men.El_Objeto_enviado_es_Nulo();
+                return men;
+            }
+
         }
 
         //Listar

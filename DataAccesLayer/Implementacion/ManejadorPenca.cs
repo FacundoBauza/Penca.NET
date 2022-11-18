@@ -12,6 +12,8 @@ using Dominio.DT;
 using System.Drawing;
 using System.Data.Entity;
 using System.Runtime.Intrinsics.X86;
+using System.Runtime.Intrinsics.Arm;
+using System.Diagnostics.SymbolStore;
 
 namespace DataAccesLayer.Implementacion
 {
@@ -27,7 +29,7 @@ namespace DataAccesLayer.Implementacion
             _cas = cas;
         }
 
-        //Agregar Compartida => Etapa: Sin Empezar
+        //Agregar Compartida => Etapa: Terminada
         bool I_ManejadorPenca.set_PencaCompartida(PencaCompartidas pc, CriterioPremio cp)
         {
             CriterioPremios aux = new CriterioPremios()
@@ -70,7 +72,7 @@ namespace DataAccesLayer.Implementacion
             return true;
         }
 
-        //Agregar Empresarial => Etapa: Sin Empezar
+        //Agregar Empresarial => Etapa: Terminada
         bool I_ManejadorPenca.set_PencaEmpresarial(PencaEmpresariales pe)
         {
             try
@@ -85,7 +87,7 @@ namespace DataAccesLayer.Implementacion
             return true;
         }
 
-        //Actualizar Compartida => Etapa: Sin Empezar
+        //Actualizar Compartida => Etapa: Terminada
         bool I_ManejadorPenca.update_PencaCompartida(DTPencaCompartida pc)
         {
             PencaCompartidas aux = null;
@@ -100,13 +102,19 @@ namespace DataAccesLayer.Implementacion
             aux.nombre = pc.nombre;
             aux.id_Torneo = pc.torneo;
 
-            _db.Update(aux);
-            _db.SaveChanges();
-
+            try
+            {
+                _db.Update(aux);
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
             return true;
         }
 
-        //Actualizar Empresarial => Etapa: Sin Empezar
+        //Actualizar Empresarial => Etapa: Terminada
         bool I_ManejadorPenca.update_PencaEmpresarial(DTPencaEmpresarial pe)
         {
             PencaEmpresariales aux = null;
@@ -115,25 +123,28 @@ namespace DataAccesLayer.Implementacion
             {
                 if (x.id_PencaEmpresarial == pe.id)
                 {
-                    x.nombre = pe.nombre;
-                    x.id_Torneo = pe.torneo;
-                    x.Username_UsuarioCreador = pe.usuario_creador;
-                    x.link = pe.link;
+                    aux = x;
                 }
             }
 
             aux.nombre = pe.nombre;
             aux.id_Torneo = pe.torneo;
-            aux.id_Torneo = pe.torneo;
             aux.link = pe.link;
 
-            _db.Update(aux);
-            _db.SaveChanges();
 
+            try
+            {
+                _db.Update(aux);
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
             return true;
         }
 
-        //Listar Compartida => Etapa: Sin Empezar
+        //Listar Compartida => Etapa: Terminada
         List<DTPencaCompartida> I_ManejadorPenca.get_PencaCompartida()
         {
             if (_db.PencasCompartidas.Count() > 0)
@@ -151,7 +162,7 @@ namespace DataAccesLayer.Implementacion
             return null;
         }
 
-        //Listar Empresarial => Etapa: Sin Empezar
+        //Listar Empresarial => Etapa: Terminada
         List<DTPencaEmpresarial> I_ManejadorPenca.get_PencaEmpresarial()
         {
             if (_db.PencasEmpresariales.Count() > 0)
@@ -181,7 +192,50 @@ namespace DataAccesLayer.Implementacion
             return false;
         }
 
-        //Funciones Alternas
-        
+        //Agregar Pronostico
+        bool I_ManejadorPenca.setPronostico(DTPronostico dp)
+        {
+            Pronostico aux = null;
+
+            if (_fu.existePronostico(dp))
+            {
+                try
+                {
+                    foreach(Pronostico x in _db.Pronosticos)
+                    {
+                        if(x.Username_Usuario.Equals(dp.username) && x.id_Evento == dp.id_Evento)
+                        {
+                            aux = x;
+                        }
+                    }
+
+                    aux.golesEquipo1 = dp.golesEquipo1;
+                    aux.golesEquipo2 = dp.golesEquipo2;
+
+                    _db.Update(aux);
+                    _db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                aux = Pronostico.GetObjetAdd(dp);
+                try
+                {
+                    _db.Pronosticos.Add(aux);
+                    _db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
     }
 }

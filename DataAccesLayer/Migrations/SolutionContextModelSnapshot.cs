@@ -188,6 +188,25 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("Premios");
                 });
 
+            modelBuilder.Entity("DataAccesLayer.Models.Pronostico", b =>
+                {
+                    b.Property<string>("Username_Usuario")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("id_Evento")
+                        .HasColumnType("int");
+
+                    b.Property<int>("golesEquipo1")
+                        .HasColumnType("int");
+
+                    b.Property<int>("golesEquipo2")
+                        .HasColumnType("int");
+
+                    b.HasKey("Username_Usuario", "id_Evento");
+
+                    b.ToTable("Pronostico");
+                });
+
             modelBuilder.Entity("DataAccesLayer.Models.Subscripciones", b =>
                 {
                     b.Property<string>("Username_Usuario")

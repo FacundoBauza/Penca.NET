@@ -5,6 +5,7 @@ using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,21 +19,54 @@ namespace DataAccesLayer.Implementacion
             _db = db;
         }
 
-        //Agregar => Etapa: Terminada para Testear
+        //Agregar => Etapa: Terminado
         bool I_ManejadorEvento.set_Evento(DTEvento e)
         {
             Eventos aux = Eventos.GetObjetAdd(e);
-          
-            _db.Eventos.Add(aux);
-            _db.SaveChanges();
 
+            try
+            {
+                _db.Eventos.Add(aux);
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
             return true;
         }
 
         //Actualizar => Etapa: Sin Empezar
-        bool I_ManejadorEvento.update_Evento(Evento e)
+        bool I_ManejadorEvento.update_Evento(DTEvento e)
         {
-            return false;
+            Eventos aux = null;
+
+            foreach (Eventos x in _db.Eventos)
+            {
+                if (x.id_Evento == e.id)
+                {
+                    aux = x;
+                }
+            }
+
+            aux.equipo1 = e.equipo1;
+            aux.equipo2 = e.equipo2;
+            aux.golesEquipo1 = e.golesEquipo1;
+            aux.golesEquipo2 = e.golesEquipo2;
+            aux.resultado = e.resultado;
+            aux.fechaHora = e.fechaHora;
+            aux.id_Torneo = e.torneo;
+
+            try
+            {
+                _db.Update(aux);
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
 
         //Listar => Etapa: Sin Empezar
