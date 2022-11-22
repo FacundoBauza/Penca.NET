@@ -196,10 +196,16 @@ namespace DataAccesLayer.Migrations
                     b.Property<int>("id_Evento")
                         .HasColumnType("int");
 
+                    b.Property<bool>("esCompartida")
+                        .HasColumnType("bit");
+
                     b.Property<int>("golesEquipo1")
                         .HasColumnType("int");
 
                     b.Property<int>("golesEquipo2")
+                        .HasColumnType("int");
+
+                    b.Property<int>("id_Penca")
                         .HasColumnType("int");
 
                     b.HasKey("Username_Usuario", "id_Evento");

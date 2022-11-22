@@ -10,5 +10,6 @@ namespace DataAccesLayer.Interfaces
     public interface I_CasosUso
     {
         List<DTEvento> getEventosTorneo(int id);
+        List<DTPronostico> getPronosticos_Usuario(string username, int id_Penca);
     }
 }

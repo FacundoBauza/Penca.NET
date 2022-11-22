@@ -20,5 +20,6 @@ namespace BusinessLogic.Interfaces
         List<DTUsuario> obtenerUsuarios_PencaEmpresarial(int id_Penca);
         DTPencaEmpresarial obtenerInfo_PencaEmpresarial(int id_Penca);
         DTPencaCompartida obtenerInfo_PencaCompartida(int id_Penca);
+        List<DTPronostico> obtenerPronosticos_Usuario(string username, int id_Penca);
     }
 }

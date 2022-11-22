@@ -13,5 +13,7 @@ namespace Dominio.DT
         public int golesEquipo2 { get; set; }
         public string username { get; set; }
         public int id_Evento { get; set; }
+        public int id_Penca { get; set; }
+        public bool esCompartida{ get; set; }
     }
 }

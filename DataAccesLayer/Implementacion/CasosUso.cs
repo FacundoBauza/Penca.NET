@@ -21,6 +21,20 @@ namespace DataAccesLayer.Implementacion
             _cas = cas;
         }
 
+        List<DTPronostico> I_CasosUso.getPronosticos_Usuario(string username, int id_Penca)
+        {
+            List<DTPronostico> ret = new List<DTPronostico>();
+
+            foreach(Pronostico x in _db.Pronosticos)
+            {
+                if(x.id_Penca == id_Penca && x.Username_Usuario.Equals(username))
+                {
+                    ret.Add(_cas.castDTPronostico(x));
+                }
+            }
+
+            return ret;
+        }
 
         List<DTEvento> I_CasosUso.getEventosTorneo(int id)
         {

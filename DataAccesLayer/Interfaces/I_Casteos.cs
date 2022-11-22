@@ -13,5 +13,6 @@ namespace DataAccesLayer.Interfaces
         DTEvento castDTEvento(Eventos x);
         DTPencaCompartida castDTPencaCompartida(PencaCompartidas x);
         DTPencaEmpresarial castDTPencaEmpresarial(PencaEmpresariales x);
+        DTPronostico castDTPronostico(Pronostico x);
     }
 }

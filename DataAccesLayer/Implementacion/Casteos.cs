@@ -11,6 +11,21 @@ namespace DataAccesLayer.Implementacion
 {
     public class Casteos: I_Casteos
     {
+        public DTPronostico castDTPronostico(Pronostico x)
+        {
+            DTPronostico dTPronostico = new DTPronostico()
+            {
+                id_Evento = x.id_Evento,
+                golesEquipo1 = x.golesEquipo1,
+                golesEquipo2 = x.golesEquipo2,
+                username = x.Username_Usuario,
+                id_Penca = x.id_Penca,
+                esCompartida = x.esCompartida
+            };
+
+            return dTPronostico;
+        }
+
         DTEvento I_Casteos.castDTEvento(Eventos x)
         {
             DTEvento dTEvento = new DTEvento()

@@ -17,9 +17,17 @@ namespace Servicios.Controllers
 
         //Listar Eventos/Torneo
         [HttpGet("/api/listarEventosTorneo")]
-        public List<DTEvento> Get(int id)
+        public List<DTEvento> listarEventosTorneo(int id)
         {
             return fu.obtenerEventos_Torneo(id);
+        }
+
+
+        //Listar Pronosticos/Usuario
+        [HttpGet("/api/listarPronosticosUsuario")]
+        public List<DTPronostico> listarPronosticosUsuario(string username, int id_Penca)
+        {
+            return fu.obtenerPronosticos_Usuario(username, id_Penca);
         }
     }
 }

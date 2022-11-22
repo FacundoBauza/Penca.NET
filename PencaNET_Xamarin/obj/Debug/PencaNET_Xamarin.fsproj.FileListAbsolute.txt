@@ -1,0 +1,6 @@
+C:\Users\visua\Desktop\Penca.NET\PencaNET_Xamarin\obj\Debug\MonoAndroid,Version=v13.0.AssemblyAttributes.fs
+C:\Users\visua\Desktop\Penca.NET\PencaNET_Xamarin\obj\Debug\build.props
+C:\Users\visua\Desktop\Penca.NET\PencaNET_Xamarin\obj\Debug\adb.props
+C:\Users\visua\Desktop\Penca.NET\PencaNET_Xamarin\obj\Debug\PencaNET_Xamarin.fsproj.AssemblyReference.cache
+C:\Users\visua\Desktop\Penca.NET\PencaNET_Xamarin\obj\Debug\stamp\_BuildLibraryImportsCache.stamp
+C:\Users\visua\Desktop\Penca.NET\PencaNET_Xamarin\obj\Debug\res.flag

@@ -22,6 +22,10 @@ namespace DataAccesLayer.Models
         [ForeignKey("Evento")]
         public int id_Evento { get; set; }
 
+        public int id_Penca { get; set; }
+
+        public bool esCompartida { get; set; }
+
         public static Pronostico GetObjetAdd(DTPronostico dp)
         {
             Pronostico pro = new Pronostico();
@@ -29,7 +33,9 @@ namespace DataAccesLayer.Models
             pro.golesEquipo1 = dp.golesEquipo1;
             pro.golesEquipo2 = dp.golesEquipo2;
             pro.Username_Usuario = dp.username;
+            pro.id_Penca = dp.id_Penca;
             pro.id_Evento = dp.id_Evento;
+            pro.esCompartida = dp.esCompartida;
 
             return pro;
         }

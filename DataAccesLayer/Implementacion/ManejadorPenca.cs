@@ -211,6 +211,7 @@ namespace DataAccesLayer.Implementacion
 
                     aux.golesEquipo1 = dp.golesEquipo1;
                     aux.golesEquipo2 = dp.golesEquipo2;
+                    aux.esCompartida = dp.esCompartida;
 
                     _db.Update(aux);
                     _db.SaveChanges();
