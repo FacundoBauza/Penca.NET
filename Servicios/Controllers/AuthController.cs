@@ -179,6 +179,18 @@ namespace WebAPI.Controllers
             return Ok(new StatusResponse { StatusOk = true, StatusMessage = "Rol agregado al usuario correctamente!" });
         }
 
+        [HttpGet]
+        [Route("ObtenerRoles")]
+        public async Task<List<string>> GetRol(string username)
+        {
+            return (List<string>)await _userManager.GetRolesAsync(await _userManager.FindByNameAsync(username));
+        }
+
+        private void foreache(string v, object x, Task<IList<string>> task)
+        {
+            throw new NotImplementedException();
+        }
+
         private JwtSecurityToken GetToken(List<Claim> authClaims)
         {  
             string? JWT_SECRET = Environment.GetEnvironmentVariable("JWT_SECRET");
