@@ -21,6 +21,7 @@ namespace BusinessLogic.Interfaces
         List<string> obtenerUsuarios_PencaEmpresarial(int id_Penca);
         DTPencaEmpresarial obtenerInfo_PencaEmpresarial(int id_Penca);
         DTPencaCompartida obtenerInfo_PencaCompartida(int id_Penca);
+        void actualizarPuntajes(int id_Penca, bool esCompartida);
 
 
         List<DTEvento> obtenerEventos_Torneo(int id_Torneo);

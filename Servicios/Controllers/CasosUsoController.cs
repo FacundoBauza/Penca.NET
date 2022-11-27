@@ -30,6 +30,13 @@ namespace Servicios.Controllers
             return fu.obtenerPronosticos_Usuario(username, id_Penca);
         }
 
+        //Actualizar Puntajes
+        [HttpGet("/api/actualizarPuntajes")]
+        public void actualizarPuntajes(int id_Penca, bool esCompartida)
+        {
+            fu.actualizarPuntajes(id_Penca, esCompartida);
+        }
+
         //Listar Pronosticos/Usuario
         [HttpGet("/api/listarPuntajeUsuarioPenca")]
         public List<DTPuntosUsuarioFront> listarPuntajeUsuarioPenca(int id_Penca, bool esCompartida)

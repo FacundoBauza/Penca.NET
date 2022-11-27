@@ -217,8 +217,6 @@ namespace DataAccesLayer.Implementacion
 
                     _db.Update(aux);
                     _db.SaveChanges();
-
-                    _cau.updatePuntaje_UsuarioPenca(dp.id_Penca, dp.esCompartida);
                 }
                 catch
                 {
@@ -233,8 +231,6 @@ namespace DataAccesLayer.Implementacion
                 {
                     _db.Pronosticos.Add(aux);
                     _db.SaveChanges();
-
-                    _cau.updatePuntaje_UsuarioPenca(dp.id_Penca, dp.esCompartida);
                 }
                 catch
                 {
