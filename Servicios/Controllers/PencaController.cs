@@ -88,6 +88,14 @@ namespace Servicios.Controllers
             return Ok(bl.eliminar_PencaEmpresarial(id_PencaE));
         }
 
+        //Agregar Usuario a Penca
+        [HttpPost("/api/agregarUsuario")]
+        public ActionResult<PencaCompartida> agregarusuario([FromBody] DTUsuarioPenca value)
+        {
+            MensajesEnum x = bl.agregar_usuarioPenca(value);
+            return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje });
+        }
+
         //Agregar Pronostico
         [HttpPost("/api/agregarPronostico")]
         public ActionResult<PencaCompartida> Post([FromBody] DTPronostico value)

@@ -22,11 +22,13 @@ namespace DataAccesLayer.Implementacion
         private readonly SolutionContext _db;
         private I_Functions _fu;
         private I_Casteos _cas;
-        public ManejadorPenca(SolutionContext db, I_Functions fu, I_Casteos cas)
+        private I_CasosUso _cau;
+        public ManejadorPenca(SolutionContext db, I_Functions fu, I_Casteos cas, I_CasosUso cau)
         {
             _db = db;
             _fu = fu;
             _cas = cas;
+            _cau = cau;
         }
 
         //Agregar Compartida => Etapa: Terminada
@@ -215,6 +217,8 @@ namespace DataAccesLayer.Implementacion
 
                     _db.Update(aux);
                     _db.SaveChanges();
+
+                    _cau.updatePuntaje_UsuarioPenca(dp.id_Penca, dp.esCompartida);
                 }
                 catch
                 {
@@ -228,6 +232,51 @@ namespace DataAccesLayer.Implementacion
                 try
                 {
                     _db.Pronosticos.Add(aux);
+                    _db.SaveChanges();
+
+                    _cau.updatePuntaje_UsuarioPenca(dp.id_Penca, dp.esCompartida);
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        //Agregar Usuario a Penca
+        bool I_ManejadorPenca.setUsuarioPenca(DTUsuarioPenca dp)
+        {
+            if(dp.esCompartida == true)
+            {
+                PencaUsuario_Compartidas aux = new PencaUsuario_Compartidas()
+                {
+                    id_PencaCompartida = dp.id_Penca,
+                    Username_Usuario = dp.username
+                };
+
+                try
+                {
+                    _db.pencaUsuarioCompartida.Add(aux);
+                    _db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                PencaUsuario_Empresariales aux = new PencaUsuario_Empresariales()
+                {
+                    id_PencaEmpresarial = dp.id_Penca,
+                    Username_Usuario = dp.username
+                };
+
+                try
+                {
+                    _db.pencaUsuarioEmpresarial.Add(aux);
                     _db.SaveChanges();
                 }
                 catch

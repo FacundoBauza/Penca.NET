@@ -1,9 +1,11 @@
 ﻿using DataAccesLayer.Interfaces;
 using DataAccesLayer.Models;
 using Dominio.DT;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -68,6 +70,80 @@ namespace DataAccesLayer.Implementacion
 
         List<DTPuntosUsuarioFront> I_CasosUso.getPuntaje_UsuarioPenca(int id_Penca, bool esCompartida)
         {
+            List<string> u = null;
+            List<DTPuntosUsuarioFront> auxV = new List<DTPuntosUsuarioFront>();
+
+            int cont = 0;
+            int id_Torneo = 0;
+            bool ex = false;
+
+            if (esCompartida == true)
+            {
+                u = _fu.obtenerUsuarios_PencaCompartida(id_Penca);
+ 
+                foreach(string s in u)
+                {
+                    foreach (UsuarioPuntajes up in _db.usuarioPuntajes)
+                    {
+                        if (s.Equals(up.username) && id_Penca == up.id_Penca)
+                        {
+                            DTPuntosUsuarioFront dt = new DTPuntosUsuarioFront()
+                            {
+                                userna = up.username,
+                                puntos = up.puntaje
+                            };
+                            auxV.Add(dt);
+                            ex = true;
+                        }
+                    }
+                    if(ex == false)
+                    {
+                        DTPuntosUsuarioFront dt = new DTPuntosUsuarioFront()
+                        {
+                            userna = s,
+                            puntos = 0
+                        };
+                        auxV.Add(dt);
+                    }
+                }
+            }
+            else
+            {
+                u = _fu.obtenerUsuarios_PencaEmpresarial(id_Penca);
+
+                foreach (string s in u)
+                {
+                    foreach (UsuarioPuntajes up in _db.usuarioPuntajes)
+                    {
+                        if (s.Equals(up.username) && id_Penca == up.id_Penca)
+                        {
+                            DTPuntosUsuarioFront dt = new DTPuntosUsuarioFront()
+                            {
+                                userna = up.username,
+                                puntos = up.puntaje
+                            };
+                            auxV.Add(dt);
+                            ex = true;
+                        }
+                    }
+                    if (ex == false)
+                    {
+                        DTPuntosUsuarioFront dt = new DTPuntosUsuarioFront()
+                        {
+                            userna = s,
+                            puntos = 0
+                        };
+                        auxV.Add(dt);
+                    }
+                }
+            }
+
+            
+
+            return auxV;
+        }
+        void I_CasosUso.updatePuntaje_UsuarioPenca(int id_Penca, bool esCompartida)
+        {
             List<Pronostico> aux = new List<Pronostico>();
             List<Eventos> auxX = new List<Eventos>();
             List<string> u = null;
@@ -76,7 +152,7 @@ namespace DataAccesLayer.Implementacion
             int cont = 0;
             int id_Torneo = 0;
 
-            if(esCompartida == true)
+            if (esCompartida == true)
             {
                 u = _fu.obtenerUsuarios_PencaCompartida(id_Penca);
             }
@@ -85,92 +161,112 @@ namespace DataAccesLayer.Implementacion
                 u = _fu.obtenerUsuarios_PencaEmpresarial(id_Penca);
             }
 
-            foreach(string s in u)
+            foreach (string s in u)
             {
-                foreach(Pronostico p in _db.Pronosticos)
+                foreach (Pronostico p in _db.Pronosticos)
                 {
-                    if(p.Username_Usuario.Equals(s) && p.id_Penca == id_Penca)
+                    if (p.Username_Usuario.Equals(s) && p.id_Penca == id_Penca)
                     {
                         aux.Add(p);
                     }
                 }
-                if (esCompartida == true)
-                {
-                    foreach (PencaCompartidas p in _db.PencasCompartidas)
-                    {
-                        if (p.id_PencaCompartida == id_Penca)
-                        {
-                            id_Torneo = p.id_Torneo;
-                        }
-                    }
-                }
-                else
-                {
-                    foreach (PencaEmpresariales p in _db.PencasEmpresariales)
-                    {
-                        if (p.id_PencaEmpresarial == id_Penca)
-                        {
-                            id_Torneo = p.id_Torneo;
-                        }
-                    }
-                }
+            }
+            Console.WriteLine(aux.Count());
 
-                foreach (Eventos e in _db.Eventos)
+            if (esCompartida == true)
+            {
+                foreach (PencaCompartidas p in _db.PencasCompartidas)
                 {
-                    if (e.id_Torneo == id_Torneo)
+                    if (p.id_PencaCompartida == id_Penca)
                     {
-                        auxX.Add(e);
+                        id_Torneo = p.id_Torneo;
                     }
                 }
+            }
+            else
+            {
+                foreach (PencaEmpresariales p in _db.PencasEmpresariales)
+                {
+                    if (p.id_PencaEmpresarial == id_Penca)
+                    {
+                        id_Torneo = p.id_Torneo;
+                    }
+                }
+            }
 
+            foreach (Eventos e in _db.Eventos)
+            {
+                if (e.id_Torneo == id_Torneo)
+                {
+                    auxX.Add(e);
+                }
+            }
+
+            foreach(string s1 in u) 
+            { 
                 foreach (Pronostico p1 in aux)
                 {
-                    foreach (Eventos e1 in auxX)
+                    if (p1.Username_Usuario.Equals(s1))
                     {
-                        if (p1.id_Evento == e1.id_Evento)
+                        foreach (Eventos e1 in auxX)
                         {
-                            //Esto evalua que la fecha actual es menor a la del evento para saber
-                            //si el evento ya paso.
-                            if (DateTime.Compare(DateTime.Today, e1.fechaHora) > 0)
+                            if(e1.id_Evento == p1.id_Evento)
                             {
-                                if (e1.resultado.Equals("EMPATE") && p1.golesEquipo1 == p1.golesEquipo2)
+                                if (DateTime.Compare(DateTime.Today, e1.fechaHora) > 0)
                                 {
-                                    cont = cont + 3;
-                                }
-                                else if (e1.resultado.Equals("EQUIPO1") && p1.golesEquipo1 > p1.golesEquipo2)
-                                {
-                                    cont = cont + 3;
-                                }
-                                else if (e1.resultado.Equals("EQUIPO2") && p1.golesEquipo1 < p1.golesEquipo2)
-                                {
-                                    cont = cont + 3;
-                                }
+                                    if (e1.resultado.Equals("EMPATE") && p1.golesEquipo1 == p1.golesEquipo2)
+                                    {
+                                        cont = cont + 3;
+                                    }
+                                    else if (e1.resultado.Equals("EQUIPO1") && p1.golesEquipo1 > p1.golesEquipo2)
+                                    {
+                                        cont = cont + 3;
+                                    }
+                                    else if (e1.resultado.Equals("EQUIPO2") && p1.golesEquipo1 < p1.golesEquipo2)
+                                    {
+                                        cont = cont + 3;
+                                    }
 
 
-                                if (p1.golesEquipo1.ToString().Equals(e1.golesEquipo1))
-                                {
-                                    cont = cont + 1;
-                                }
+                                    if (p1.golesEquipo1.ToString().Equals(e1.golesEquipo1))
+                                    {
+                                        cont = cont + 1;
+                                    }
 
-                                if (p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
-                                {
-                                    cont = cont + 1;
+                                    if (p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
+                                    {
+                                        cont = cont + 1;
+                                    }
                                 }
                             }
                         }
                     }
                 }
-                DTPuntosUsuarioFront dtf = new DTPuntosUsuarioFront()
+                UsuarioPuntajes auxd = null;
+
+                if (_fu.existeUsuarioPuntaje(s1, id_Penca) == true)
                 {
-                    userna = s,
-                    puntos = cont
-                };
-                auxV.Add(dtf);
+                    foreach (UsuarioPuntajes x in _db.usuarioPuntajes)
+                    {
+                        if (x.username.Equals(s1) && x.id_Penca == id_Penca)
+                        {
+                            auxd = x;
+                        }
+                    }
+
+                    auxd.puntaje = cont;
+
+                    _db.Update(auxd);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    UsuarioPuntajes auxd2 = UsuarioPuntajes.GetObjetAdd(s1, id_Penca, cont, esCompartida);
+                    _db.usuarioPuntajes.Add(auxd2);
+                    _db.SaveChanges();
+                }
+                cont= 0;
             }
-
-            
-
-            return auxV;
         }
     }
 }

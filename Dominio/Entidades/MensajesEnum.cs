@@ -120,5 +120,17 @@ namespace Dominio.Entidades
             mensaje = " El Pronostico se agrego correctamente";
             status = true;
         }
+
+        public void El_Usuario_Ya_Participa_de_la_Penca()
+        {
+            mensaje = " El Usuario ya participa de la Penca";
+            status = true;
+        }
+
+        public void El_Usuario_se_agrego_correctamente_a_la_Penca()
+        {
+            mensaje = " Se agrego correctamente el Usuario a la Penca";
+            status = true;
+        }
     }
 }

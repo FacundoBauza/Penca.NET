@@ -1,6 +1,7 @@
 ﻿using DataAccesLayer.Interfaces;
 using DataAccesLayer.Models;
 using Dominio.DT;
+using Microsoft.Extensions.Logging.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -126,7 +127,6 @@ namespace DataAccesLayer.Implementacion
         }
 
 
-
         //Chequeos
         bool I_Functions.existePencaCompartida(string nombre)
         {
@@ -243,6 +243,39 @@ namespace DataAccesLayer.Implementacion
             {
                 if (s.id_PencaEmpresarial == ds.id_PencaEmpresarial && s.Username_Usuario.Equals(ds.Username_Usuario))
                     return true;
+            }
+
+            return false;
+        }
+
+        bool I_Functions.existeUsuarioPuntaje(string s, int id_Penca)
+        {
+            foreach (UsuarioPuntajes up in _db.usuarioPuntajes)
+            {
+                if (up.username.Equals(s) && up.id_Penca == id_Penca)
+                    return true;
+            }
+
+            return false;
+        }
+
+         bool I_Functions.perteneceUsuarioPenca(DTUsuarioPenca dp)
+        {
+            if(dp.esCompartida == true)
+            {
+                foreach (PencaUsuario_Compartidas p1 in _db.pencaUsuarioCompartida)
+                {
+                    if (p1.Username_Usuario.Equals(dp.username) && p1.id_PencaCompartida == dp.id_Penca)
+                        return true;
+                }
+            }
+            else
+            {
+                foreach (PencaUsuario_Empresariales p2 in _db.pencaUsuarioEmpresarial)
+                {
+                    if (p2.Username_Usuario.Equals(dp.username) && p2.id_PencaEmpresarial == dp.id_Penca)
+                        return true;
+                }
             }
 
             return false;

@@ -23,7 +23,6 @@ namespace BusinessLogic.Interfaces
         DTPencaCompartida obtenerInfo_PencaCompartida(int id_Penca);
 
 
-
         List<DTEvento> obtenerEventos_Torneo(int id_Torneo);
         List<DTEvento> obtenerEventosTorneo(int id);
         List<DTPronostico> obtenerPronosticos_Usuario(string username, int id_Penca);

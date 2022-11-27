@@ -29,6 +29,7 @@ namespace BusinessLogic.Interfaces
 
         //Agregar Pronostico
         MensajesEnum agregar_Pronostico(DTPronostico dp);
+        MensajesEnum agregar_usuarioPenca(DTUsuarioPenca dp);
 
     }
 }

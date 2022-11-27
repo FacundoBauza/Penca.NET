@@ -3,6 +3,7 @@ using Dominio.DT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,5 +32,7 @@ namespace DataAccesLayer.Interfaces
         bool existeEvento(DTEvento de);
         bool existePronostico(DTPronostico dp);
         bool existeSubscripcion(DTSubscripcion ds);
+        bool existeUsuarioPuntaje(string s, int id_Penca);
+        bool perteneceUsuarioPenca(DTUsuarioPenca dp);
     }
 }

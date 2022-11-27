@@ -4,6 +4,7 @@ using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,5 +30,8 @@ namespace DataAccesLayer.Interfaces
 
         //Agregar Pronostico
         bool setPronostico(DTPronostico dp);
+
+        //Agregar Usuario a Penca
+        bool setUsuarioPenca(DTUsuarioPenca dp);
     }
 }

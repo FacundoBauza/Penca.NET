@@ -38,6 +38,7 @@ namespace DataAccesLayer.Models
         public DbSet<PorcentajesPremios> porcentajePremios { get; set; }
         public DbSet<PencaUsuario_Compartidas> pencaUsuarioCompartida { get; set; }
         public DbSet<PencaUsuario_Empresariales> pencaUsuarioEmpresarial { get; set; }
+        public DbSet<UsuarioPuntajes> usuarioPuntajes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

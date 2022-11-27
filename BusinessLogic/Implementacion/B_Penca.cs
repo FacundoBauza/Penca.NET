@@ -6,6 +6,7 @@ using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -210,6 +211,30 @@ namespace BusinessLogic.Implementacion
                     return men;
                 }
             }  
+        }
+
+        //Agregar Usuario a Penca
+        MensajesEnum IB_Penca.agregar_usuarioPenca(DTUsuarioPenca dp)
+        {
+            MensajesEnum men = new MensajesEnum();
+            if (_fu.perteneceUsuarioPenca(dp))
+            {
+                men.El_Usuario_Ya_Participa_de_la_Penca();
+                return men;
+            }
+            else
+            {
+                if (_dal.setUsuarioPenca(dp) == true)
+                {
+                    men.El_Usuario_se_agrego_correctamente_a_la_Penca();
+                    return men;
+                }
+                else
+                {
+                    men.Exepcion_no_Controlada();
+                    return men;
+                }
+            }
         }
 
     }

@@ -330,6 +330,25 @@ namespace DataAccesLayer.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("DataAccesLayer.Models.UsuarioPuntajes", b =>
+                {
+                    b.Property<string>("username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("id_Penca")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("esCompartida")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("puntaje")
+                        .HasColumnType("int");
+
+                    b.HasKey("username", "id_Penca", "esCompartida");
+
+                    b.ToTable("Usuarios_Puntaje");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
