@@ -1,3 +1,0 @@
-PencaNet_Movil.MainActivity, PencaNet_Movil;crc646de27315b49b6f58.MainActivity
-PencaNet_Movil.MainActivity;crc646de27315b49b6f58.MainActivity
-pencanet_movil.MainActivity;crc646de27315b49b6f58.MainActivity

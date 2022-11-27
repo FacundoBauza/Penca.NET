@@ -30,5 +30,6 @@ namespace DataAccesLayer.Interfaces
         bool existeUsuario(string nombre);
         bool existeEvento(DTEvento de);
         bool existePronostico(DTPronostico dp);
+        bool existeSubscripcion(DTSubscripcion ds);
     }
 }

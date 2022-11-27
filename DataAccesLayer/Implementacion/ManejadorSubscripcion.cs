@@ -13,9 +13,13 @@ namespace DataAccesLayer.Implementacion
     public class ManejadorSubscripcion: I_ManejadorSubscripcion
     {
         private readonly SolutionContext _db;
-        public ManejadorSubscripcion(SolutionContext db)
+        private I_Functions _fu;
+        private I_Casteos _cas;
+        public ManejadorSubscripcion(SolutionContext db, I_Functions fu, I_Casteos cas)
         {
             _db = db;
+            _fu = fu;
+            _cas = cas;
         }
         //Agregar Suscripcion => Etapa: Sin Empezar
         bool I_ManejadorSubscripcion.set_Subscripcion(DTSubscripcion s)

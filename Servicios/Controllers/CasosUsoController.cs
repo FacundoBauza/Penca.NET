@@ -29,5 +29,12 @@ namespace Servicios.Controllers
         {
             return fu.obtenerPronosticos_Usuario(username, id_Penca);
         }
+
+        //Listar Pronosticos/Usuario
+        [HttpGet("/api/listarPuntajeUsuarioPenca")]
+        public int listarPuntajeUsuarioPenca(string username, int id_Penca, bool esCompartida)
+        {
+            return fu.obtenerPuntaje_UsuarioPenca(username, id_Penca, esCompartida);
+        }
     }
 }

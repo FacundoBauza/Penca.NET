@@ -81,5 +81,10 @@ namespace BusinessLogic.Implementacion
         {
             return _dal.getPronosticos_Usuario(username, id_Penca);
         }
+
+        int IB_CasosUso.obtenerPuntaje_UsuarioPenca(string username, int id_Penca, bool esCompartida)
+        {
+            return _dal.getPuntaje_UsuarioPenca(username, id_Penca, esCompartida);
+        }
     }
 }

@@ -65,5 +65,85 @@ namespace DataAccesLayer.Implementacion
             else
                 return null;
         }
+
+        int I_CasosUso.getPuntaje_UsuarioPenca(string username, int id_Penca, bool esCompartida)
+        {
+            List<DTPronostico> aux = new List<DTPronostico>();
+            List<Eventos> auxX = new List<Eventos>();
+            int cont = 0;
+            int id_Torneo = 0;
+
+            foreach (Pronostico x in _db.Pronosticos)
+            {
+                if (x.id_Penca == id_Penca && x.Username_Usuario.Equals(username))
+                {
+                    aux.Add(_cas.castDTPronostico(x));
+                }
+            }
+
+            if (esCompartida == true)
+            {
+                foreach (PencaCompartidas p in _db.PencasCompartidas)
+                {
+                    if(p.id_PencaCompartida == id_Penca)
+                    {
+                        id_Torneo = p.id_Torneo;
+                    }
+                }
+            }
+            else
+            {
+                foreach (PencaEmpresariales p in _db.PencasEmpresariales)
+                {
+                    if (p.id_PencaEmpresarial == id_Penca)
+                    {
+                        id_Torneo = p.id_Torneo;
+                    }
+                }
+            }
+
+            foreach(Eventos e in _db.Eventos)
+            {
+                if(e.id_Torneo == id_Torneo)
+                {
+                    auxX.Add(e);
+                }
+            }
+
+            foreach (DTPronostico p1 in aux)
+            {
+                foreach(Eventos e1 in auxX)
+                {
+                    if(p1.id_Evento == e1.id_Evento)
+                    {
+                        //Esto evalua que la fecha actual es menor a la del evento para saber
+                        //si el evento ya paso.
+                        if (DateTime.Compare(DateTime.Today, e1.fechaHora) > 0)
+                        {
+                            if (e1.resultado.Equals("EMPATE") && p1.golesEquipo1 == p1.golesEquipo2)
+                            {
+                                cont = cont + 1;
+                            }
+                            else if (e1.resultado.Equals("EQUIPO1") && p1.golesEquipo1 > p1.golesEquipo2)
+                            {
+                                cont = cont + 3;
+                            }
+                            else if (e1.resultado.Equals("EQUIPO2") && p1.golesEquipo1 < p1.golesEquipo2)
+                            {
+                                cont = cont + 3;
+                            }
+
+
+                            if(p1.golesEquipo1.ToString().Equals(e1.golesEquipo1) && p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
+                            {
+                                cont= cont + 2;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return cont;
+        }
     }
 }

@@ -204,5 +204,16 @@ namespace DataAccesLayer.Implementacion
             else
                 return false;
         }
+
+        bool I_Functions.existeSubscripcion(DTSubscripcion ds)
+        {
+            foreach(Subscripciones s in _db.Subscripciones)
+            {
+                if (s.id_PencaEmpresarial == ds.id_PencaEmpresarial && s.Username_Usuario.Equals(ds.Username_Usuario))
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
