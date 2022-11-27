@@ -122,7 +122,7 @@ namespace DataAccesLayer.Implementacion
                         {
                             if (e1.resultado.Equals("EMPATE") && p1.golesEquipo1 == p1.golesEquipo2)
                             {
-                                cont = cont + 1;
+                                cont = cont + 3;
                             }
                             else if (e1.resultado.Equals("EQUIPO1") && p1.golesEquipo1 > p1.golesEquipo2)
                             {
@@ -134,9 +134,14 @@ namespace DataAccesLayer.Implementacion
                             }
 
 
-                            if(p1.golesEquipo1.ToString().Equals(e1.golesEquipo1) && p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
+                            if(p1.golesEquipo1.ToString().Equals(e1.golesEquipo1))
                             {
-                                cont= cont + 2;
+                                cont= cont + 1;
+                            }
+
+                            if (p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
+                            {
+                                cont = cont + 1;
                             }
                         }
                     }
