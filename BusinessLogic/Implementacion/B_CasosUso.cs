@@ -57,12 +57,12 @@ namespace BusinessLogic.Implementacion
             return _fu.obtenerSubscripciones_Usuario(username);
         }
 
-        List<DTUsuario> IB_CasosUso.obtenerUsuarios_PencaCompartida(int id_Penca)
+        List<string> IB_CasosUso.obtenerUsuarios_PencaCompartida(int id_Penca)
         {
             return _fu.obtenerUsuarios_PencaCompartida(id_Penca);
         }
 
-        List<DTUsuario> IB_CasosUso.obtenerUsuarios_PencaEmpresarial(int id_Penca)
+        List<string> IB_CasosUso.obtenerUsuarios_PencaEmpresarial(int id_Penca)
         {
             return _fu.obtenerUsuarios_PencaEmpresarial(id_Penca);
         }
@@ -82,9 +82,9 @@ namespace BusinessLogic.Implementacion
             return _dal.getPronosticos_Usuario(username, id_Penca);
         }
 
-        int IB_CasosUso.obtenerPuntaje_UsuarioPenca(string username, int id_Penca, bool esCompartida)
+        List<DTPuntosUsuarioFront> IB_CasosUso.obtenerPuntaje_UsuarioPenca(int id_Penca, bool esCompartida)
         {
-            return _dal.getPuntaje_UsuarioPenca(username, id_Penca, esCompartida);
+            return _dal.getPuntaje_UsuarioPenca(id_Penca, esCompartida);
         }
     }
 }

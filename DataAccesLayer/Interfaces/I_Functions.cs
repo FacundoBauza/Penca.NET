@@ -16,11 +16,11 @@ namespace DataAccesLayer.Interfaces
         List<DTPencaEmpresarial> obtenerPencaEmpresarial_Usuario(string username);
         DTTorneo obtenerTorneo_Penca(int id_Penca);
         List<DTSubscripcion> obtenerSubscripciones_Usuario(string username);
-        List<DTUsuario> obtenerUsuarios_PencaCompartida(int id_Penca);
-        List<DTUsuario> obtenerUsuarios_PencaEmpresarial(int id_Penca);
+        List<string> obtenerUsuarios_PencaCompartida(int id_Penca);
+        List<string> obtenerUsuarios_PencaEmpresarial(int id_Penca);
         DTPencaEmpresarial obtenerInfo_PencaEmpresarial(int id_Penca);
         DTPencaCompartida obtenerInfo_PencaCompartida(int id_Penca);
-
+        Users retornarUsuasrio(string username);
 
         //Chequeos
         bool existePencaCompartida(string nombre);

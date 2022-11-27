@@ -11,6 +11,6 @@ namespace DataAccesLayer.Interfaces
     {
         List<DTEvento> getEventosTorneo(int id);
         List<DTPronostico> getPronosticos_Usuario(string username, int id_Penca);
-        int getPuntaje_UsuarioPenca(string username, int id_Penca, bool esCompartida);
+        List<DTPuntosUsuarioFront> getPuntaje_UsuarioPenca(int id_Penca, bool esCompartida);
     }
 }

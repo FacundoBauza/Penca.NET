@@ -14,7 +14,6 @@ C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.GeneratedM
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.AssemblyInfoInputs.cache
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.AssemblyInfo.cs
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.csproj.CoreCompileInputs.cache
-C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets.development.json

@@ -26,6 +26,20 @@ namespace DataAccesLayer.Implementacion
             return dTPronostico;
         }
 
+        public DTUsuario castDTUsuario(Users x)
+        {
+            DTUsuario dTUsuario = new DTUsuario()
+            {
+                Id = x.Id,
+                Username = x.UserName,
+                Nombre = x.nombre,
+                Apellido = x.apellido,
+                Email = x.Email
+            };
+
+            return dTUsuario;
+        }
+
         DTEvento I_Casteos.castDTEvento(Eventos x)
         {
             DTEvento dTEvento = new DTEvento()
@@ -69,5 +83,6 @@ namespace DataAccesLayer.Implementacion
 
             return dTPenca;
         }
+
     }
 }

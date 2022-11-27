@@ -73,14 +73,33 @@ namespace DataAccesLayer.Implementacion
             throw new NotImplementedException();
         }
 
-        List<DTUsuario> I_Functions.obtenerUsuarios_PencaCompartida(int id_Penca)
+        List<string> I_Functions.obtenerUsuarios_PencaCompartida(int id_Penca)
         {
-            throw new NotImplementedException();
+            List<string> us = new List<string>();
+            
+            foreach (PencaUsuario_Compartidas p in _db.pencaUsuarioCompartida)
+            {
+                if (p.id_PencaCompartida == id_Penca)
+                {
+                    us.Add(p.Username_Usuario);
+                }
+            }
+
+            return us;
         }
 
-        List<DTUsuario> I_Functions.obtenerUsuarios_PencaEmpresarial(int id_Penca)
+        List<string> I_Functions.obtenerUsuarios_PencaEmpresarial(int id_Penca)
         {
-            throw new NotImplementedException();
+            List<string> us = new List<string>();
+            foreach (PencaUsuario_Empresariales p in _db.pencaUsuarioEmpresarial)
+            {
+                if (p.id_PencaEmpresarial == id_Penca)
+                {
+                    us.Add(p.Username_Usuario);
+                }
+            }
+
+            return us;
         }
 
         DTPencaEmpresarial I_Functions.obtenerInfo_PencaEmpresarial(int id_Penca)
@@ -91,6 +110,19 @@ namespace DataAccesLayer.Implementacion
         DTPencaCompartida I_Functions.obtenerInfo_PencaCompartida(int id_Penca)
         {
             throw new NotImplementedException();
+        }
+
+        Users I_Functions.retornarUsuasrio(string username)
+        {
+            foreach(Users y in _db.Users)
+            {
+                if (y.UserName.Equals(username))
+                {
+                    return y;
+                }
+            }
+
+            return null;
         }
 
 

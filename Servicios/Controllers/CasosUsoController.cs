@@ -32,9 +32,9 @@ namespace Servicios.Controllers
 
         //Listar Pronosticos/Usuario
         [HttpGet("/api/listarPuntajeUsuarioPenca")]
-        public int listarPuntajeUsuarioPenca(string username, int id_Penca, bool esCompartida)
+        public List<DTPuntosUsuarioFront> listarPuntajeUsuarioPenca(int id_Penca, bool esCompartida)
         {
-            return fu.obtenerPuntaje_UsuarioPenca(username, id_Penca, esCompartida);
+            return fu.obtenerPuntaje_UsuarioPenca(id_Penca, esCompartida);
         }
     }
 }

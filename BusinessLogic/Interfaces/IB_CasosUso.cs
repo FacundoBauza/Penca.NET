@@ -17,8 +17,8 @@ namespace BusinessLogic.Interfaces
         List<DTPencaEmpresarial> obtenerPencaEmpresarial_Usuario(string username);
         DTTorneo obtenerTorneo_Penca(int id_Penca);
         List<DTSubscripcion> obtenerSubscripciones_Usuario(string username);
-        List<DTUsuario> obtenerUsuarios_PencaCompartida(int id_Penca);
-        List<DTUsuario> obtenerUsuarios_PencaEmpresarial(int id_Penca);
+        List<string> obtenerUsuarios_PencaCompartida(int id_Penca);
+        List<string> obtenerUsuarios_PencaEmpresarial(int id_Penca);
         DTPencaEmpresarial obtenerInfo_PencaEmpresarial(int id_Penca);
         DTPencaCompartida obtenerInfo_PencaCompartida(int id_Penca);
 
@@ -27,6 +27,6 @@ namespace BusinessLogic.Interfaces
         List<DTEvento> obtenerEventos_Torneo(int id_Torneo);
         List<DTEvento> obtenerEventosTorneo(int id);
         List<DTPronostico> obtenerPronosticos_Usuario(string username, int id_Penca);
-        int obtenerPuntaje_UsuarioPenca(string username, int id_Penca, bool esCompartida);
+        List<DTPuntosUsuarioFront> obtenerPuntaje_UsuarioPenca(int id_Penca, bool esCompartida);
     }
 }

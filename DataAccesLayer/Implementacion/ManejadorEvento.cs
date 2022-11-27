@@ -54,7 +54,7 @@ namespace DataAccesLayer.Implementacion
             aux.golesEquipo1 = e.golesEquipo1;
             aux.golesEquipo2 = e.golesEquipo2;
             aux.resultado = e.resultado;
-            aux.fechaHora = e.fechaHora;
+            //aux.fechaHora = e.fechaHora;
             aux.id_Torneo = e.torneo;
 
             try
