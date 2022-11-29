@@ -203,24 +203,25 @@ namespace DataAccesLayer.Implementacion
             }
 
             foreach(string s1 in u) 
-            { 
+            {
                 foreach (Pronostico p1 in aux)
                 {
                     if (p1.Username_Usuario.Equals(s1))
                     {
                         foreach (Eventos e1 in auxX)
                         {
-                            if(e1.id_Evento == p1.id_Evento)
+                            if (e1.id_Evento == p1.id_Evento)
                             {
-                                if (e1.resultado.Equals("EMPATE") && p1.golesEquipo1 == p1.golesEquipo2)
+
+                                if ((e1.golesEquipo1 == e1.golesEquipo2) && (p1.golesEquipo1 == p1.golesEquipo2))
                                 {
                                     cont = cont + 3;
                                 }
-                                else if (e1.resultado.Equals("EQUIPO1") && p1.golesEquipo1 > p1.golesEquipo2)
+                                else if (Int32.Parse(e1.golesEquipo1) > Int32.Parse(e1.golesEquipo2) && p1.golesEquipo1 > p1.golesEquipo2)
                                 {
                                     cont = cont + 3;
                                 }
-                                else if (e1.resultado.Equals("EQUIPO2") && p1.golesEquipo1 < p1.golesEquipo2)
+                                else if (Int32.Parse(e1.golesEquipo1) < Int32.Parse(e1.golesEquipo2) && p1.golesEquipo1 < p1.golesEquipo2)
                                 {
                                     cont = cont + 3;
                                 }
@@ -235,10 +236,12 @@ namespace DataAccesLayer.Implementacion
                                 {
                                     cont = cont + 1;
                                 }
+
                             }
                         }
                     }
                 }
+
                 UsuarioPuntajes auxd = null;
 
                 if (_fu.existeUsuarioPuntaje(s1, id_Penca) == true)
