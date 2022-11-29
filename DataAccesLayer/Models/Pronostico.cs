@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DataAccesLayer.Models
 {
     [Table(name: "Pronostico")]
-    [PrimaryKey(nameof(Username_Usuario), nameof(id_Evento))]
+    [PrimaryKey(nameof(Username_Usuario), nameof(id_Evento), nameof(id_Penca))]
     public class Pronostico
     {
         public int golesEquipo1 { get; set; }
@@ -22,6 +22,7 @@ namespace DataAccesLayer.Models
         [ForeignKey("Evento")]
         public int id_Evento { get; set; }
 
+        [ForeignKey("Penca")]
         public int id_Penca { get; set; }
 
         public bool esCompartida { get; set; }

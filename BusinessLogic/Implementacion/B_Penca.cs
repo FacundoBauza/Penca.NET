@@ -187,7 +187,7 @@ namespace BusinessLogic.Implementacion
             MensajesEnum men = new MensajesEnum();
             if (_fu.existePronostico(dp))
             {
-                if (_dal.setPronostico(dp) == true)
+                if (_dal.setPronostico(dp, true) == true)
                 {
                     men.El_Pronostico_se_actualizo_correctamente();
                     return men;
@@ -200,7 +200,7 @@ namespace BusinessLogic.Implementacion
             }
             else
             {
-                if (_dal.setPronostico(dp) == true)
+                if (_dal.setPronostico(dp, false) == true)
                 {
                     men.El_Pronostico_se_agrego_correctamente();
                     return men;

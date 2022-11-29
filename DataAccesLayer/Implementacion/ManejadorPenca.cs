@@ -195,38 +195,49 @@ namespace DataAccesLayer.Implementacion
         }
 
         //Agregar Pronostico
-        bool I_ManejadorPenca.setPronostico(DTPronostico dp)
+        bool I_ManejadorPenca.setPronostico(DTPronostico dp, bool existe)
         {
             Pronostico aux = null;
 
-            if (_fu.existePronostico(dp))
+            if (existe == true)
             {
-                try
-                {
-                    foreach(Pronostico x in _db.Pronosticos)
-                    {
-                        if(x.Username_Usuario.Equals(dp.username) && x.id_Evento == dp.id_Evento)
-                        {
-                            aux = x;
-                        }
-                    }
+                 try
+                 {
+                     foreach(Pronostico x in _db.Pronosticos)
+                     {
+                         if(x.Username_Usuario.Equals(dp.username) && x.id_Evento == dp.id_Evento && x.id_Penca == dp.id_Penca)
+                         {
+                             aux = x;
+                         }
+                     }
 
-                    aux.golesEquipo1 = dp.golesEquipo1;
-                    aux.golesEquipo2 = dp.golesEquipo2;
-                    aux.esCompartida = dp.esCompartida;
+                     aux.golesEquipo1 = dp.golesEquipo1;
+                     aux.golesEquipo2 = dp.golesEquipo2;
+                     aux.esCompartida = dp.esCompartida;
+                    aux.id_Evento= dp.id_Evento;
+                    aux.id_Penca = dp.id_Penca;
+                    aux.Username_Usuario = dp.username;
 
-                    _db.Update(aux);
-                    _db.SaveChanges();
-                }
-                catch
-                {
-                    return false;
-                }
-                return true;
+                     _db.Update(aux);
+                     _db.SaveChanges();
+
+                 }
+                 catch
+                 {
+                     return false;
+                 }
+                 return true;
             }
             else
             {
-                aux = Pronostico.GetObjetAdd(dp);
+                aux = new Pronostico()
+                {
+                    Username_Usuario = dp.username,
+                    id_Penca = dp.id_Penca,
+                    id_Evento = dp.id_Evento,
+                    golesEquipo1 = dp.golesEquipo1,
+                    golesEquipo2 = dp.golesEquipo2
+                };
                 try
                 {
                     _db.Pronosticos.Add(aux);

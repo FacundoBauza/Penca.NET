@@ -29,7 +29,7 @@ namespace DataAccesLayer.Interfaces
         bool delete_PencaEmpresarial(int id_PencaL);
 
         //Agregar Pronostico
-        bool setPronostico(DTPronostico dp);
+        bool setPronostico(DTPronostico dp, bool existe);
 
         //Agregar Usuario a Penca
         bool setUsuarioPenca(DTUsuarioPenca dp);

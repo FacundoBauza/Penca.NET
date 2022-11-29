@@ -4,6 +4,7 @@ using DataAccesLayer.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccesLayer.Migrations
 {
     [DbContext(typeof(SolutionContext))]
-    partial class SolutionContextModelSnapshot : ModelSnapshot
+    [Migration("20221129051723_Migrations17")]
+    partial class Migrations17
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -196,9 +199,6 @@ namespace DataAccesLayer.Migrations
                     b.Property<int>("id_Evento")
                         .HasColumnType("int");
 
-                    b.Property<int>("id_Penca")
-                        .HasColumnType("int");
-
                     b.Property<bool>("esCompartida")
                         .HasColumnType("bit");
 
@@ -208,7 +208,10 @@ namespace DataAccesLayer.Migrations
                     b.Property<int>("golesEquipo2")
                         .HasColumnType("int");
 
-                    b.HasKey("Username_Usuario", "id_Evento", "id_Penca");
+                    b.Property<int>("id_Penca")
+                        .HasColumnType("int");
+
+                    b.HasKey("Username_Usuario", "id_Evento");
 
                     b.ToTable("Pronostico");
                 });
