@@ -43,5 +43,12 @@ namespace Servicios.Controllers
         {
             return fu.obtenerPuntaje_UsuarioPenca(id_Penca, esCompartida);
         }
+
+        //Listar Usuario Penca
+        [HttpGet("/api/listarUsuarioPenca")]
+        public List<DTUsuario> listarUsuarioPenca(int id_Penca, bool esCompartida)
+        {
+            return fu.listarUsuariosPenca(id_Penca, esCompartida);
+        }
     }
 }

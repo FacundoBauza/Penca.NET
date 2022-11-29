@@ -212,31 +212,28 @@ namespace DataAccesLayer.Implementacion
                         {
                             if(e1.id_Evento == p1.id_Evento)
                             {
-                                if (DateTime.Compare(DateTime.Today, e1.fechaHora) > 0)
+                                if (e1.resultado.Equals("EMPATE") && p1.golesEquipo1 == p1.golesEquipo2)
                                 {
-                                    if (e1.resultado.Equals("EMPATE") && p1.golesEquipo1 == p1.golesEquipo2)
-                                    {
-                                        cont = cont + 3;
-                                    }
-                                    else if (e1.resultado.Equals("EQUIPO1") && p1.golesEquipo1 > p1.golesEquipo2)
-                                    {
-                                        cont = cont + 3;
-                                    }
-                                    else if (e1.resultado.Equals("EQUIPO2") && p1.golesEquipo1 < p1.golesEquipo2)
-                                    {
-                                        cont = cont + 3;
-                                    }
+                                    cont = cont + 3;
+                                }
+                                else if (e1.resultado.Equals("EQUIPO1") && p1.golesEquipo1 > p1.golesEquipo2)
+                                {
+                                    cont = cont + 3;
+                                }
+                                else if (e1.resultado.Equals("EQUIPO2") && p1.golesEquipo1 < p1.golesEquipo2)
+                                {
+                                    cont = cont + 3;
+                                }
 
 
-                                    if (p1.golesEquipo1.ToString().Equals(e1.golesEquipo1))
-                                    {
-                                        cont = cont + 1;
-                                    }
+                                if (p1.golesEquipo1.ToString().Equals(e1.golesEquipo1))
+                                {
+                                    cont = cont + 1;
+                                }
 
-                                    if (p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
-                                    {
-                                        cont = cont + 1;
-                                    }
+                                if (p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
+                                {
+                                    cont = cont + 1;
                                 }
                             }
                         }
@@ -267,6 +264,43 @@ namespace DataAccesLayer.Implementacion
                 }
                 cont= 0;
             }
+        }
+
+        List<DTUsuario> I_CasosUso.getUsuariosPenca(int id_Penca, bool esCompartida)
+        {
+            List<string> u = null;
+            DTUsuario x = null;
+            List<DTUsuario> aux = new List<DTUsuario>();
+
+            if(esCompartida == true)
+            {
+                u = _fu.obtenerUsuarios_PencaCompartida(id_Penca);
+            }
+            else
+            {
+                u = _fu.obtenerUsuarios_PencaEmpresarial(id_Penca);
+            }
+
+            foreach(string s in u)
+            {
+                foreach(Users us in _db.Users)
+                {
+                    if (us.UserName.Equals(s))
+                    {
+                        x = new DTUsuario()
+                        {
+                            Id = us.Id,
+                            Nombre = us.nombre,
+                            Apellido = us.apellido,
+                            Email = us.Email,
+                            Username = us.UserName,
+                        };
+                        aux.Add(x);
+                    }
+                }
+            }
+
+            return aux;
         }
     }
 }

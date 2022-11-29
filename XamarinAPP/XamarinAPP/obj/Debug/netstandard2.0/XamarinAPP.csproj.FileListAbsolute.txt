@@ -18,3 +18,4 @@ C:\Users\visua\Desktop\Penca.NET\XamarinAPP\XamarinAPP\obj\Debug\netstandard2.0\
 C:\Users\visua\Desktop\Penca.NET\XamarinAPP\XamarinAPP\obj\Debug\netstandard2.0\refint\XamarinAPP.dll
 C:\Users\visua\Desktop\Penca.NET\XamarinAPP\XamarinAPP\obj\Debug\netstandard2.0\XamarinAPP.pdb
 C:\Users\visua\Desktop\Penca.NET\XamarinAPP\XamarinAPP\obj\Debug\netstandard2.0\ref\XamarinAPP.dll
+C:\Users\visua\Desktop\Penca.NET\XamarinAPP\XamarinAPP\obj\Debug\netstandard2.0\Views\Home.xaml.g.cs

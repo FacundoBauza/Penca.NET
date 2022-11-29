@@ -91,5 +91,10 @@ namespace BusinessLogic.Implementacion
         {
             _dal.updatePuntaje_UsuarioPenca(id_Penca, esCompartida);
         }
+
+        List<DTUsuario> IB_CasosUso.listarUsuariosPenca(int id_Penca, bool esCompartida)
+        {
+            return _dal.getUsuariosPenca(id_Penca, esCompartida);
+        }
     }
 }
