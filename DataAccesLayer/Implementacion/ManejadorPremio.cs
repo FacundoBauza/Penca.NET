@@ -1,31 +1,85 @@
 ﻿using DataAccesLayer.Interfaces;
+using DataAccesLayer.Models;
+using Dominio.DT;
 using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Intrinsics.X86;
 using System.Threading.Tasks;
 
 namespace DataAccesLayer.Implementacion
 {
     public class ManejadorPremio : I_ManejadorPremio
     {
-        //Otorgar Premio => Etapa: Sin Empezar
-        bool I_ManejadorPremio.set_Premio(Premio p)
+
+        private readonly SolutionContext _db;
+
+        public ManejadorPremio(SolutionContext db)
         {
-            throw new NotImplementedException();
+            _db = db;
         }
+        //Otorgar Premio => Etapa: Sin Empezar
+        bool I_ManejadorPremio.set_Premio(DTPremio p)
+        {
+
+            Premios aux = Premios.GetObjetAdd(p);
+
+            try
+            {
+                _db.Premios.Add(aux);
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+    
 
         //Listar Premios => Etapa: Sin Empezar
-        List<Premio> I_ManejadorPremio.get_Premios(int id_Usuario)
+        List<DTPremio> I_ManejadorPremio.get_Premios()
         {
-            throw new NotImplementedException();
+            List<DTPremio> list = _db.Premios.Select(x => x.GetEntity())
+                                          .ToList();
+            return list;
+
         }
 
         //Cobrar Premio => Etapa: Sin Empezar
-        bool I_ManejadorPremio.Cobrar_Premio(int id_usuario, int id_Penca)
+        bool I_ManejadorPremio.Pagar_Premio(string username, int id_Penca)
         {
-            throw new NotImplementedException();
+            Premios aux = null;
+
+            foreach (Premios x in _db.Premios)
+            {
+                if (x.Username_Usuario == username && x.id_PencaCompartida == id_Penca)
+                {
+                    aux = x;
+                }
+            }
+            if (aux != null)
+            {
+                aux.pago = true;
+
+
+                try
+                {
+                    _db.Update(aux);
+                    _db.SaveChanges();
+                }
+                catch
+                {
+                    return false;
+                }
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

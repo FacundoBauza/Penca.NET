@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.Interfaces;
 using DataAccesLayer.Interfaces;
+using Dominio.DT;
 using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
@@ -18,21 +19,21 @@ namespace BusinessLogic.Implementacion
         } 
 
         //Otorgar Premio
-        bool IB_Premio.agregar_Premio(Premio p)
+        bool IB_Premio.agregar_Premio(DTPremio p)
         {
             return _dal.set_Premio(p);
         }
 
         //Listar Premios
-        List<Premio> IB_Premio.listar_Premios(int id_Usuario)
+        List<DTPremio> IB_Premio.listar_Premios()
         {
-            return _dal.get_Premios(id_Usuario);
+            return _dal.get_Premios();
         }
 
         //Cobrar Premio
-        bool IB_Premio.Cobrar_Premio(int id_usuario, int id_Penca)
+        bool IB_Premio.Pagar_Premio(string username, int id_Penca)
         {
-            return _dal.Cobrar_Premio(id_usuario, id_Penca);
+            return _dal.Pagar_Premio(username, id_Penca);
         }
     }
 }

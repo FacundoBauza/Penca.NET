@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DT;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,12 @@ namespace DataAccesLayer.Interfaces
     public interface I_ManejadorPremio
     {
         //Otorgar Premio
-        bool set_Premio(Premio p);
+        bool set_Premio(DTPremio p);
 
         //Listar Premios
-        List<Premio> get_Premios(int id_Usuario);
+        List<DTPremio> get_Premios();
 
         //Cobrar Premio
-        bool Cobrar_Premio(int id_usuario, int id_Penca);
+        bool Pagar_Premio(string username, int id_Penca);
     }
 }

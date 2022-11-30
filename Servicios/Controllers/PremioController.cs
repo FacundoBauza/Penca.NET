@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Interfaces;
+using Dominio.DT;
 using Dominio.Entidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,23 +18,23 @@ namespace Servicios.Controllers
 
         //Agregar
         [HttpPost("/api/agregarPremio")]
-        public ActionResult<Torneo> Post([FromBody] Premio value)
+        public ActionResult<DTPremio> Post([FromBody] DTPremio value)
         {
             return Ok(bl.agregar_Premio(value));
         }
 
         //Listar
-        [HttpGet("/api/listarPremios/{id_User:int}")]
-        public List<Premio> Get(int id_User)
+        [HttpGet("/api/listarPremios")]
+        public List<DTPremio> Get()
         {
-            return bl.listar_Premios(id_User);
+            return bl.listar_Premios();
         }
 
         //Cobrar Premio    
-        [HttpPut("/api/cobrarPremio/{id_User:int}/{id_Penca:int}")]
-        public ActionResult<Premio> Put(int id_User, int id_Penca)
+        [HttpPut("/api/pagarPremio/{username}/{id_Penca:int}")]
+        public ActionResult<DTPremio> Put(string username, int id_Penca)
         {
-            return Ok(bl.Cobrar_Premio(id_User, id_Penca));
+            return Ok(bl.Pagar_Premio(username, id_Penca));
         }
     }
 }

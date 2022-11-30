@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Dominio.DT;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,12 @@ namespace BusinessLogic.Interfaces
     public interface IB_Premio
     {
         //Otorgar Premio
-        bool agregar_Premio(Premio p);
+        bool agregar_Premio(DTPremio p);
 
         //Listar Premios
-        List<Premio> listar_Premios(int id_Usuario);
+        List<DTPremio> listar_Premios();
 
         //Cobrar Premio
-        bool Cobrar_Premio(int id_usuario, int id_Penca);
+        bool Pagar_Premio(string username, int id_Penca);
     }
 }
