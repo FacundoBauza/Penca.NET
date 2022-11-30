@@ -14,5 +14,6 @@ namespace Dominio.DT
         public string nombre { get; set; }
         public string usuario_creador { get; set; }
         public int torneo { get; set; }
+        public bool esCompartida { get; set; }
     }
 }

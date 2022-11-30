@@ -213,10 +213,6 @@ namespace DataAccesLayer.Implementacion
 
                      aux.golesEquipo1 = dp.golesEquipo1;
                      aux.golesEquipo2 = dp.golesEquipo2;
-                     aux.esCompartida = dp.esCompartida;
-                    aux.id_Evento= dp.id_Evento;
-                    aux.id_Penca = dp.id_Penca;
-                    aux.Username_Usuario = dp.username;
 
                      _db.Update(aux);
                      _db.SaveChanges();
@@ -236,7 +232,8 @@ namespace DataAccesLayer.Implementacion
                     id_Penca = dp.id_Penca,
                     id_Evento = dp.id_Evento,
                     golesEquipo1 = dp.golesEquipo1,
-                    golesEquipo2 = dp.golesEquipo2
+                    golesEquipo2 = dp.golesEquipo2,
+                    esCompartida = dp.esCompartida
                 };
                 try
                 {

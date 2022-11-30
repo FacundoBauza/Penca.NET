@@ -64,7 +64,8 @@ namespace DataAccesLayer.Implementacion
                 id = x.id_PencaCompartida,
                 nombre = x.nombre,
                 criterioPremio = x.id_CriterioPremio,
-                torneo = x.id_Torneo
+                torneo = x.id_Torneo,
+                esCompartida = true
             };
 
             return dTPenca;
@@ -78,7 +79,8 @@ namespace DataAccesLayer.Implementacion
                 link = x.link,
                 nombre = x.nombre,
                 usuario_creador = x.Username_UsuarioCreador,
-                torneo = x.id_Torneo
+                torneo = x.id_Torneo,
+                esCompartida = false
             };
 
             return dTPenca;

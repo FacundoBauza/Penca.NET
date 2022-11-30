@@ -210,33 +210,36 @@ namespace DataAccesLayer.Implementacion
                     {
                         foreach (Eventos e1 in auxX)
                         {
-                            if (e1.id_Evento == p1.id_Evento)
+                            if (e1.golesEquipo1 != "" && e1.golesEquipo1 != null && e1.golesEquipo2 != "" && e1.golesEquipo2 != null)
                             {
-
-                                if ((e1.golesEquipo1 == e1.golesEquipo2) && (p1.golesEquipo1 == p1.golesEquipo2))
+                                if (e1.id_Evento == p1.id_Evento)
                                 {
-                                    cont = cont + 3;
-                                }
-                                else if (Int32.Parse(e1.golesEquipo1) > Int32.Parse(e1.golesEquipo2) && p1.golesEquipo1 > p1.golesEquipo2)
-                                {
-                                    cont = cont + 3;
-                                }
-                                else if (Int32.Parse(e1.golesEquipo1) < Int32.Parse(e1.golesEquipo2) && p1.golesEquipo1 < p1.golesEquipo2)
-                                {
-                                    cont = cont + 3;
-                                }
+
+                                    if ((e1.golesEquipo1 == e1.golesEquipo2) && (p1.golesEquipo1 == p1.golesEquipo2))
+                                    {
+                                        cont = cont + 3;
+                                    }
+                                    else if (Int32.Parse(e1.golesEquipo1) > Int32.Parse(e1.golesEquipo2) && p1.golesEquipo1 > p1.golesEquipo2)
+                                    {
+                                        cont = cont + 3;
+                                    }
+                                    else if (Int32.Parse(e1.golesEquipo1) < Int32.Parse(e1.golesEquipo2) && p1.golesEquipo1 < p1.golesEquipo2)
+                                    {
+                                        cont = cont + 3;
+                                    }
 
 
-                                if (p1.golesEquipo1.ToString().Equals(e1.golesEquipo1))
-                                {
-                                    cont = cont + 1;
-                                }
+                                    if (p1.golesEquipo1.ToString().Equals(e1.golesEquipo1))
+                                    {
+                                        cont = cont + 1;
+                                    }
 
-                                if (p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
-                                {
-                                    cont = cont + 1;
-                                }
+                                    if (p1.golesEquipo2.ToString().Equals(e1.golesEquipo2))
+                                    {
+                                        cont = cont + 1;
+                                    }
 
+                                }
                             }
                         }
                     }
