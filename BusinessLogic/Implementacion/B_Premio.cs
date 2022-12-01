@@ -35,5 +35,11 @@ namespace BusinessLogic.Implementacion
         {
             return _dal.Pagar_Premio(username, id_Penca);
         }
+
+        //listar porcentajes
+        List<int> IB_Premio.listarPorcentajes(int id_Criterio)
+        {
+            return _dal.getPorcentajes(id_Criterio);
+        }
     }
 }

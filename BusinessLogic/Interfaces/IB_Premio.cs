@@ -18,5 +18,8 @@ namespace BusinessLogic.Interfaces
 
         //Cobrar Premio
         bool Pagar_Premio(string username, int id_Penca);
+
+        //Listar porcentajes
+        List<int> listarPorcentajes(int id_Criterio);
     }
 }

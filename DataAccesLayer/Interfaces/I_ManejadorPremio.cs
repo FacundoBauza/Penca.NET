@@ -18,5 +18,8 @@ namespace DataAccesLayer.Interfaces
 
         //Cobrar Premio
         bool Pagar_Premio(string username, int id_Penca);
+
+        //listar porcentajes
+        List<int> getPorcentajes(int id_Criterio);
     }
 }

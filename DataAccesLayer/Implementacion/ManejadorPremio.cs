@@ -81,5 +81,28 @@ namespace DataAccesLayer.Implementacion
                 return false;
             }
         }
+
+        //listar porcentajes
+        List<int> I_ManejadorPremio.getPorcentajes(int id_Criterio)
+        {
+            List<PorcentajesPremios> aux = _db.porcentajePremios.Select(x => x.GetEntity())
+                                            .ToList();
+
+            List<int> ret = new List<int>();
+
+            if (aux.Count() > 0)
+            {
+                foreach(PorcentajesPremios p in aux)
+                {
+                    if(p.id_CriterioPremio == id_Criterio)
+                    {
+                        ret.Add(p.porcentaje);
+                    }
+                }
+                return (List<int>)ret.OrderByDescending(x => x);
+            }
+            else
+                return null;
+        }
     }
 }
