@@ -13,6 +13,7 @@ namespace Dominio.DT
         public string nombre { get; set; }
         public int criterioPremio { get; set; }
         public int torneo { get; set; }
+        public int pozo { get; set; }
         public bool esCompartida { get; set; }
     }
 }

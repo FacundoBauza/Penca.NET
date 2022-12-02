@@ -87,22 +87,19 @@ namespace DataAccesLayer.Implementacion
         {
             List<PorcentajesPremios> aux = _db.porcentajePremios.Select(x => x.GetEntity())
                                             .ToList();
-
             List<int> ret = new List<int>();
+            List<int> ret1 = new List<int>();
 
-            if (aux.Count() > 0)
+            foreach (PorcentajesPremios p in aux)
             {
-                foreach(PorcentajesPremios p in aux)
+                ret.Add(p.porcentaje);
+                if (p.id_CriterioPremio == id_Criterio)
                 {
-                    if(p.id_CriterioPremio == id_Criterio)
-                    {
-                        ret.Add(p.porcentaje);
-                    }
+                    ret.Add(p.porcentaje);
                 }
-                return (List<int>)ret.OrderByDescending(x => x);
             }
-            else
-                return null;
+            ret1 = ret.OrderByDescending(i => i).ToList();
+            return ret1;
         }
     }
 }

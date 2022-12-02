@@ -36,5 +36,12 @@ namespace Servicios.Controllers
         {
             return Ok(bl.Pagar_Premio(username, id_Penca));
         }
+
+        //Listar Porcentajes
+        [HttpGet("/api/listarPorcentajes")]
+        public ActionResult<List<int>> listarPorcentajes(int id_Criterio)
+        {
+            return Ok(bl.listarPorcentajes(id_Criterio));
+        }
     }
 }

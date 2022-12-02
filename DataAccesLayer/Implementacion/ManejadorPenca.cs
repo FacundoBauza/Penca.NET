@@ -263,6 +263,8 @@ namespace DataAccesLayer.Implementacion
                 {
                     _db.pencaUsuarioCompartida.Add(aux);
                     _db.SaveChanges();
+
+                    _fu.actualizarPozo(dp.id_Penca);
                 }
                 catch
                 {

@@ -17,6 +17,7 @@ namespace DataAccesLayer.Models
         [Key]
         public int id_PencaCompartida { get; set; }
         public string? nombre { get; set; }
+        public int pozo { get; set; }
 
         [ForeignKey("Torneo")]
         public int id_Torneo { get; set; }
@@ -31,6 +32,7 @@ namespace DataAccesLayer.Models
             aux.nombre = pc.nombre;
             aux.id_CriterioPremio = pc.criterioPremio;
             aux.id_Torneo = pc.torneo;
+            aux.pozo = 0;
 
             return aux;
         }

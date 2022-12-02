@@ -103,12 +103,5 @@ namespace Servicios.Controllers
             MensajesEnum x = bl.agregar_Pronostico(value);
             return Ok(new StatusResponse { StatusOk = x.status, StatusMessage = x.mensaje });
         }
-
-        //Listar Porcentajes
-        [HttpPost("/api/listarPorcentajes")]
-        public ActionResult<List<int>> listarPorcentajes(int id_Criterio)
-        {
-            return Ok(bl.listarPorcentajes(id_Criterio));
-        }
     };
 }

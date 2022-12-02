@@ -114,3 +114,4 @@ C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets\msbu
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Servicios.props
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Servicios.props
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.MvcApplicationPartsAssemblyInfo.cs

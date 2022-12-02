@@ -22,6 +22,7 @@ namespace DataAccesLayer.Interfaces
         DTPencaEmpresarial obtenerInfo_PencaEmpresarial(int id_Penca);
         DTPencaCompartida obtenerInfo_PencaCompartida(int id_Penca);
         Users retornarUsuasrio(string username);
+        void actualizarPozo(int idPenca);
 
         //Chequeos
         bool existePencaCompartida(string nombre);

@@ -126,6 +126,22 @@ namespace DataAccesLayer.Implementacion
             return null;
         }
 
+        void I_Functions.actualizarPozo(int idPenca)
+        {
+            PencaCompartidas x = null;
+            foreach(PencaCompartidas p in _db.PencasCompartidas)
+            {
+                if(p.id_PencaCompartida == idPenca)
+                {
+                    x = p;
+                }
+            }
+
+            x.pozo += 250;
+            _db.Update(x);
+            _db.SaveChanges();
+        }
+
 
         //Chequeos
         bool I_Functions.existePencaCompartida(string nombre)

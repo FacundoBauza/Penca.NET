@@ -22,7 +22,8 @@ namespace DataAccesLayer.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-O6DTQ45\\ROOT;Initial Catalog=PencaNet;Encrypt=False;User ID=sa;Password=1234");
+                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-O6DTQ45\\ROOT;Initial Catalog=PencaNet;Encrypt=False;User ID=sa;Password=1234");
+                optionsBuilder.UseSqlServer("Server=tcp:facubauza.database.windows.net,1433; Initial Catalog=PencaNet; Persist Security Info=False; User ID=facubauza; Password=FacundoBauza25; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;");
             }
         }
 
