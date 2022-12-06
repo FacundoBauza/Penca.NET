@@ -15,5 +15,7 @@ namespace DataAccesLayer.Interfaces
         void updatePuntaje_UsuarioPenca(int id_Penca, bool esCompartida);
         List<DTUsuario> getUsuariosPenca(int id_Penca, bool esCompartida);
         List<DTUsuario> getUsuarios();
+        List<DTSubscripcion> getSubscripcionesUsuario(string username);
+        bool updateUsuario(string username, string pass);
     }
 }

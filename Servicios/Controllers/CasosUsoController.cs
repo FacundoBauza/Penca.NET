@@ -1,5 +1,7 @@
 ﻿using BusinessLogic.Interfaces;
+using DataAccesLayer.Models;
 using Dominio.DT;
+using Dominio.Entidades;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,6 +58,25 @@ namespace Servicios.Controllers
         public List<DTUsuario> listarUsuario()
         {
             return fu.listarUsuarios();
+        }
+
+        //Listar SubscripcionesUsuario
+        [HttpGet("/api/listarSubscripcionesUsuario")]
+        public List<DTSubscripcion> listarSubscripcionesUsuario(string username)
+        {
+            return fu.listarSubscripcionesUsuario(username);
+        }
+
+        //Actualizar Usuario
+        [HttpGet("/api/actualizarUsuario")]
+        public async bool actualizarUsuario(string username, string pass)
+        {
+            var result = await UpdatePasswordHash(passwordStore, user, password);
+            if (!result.Succeeded)
+            {
+                return result;
+            }
+            //return fu.actualizarUsuario(username, pass);
         }
     }
 }

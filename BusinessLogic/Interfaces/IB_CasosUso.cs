@@ -24,6 +24,8 @@ namespace BusinessLogic.Interfaces
         void actualizarPuntajes(int id_Penca, bool esCompartida);
         List<DTUsuario> listarUsuariosPenca(int id_Penca, bool esCompartida);
         List<DTUsuario> listarUsuarios();
+        List<DTSubscripcion> listarSubscripcionesUsuario(string username);
+        bool actualizarUsuario(string username, string pass);
 
 
         List<DTEvento> obtenerEventos_Torneo(int id_Torneo);

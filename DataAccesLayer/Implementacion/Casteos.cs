@@ -87,5 +87,18 @@ namespace DataAccesLayer.Implementacion
             return dTPenca;
         }
 
+        DTSubscripcion I_Casteos.castDTSubscripciones(Subscripciones x)
+        {
+            DTSubscripcion dTSubscripcion = new DTSubscripcion()
+            {
+                Username_Usuario = x.Username_Usuario,
+                id_PencaEmpresarial = x.id_PencaEmpresarial,
+                nroTar_Credito = x.nroTar_Credito,
+                rut = x.rut
+            };
+
+            return dTSubscripcion;
+        }
+
     }
 }

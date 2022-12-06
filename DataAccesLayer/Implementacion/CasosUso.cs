@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Intrinsics.Arm;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -312,6 +313,47 @@ namespace DataAccesLayer.Implementacion
         List<DTUsuario> I_CasosUso.getUsuarios()
         {
             return _db.Users.Select(x => x.GetEntity2()).ToList();
+        }
+
+        List<DTSubscripcion> I_CasosUso.getSubscripcionesUsuario(string username)
+        {
+            List<DTSubscripcion> ret = new List<DTSubscripcion>();
+
+            foreach(Subscripciones s in _db.Subscripciones)
+            {
+                if (s.Username_Usuario.Equals(username))
+                {
+                    ret.Add(_cas.castDTSubscripciones(s));
+                }
+            }
+
+            return ret;
+        }
+        bool I_CasosUso.updateUsuario(string username, string pass)
+        {
+            Users aux = null;
+
+            foreach (Users u in _db.Users)
+            {
+                if (u.UserName.Equals(username))
+                {
+                    aux = u;
+                }
+            }
+
+            try
+            {
+                aux.PasswordHash = pass;
+                aux.nombre = "Loco";
+                _db.Update(aux);
+                _db.SaveChanges();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+           
         }
     }
 }

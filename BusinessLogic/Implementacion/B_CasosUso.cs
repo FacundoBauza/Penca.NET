@@ -1,11 +1,13 @@
 ﻿using BusinessLogic.Interfaces;
 using DataAccesLayer.Interfaces;
 using Dominio.DT;
+using Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace BusinessLogic.Implementacion
 {
@@ -100,6 +102,15 @@ namespace BusinessLogic.Implementacion
         List<DTUsuario> IB_CasosUso.listarUsuarios()
         {
             return _dal.getUsuarios();
+        }
+        
+        List<DTSubscripcion> IB_CasosUso.listarSubscripcionesUsuario(string username)
+        {
+            return _dal.getSubscripcionesUsuario(username);
+        }
+        bool IB_CasosUso.actualizarUsuario(string username, string pass)
+        {
+            return _dal.updateUsuario(username, pass);
         }
     }
 }

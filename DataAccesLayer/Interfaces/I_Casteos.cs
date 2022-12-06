@@ -15,5 +15,6 @@ namespace DataAccesLayer.Interfaces
         DTPencaEmpresarial castDTPencaEmpresarial(PencaEmpresariales x);
         DTPronostico castDTPronostico(Pronostico x);
         DTUsuario castDTUsuario(Users x);
+        DTSubscripcion castDTSubscripciones(Subscripciones x);
     }
 }
