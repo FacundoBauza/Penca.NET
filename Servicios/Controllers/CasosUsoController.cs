@@ -50,5 +50,12 @@ namespace Servicios.Controllers
         {
             return fu.listarUsuariosPenca(id_Penca, esCompartida);
         }
+
+        //Listar Usuarios
+        [HttpGet("/api/listarUsuarios")]
+        public List<DTUsuario> listarUsuario()
+        {
+            return fu.listarUsuarios();
+        }
     }
 }

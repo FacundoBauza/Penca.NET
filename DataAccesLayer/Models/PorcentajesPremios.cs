@@ -25,6 +25,7 @@ namespace DataAccesLayer.Models
         {
             PorcentajesPremios p = new PorcentajesPremios();
 
+            p.id_Porcentaje = id_Porcentaje;
             p.posicion = posicion;
             p.porcentaje = porcentaje;
 

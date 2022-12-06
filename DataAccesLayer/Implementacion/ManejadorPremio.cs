@@ -92,7 +92,6 @@ namespace DataAccesLayer.Implementacion
 
             foreach (PorcentajesPremios p in aux)
             {
-                ret.Add(p.porcentaje);
                 if (p.id_CriterioPremio == id_Criterio)
                 {
                     ret.Add(p.porcentaje);

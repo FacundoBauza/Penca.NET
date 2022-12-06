@@ -308,5 +308,10 @@ namespace DataAccesLayer.Implementacion
 
             return aux;
         }
+
+        List<DTUsuario> I_CasosUso.getUsuarios()
+        {
+            return _db.Users.Select(x => x.GetEntity2()).ToList();
+        }
     }
 }

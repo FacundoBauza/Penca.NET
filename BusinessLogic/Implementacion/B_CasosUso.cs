@@ -96,5 +96,10 @@ namespace BusinessLogic.Implementacion
         {
             return _dal.getUsuariosPenca(id_Penca, esCompartida);
         }
+
+        List<DTUsuario> IB_CasosUso.listarUsuarios()
+        {
+            return _dal.getUsuarios();
+        }
     }
 }

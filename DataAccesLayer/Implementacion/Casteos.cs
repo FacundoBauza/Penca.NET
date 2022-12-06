@@ -65,7 +65,8 @@ namespace DataAccesLayer.Implementacion
                 nombre = x.nombre,
                 criterioPremio = x.id_CriterioPremio,
                 torneo = x.id_Torneo,
-                esCompartida = true
+                esCompartida = true,
+                pozo = x.pozo
             };
 
             return dTPenca;
