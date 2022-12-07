@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccesLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class Migrations : Migration
+    public partial class MigrationNube : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -91,6 +91,7 @@ namespace DataAccesLayer.Migrations
                     idPencaCompartida = table.Column<int>(name: "id_PencaCompartida", type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    pozo = table.Column<int>(type: "int", nullable: false),
                     idTorneo = table.Column<int>(name: "id_Torneo", type: "int", nullable: false),
                     idCriterioPremio = table.Column<int>(name: "id_CriterioPremio", type: "int", nullable: false)
                 },
@@ -169,6 +170,24 @@ namespace DataAccesLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Pronostico",
+                columns: table => new
+                {
+                    idPronostico = table.Column<int>(name: "id_Pronostico", type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    golesEquipo1 = table.Column<int>(type: "int", nullable: false),
+                    golesEquipo2 = table.Column<int>(type: "int", nullable: false),
+                    UsernameUsuario = table.Column<string>(name: "Username_Usuario", type: "nvarchar(max)", nullable: true),
+                    idEvento = table.Column<int>(name: "id_Evento", type: "int", nullable: false),
+                    idPenca = table.Column<int>(name: "id_Penca", type: "int", nullable: false),
+                    esCompartida = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pronostico", x => x.idPronostico);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Subscripcion",
                 columns: table => new
                 {
@@ -195,6 +214,20 @@ namespace DataAccesLayer.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Torneo", x => x.idTorneo);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Usuarios_Puntaje",
+                columns: table => new
+                {
+                    username = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    idPenca = table.Column<int>(name: "id_Penca", type: "int", nullable: false),
+                    esCompartida = table.Column<bool>(type: "bit", nullable: false),
+                    puntaje = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuarios_Puntaje", x => new { x.username, x.idPenca, x.esCompartida });
                 });
 
             migrationBuilder.CreateTable(
@@ -386,10 +419,16 @@ namespace DataAccesLayer.Migrations
                 name: "Premios");
 
             migrationBuilder.DropTable(
+                name: "Pronostico");
+
+            migrationBuilder.DropTable(
                 name: "Subscripcion");
 
             migrationBuilder.DropTable(
                 name: "Torneo");
+
+            migrationBuilder.DropTable(
+                name: "Usuarios_Puntaje");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

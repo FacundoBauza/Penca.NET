@@ -242,7 +242,7 @@ namespace DataAccesLayer.Implementacion
             {
                 foreach (Pronostico e in _db.Pronosticos)
                 {
-                    if (e.Username_Usuario.Equals(dp.username) && e.id_Evento == dp.id_Evento && e.id_Penca == dp.id_Penca)
+                    if (e.Username_Usuario.Equals(dp.username) && e.id_Evento == dp.id_Evento && e.id_Penca == dp.id_Penca && e.esCompartida == dp.esCompartida)
                     {
                         return true;
                     }

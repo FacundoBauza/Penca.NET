@@ -193,14 +193,14 @@ namespace DataAccesLayer.Migrations
 
             modelBuilder.Entity("DataAccesLayer.Models.Pronostico", b =>
                 {
+                    b.Property<int>("id_Pronostico")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_Pronostico"));
+
                     b.Property<string>("Username_Usuario")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("id_Evento")
-                        .HasColumnType("int");
-
-                    b.Property<int>("id_Penca")
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("esCompartida")
                         .HasColumnType("bit");
@@ -211,7 +211,13 @@ namespace DataAccesLayer.Migrations
                     b.Property<int>("golesEquipo2")
                         .HasColumnType("int");
 
-                    b.HasKey("Username_Usuario", "id_Evento", "id_Penca");
+                    b.Property<int>("id_Evento")
+                        .HasColumnType("int");
+
+                    b.Property<int>("id_Penca")
+                        .HasColumnType("int");
+
+                    b.HasKey("id_Pronostico");
 
                     b.ToTable("Pronostico");
                 });

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,13 @@ using System.Threading.Tasks;
 namespace DataAccesLayer.Models
 {
     [Table(name: "Pronostico")]
-    [PrimaryKey(nameof(Username_Usuario), nameof(id_Evento), nameof(id_Penca))]
+    //[PrimaryKey(nameof(Username_Usuario), nameof(id_Evento), nameof(id_Penca), nameof(esCompartida))]
     public class Pronostico
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public int id_Pronostico { get; set; }
+
         public int golesEquipo1 { get; set; }
         public int golesEquipo2 { get; set; }
 

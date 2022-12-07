@@ -79,9 +79,9 @@ namespace BusinessLogic.Implementacion
             return _fu.obtenerInfo_PencaCompartida(id_Penca);
         }
 
-        List<DTPronostico> IB_CasosUso.obtenerPronosticos_Usuario(string username, int id_Penca)
+        List<DTPronostico> IB_CasosUso.obtenerPronosticos_Usuario(string username, int id_Penca, bool esCompartida)
         {
-            return _dal.getPronosticos_Usuario(username, id_Penca);
+            return _dal.getPronosticos_Usuario(username, id_Penca, esCompartida);
         }
 
         List<DTPuntosUsuarioFront> IB_CasosUso.obtenerPuntaje_UsuarioPenca(int id_Penca, bool esCompartida)

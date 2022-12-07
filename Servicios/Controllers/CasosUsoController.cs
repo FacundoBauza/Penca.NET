@@ -3,6 +3,7 @@ using DataAccesLayer.Models;
 using Dominio.DT;
 using Dominio.Entidades;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Servicios.Controllers
@@ -12,9 +13,11 @@ namespace Servicios.Controllers
     public class CasosUsoController : ControllerBase
     {
         private IB_CasosUso fu;
-        public CasosUsoController(IB_CasosUso _fu)
+        private readonly UserManager<Users> _userManager;
+        public CasosUsoController(IB_CasosUso _fu, UserManager<Users> userManager)
         {
             fu = _fu;
+            _userManager = userManager;
         }
 
         //Listar Eventos/Torneo
@@ -27,9 +30,9 @@ namespace Servicios.Controllers
 
         //Listar Pronosticos/Usuario
         [HttpGet("/api/listarPronosticosUsuario")]
-        public List<DTPronostico> listarPronosticosUsuario(string username, int id_Penca)
+        public List<DTPronostico> listarPronosticosUsuario(string username, int id_Penca, bool esCompartida)
         {
-            return fu.obtenerPronosticos_Usuario(username, id_Penca);
+            return fu.obtenerPronosticos_Usuario(username, id_Penca, esCompartida);
         }
 
         //Actualizar Puntajes
@@ -67,16 +70,13 @@ namespace Servicios.Controllers
             return fu.listarSubscripcionesUsuario(username);
         }
 
-        //Actualizar Usuario
+        //Actualizar Pass
         [HttpGet("/api/actualizarUsuario")]
-        public async bool actualizarUsuario(string username, string pass)
+        public async void actualizarUsuario(string username, string pass)
         {
-            var result = await UpdatePasswordHash(passwordStore, user, password);
-            if (!result.Succeeded)
-            {
-                return result;
-            }
-            //return fu.actualizarUsuario(username, pass);
+            Users u = new Users();
+            var result = await _userManager.AddPasswordAsync(u, "sdg");
+ 
         }
     }
 }

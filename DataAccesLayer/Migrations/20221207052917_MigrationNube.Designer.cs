@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccesLayer.Migrations
 {
     [DbContext(typeof(SolutionContext))]
-    [Migration("20221122205152_Migrations2")]
-    partial class Migrations2
+    [Migration("20221207052917_MigrationNube")]
+    partial class MigrationNube
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,6 +91,9 @@ namespace DataAccesLayer.Migrations
 
                     b.Property<string>("nombre")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("pozo")
+                        .HasColumnType("int");
 
                     b.HasKey("id_PencaCompartida");
 
@@ -193,11 +196,17 @@ namespace DataAccesLayer.Migrations
 
             modelBuilder.Entity("DataAccesLayer.Models.Pronostico", b =>
                 {
-                    b.Property<string>("Username_Usuario")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("id_Evento")
+                    b.Property<int>("id_Pronostico")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_Pronostico"));
+
+                    b.Property<string>("Username_Usuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("esCompartida")
+                        .HasColumnType("bit");
 
                     b.Property<int>("golesEquipo1")
                         .HasColumnType("int");
@@ -205,10 +214,13 @@ namespace DataAccesLayer.Migrations
                     b.Property<int>("golesEquipo2")
                         .HasColumnType("int");
 
+                    b.Property<int>("id_Evento")
+                        .HasColumnType("int");
+
                     b.Property<int>("id_Penca")
                         .HasColumnType("int");
 
-                    b.HasKey("Username_Usuario", "id_Evento");
+                    b.HasKey("id_Pronostico");
 
                     b.ToTable("Pronostico");
                 });
@@ -328,6 +340,25 @@ namespace DataAccesLayer.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("DataAccesLayer.Models.UsuarioPuntajes", b =>
+                {
+                    b.Property<string>("username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("id_Penca")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("esCompartida")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("puntaje")
+                        .HasColumnType("int");
+
+                    b.HasKey("username", "id_Penca", "esCompartida");
+
+                    b.ToTable("Usuarios_Puntaje");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

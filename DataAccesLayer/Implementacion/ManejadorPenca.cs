@@ -205,7 +205,7 @@ namespace DataAccesLayer.Implementacion
                  {
                      foreach(Pronostico x in _db.Pronosticos)
                      {
-                         if(x.Username_Usuario.Equals(dp.username) && x.id_Evento == dp.id_Evento && x.id_Penca == dp.id_Penca)
+                         if(x.Username_Usuario.Equals(dp.username) && x.id_Evento == dp.id_Evento && x.id_Penca == dp.id_Penca && x.esCompartida == dp.esCompartida)
                          {
                              aux = x;
                          }

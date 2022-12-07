@@ -30,7 +30,7 @@ namespace BusinessLogic.Interfaces
 
         List<DTEvento> obtenerEventos_Torneo(int id_Torneo);
         List<DTEvento> obtenerEventosTorneo(int id);
-        List<DTPronostico> obtenerPronosticos_Usuario(string username, int id_Penca);
+        List<DTPronostico> obtenerPronosticos_Usuario(string username, int id_Penca, bool esCompartida);
         List<DTPuntosUsuarioFront> obtenerPuntaje_UsuarioPenca(int id_Penca, bool esCompartida);
     }
 }
