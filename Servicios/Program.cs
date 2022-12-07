@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using sib_api_v3_sdk.Client;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -133,18 +134,25 @@ builder.Services.AddTransient<IB_CasosUso, B_CasosUso>();
 builder.Services.AddTransient<I_CasosUso, CasosUso>();
 
 
-
+// EMAIL CONFIGURATION
+// Configure API key authorization: api-key
+Configuration.Default.ApiKey.Add("api-key", "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");
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// Configuration.Default.ApiKeyPrefix.Add("api-key", "Bearer");
+// Configure API key authorization: partner-key
+Configuration.Default.ApiKey.Add("partner-key", "LSFIy9mr4GdvV5Yq");
+// Uncomment below to setup prefix (e.g. B
 
 
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+/*if (app.Environment.IsDevelopment())
+{*/
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 

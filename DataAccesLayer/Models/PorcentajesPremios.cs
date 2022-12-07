@@ -28,6 +28,7 @@ namespace DataAccesLayer.Models
             p.id_Porcentaje = id_Porcentaje;
             p.posicion = posicion;
             p.porcentaje = porcentaje;
+            p.id_CriterioPremio = id_CriterioPremio;
 
             return p;
         }

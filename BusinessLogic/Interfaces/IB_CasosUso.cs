@@ -1,4 +1,5 @@
 ﻿using BusinessLogic.Implementacion;
+using DataAccesLayer.Models;
 using Dominio.DT;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace BusinessLogic.Interfaces
         List<DTUsuario> listarUsuarios();
         List<DTSubscripcion> listarSubscripcionesUsuario(string username);
         bool actualizarUsuario(string username, string pass);
+        Users obtenerUsuario(string username);
 
 
         List<DTEvento> obtenerEventos_Torneo(int id_Torneo);

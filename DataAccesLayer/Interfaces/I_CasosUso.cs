@@ -1,4 +1,5 @@
-﻿using Dominio.DT;
+﻿using DataAccesLayer.Models;
+using Dominio.DT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace DataAccesLayer.Interfaces
         List<DTUsuario> getUsuarios();
         List<DTSubscripcion> getSubscripcionesUsuario(string username);
         bool updateUsuario(string username, string pass);
+        Users getUsuario(string username);
     }
 }

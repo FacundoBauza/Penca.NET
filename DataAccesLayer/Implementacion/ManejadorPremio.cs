@@ -97,8 +97,9 @@ namespace DataAccesLayer.Implementacion
                     ret.Add(p.porcentaje);
                 }
             }
+
             ret1 = ret.OrderByDescending(i => i).ToList();
-            return ret1;
+            return ret;
         }
     }
 }

@@ -6,12 +6,31 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using WebAPI.Models;
+
+class Github
+{
+    public string client_id { get; set; }
+    public string client_secret { get; set; }
+    public string code { get; set; }
+};
+class RespuestaGithub
+{
+    public string error { get; set; }
+    public string access_token { get; set; }
+}
+class userGithub
+{
+    public string name { get; set; }
+    public string email { get; set; }
+}
 
 namespace WebAPI.Controllers
 {
@@ -208,6 +227,57 @@ namespace WebAPI.Controllers
                 );
 
             return token;
+        }
+
+        [HttpPost]
+        [Route("ExisteUsuario")]
+        public async Task<IActionResult> ExisteUsuario([FromBody] string username)
+        {
+            Users user = await _userManager.FindByNameAsync(username);
+            if (user != null) return Ok(new StatusResponse { StatusOk = true, StatusMessage = "Existe" });
+
+            return Ok(new StatusResponse { StatusOk = true, StatusMessage = "No existe" });
+        }
+
+        [HttpPost]
+        [Route("LoginSocial")]
+        public async Task<IActionResult> LoginSocial([FromBody] string token)
+        {
+
+            var client = new RestClient("https://github.com/login/oauth/access_token");
+            var request = new RestRequest("/", Method.Post);
+            // Json to post.
+            dynamic json = new Github
+            {
+                client_id = "436f3043b58384f9aacc",
+                client_secret = "1245cfc8da6f1d37d199a7e32a94e361d77183bc",
+                code = token
+            };
+            string jsonToSend = JsonConvert.SerializeObject(json);
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(jsonToSend);
+            var response = client.Execute(request);
+            var aux = JsonConvert.DeserializeObject<RespuestaGithub>(response.Content);
+
+            if (String.IsNullOrEmpty(aux.access_token))
+            {
+                return Ok(response.Content);
+            }
+
+            string tokenGit = aux.access_token;
+            client = new RestClient("https://api.github.com/user");
+            request = new RestRequest("/", Method.Get);
+            request.AddHeader("Authorization", "Bearer " + tokenGit);
+            response = client.Execute(request);
+            var user = JsonConvert.DeserializeObject<userGithub>(response.Content);
+            if (String.IsNullOrEmpty(user.email))
+            {
+                return Ok("No pudimos verificar su email");
+                //Buscar por el nombre y el apellido
+                //O no permitir que ingrese
+            }
+            Users user2 = await _userManager.FindByNameAsync(user.email);
+            return Ok(user2);
         }
     }
 }

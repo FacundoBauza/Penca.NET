@@ -86,7 +86,7 @@ namespace DataAccesLayer.Implementacion
                 {
                     foreach (UsuarioPuntajes up in _db.usuarioPuntajes)
                     {
-                        if (s.Equals(up.username) && id_Penca == up.id_Penca)
+                        if (s.Equals(up.username) && id_Penca == up.id_Penca && up.esCompartida == esCompartida)
                         {
                             DTPuntosUsuarioFront dt = new DTPuntosUsuarioFront()
                             {
@@ -116,7 +116,7 @@ namespace DataAccesLayer.Implementacion
                 {
                     foreach (UsuarioPuntajes up in _db.usuarioPuntajes)
                     {
-                        if (s.Equals(up.username) && id_Penca == up.id_Penca)
+                        if (s.Equals(up.username) && id_Penca == up.id_Penca && up.esCompartida == esCompartida)
                         {
                             DTPuntosUsuarioFront dt = new DTPuntosUsuarioFront()
                             {
@@ -166,7 +166,7 @@ namespace DataAccesLayer.Implementacion
             {
                 foreach (Pronostico p in _db.Pronosticos)
                 {
-                    if (p.Username_Usuario.Equals(s) && p.id_Penca == id_Penca)
+                    if (p.Username_Usuario.Equals(s) && p.id_Penca == id_Penca && p.esCompartida == esCompartida)
                     {
                         aux.Add(p);
                     }
@@ -248,7 +248,7 @@ namespace DataAccesLayer.Implementacion
 
                 UsuarioPuntajes auxd = null;
 
-                if (_fu.existeUsuarioPuntaje(s1, id_Penca) == true)
+                if (_fu.existeUsuarioPuntaje(s1, id_Penca, esCompartida) == true)
                 {
                     foreach (UsuarioPuntajes x in _db.usuarioPuntajes)
                     {
@@ -354,6 +354,19 @@ namespace DataAccesLayer.Implementacion
             }
             return true;
            
+        }
+
+        Users I_CasosUso.getUsuario(string username)
+        {
+            foreach(Users u in _db.Users)
+            {
+                if (u.UserName.Equals(username))
+                {
+                    return u;
+                }
+            }
+
+            return null;
         }
     }
 }

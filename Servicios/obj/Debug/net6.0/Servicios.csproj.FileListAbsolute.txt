@@ -24,7 +24,6 @@ C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\refint\Servicios.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.pdb
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.genruntimeconfig.cache
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\ref\Servicios.dll
-C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\web.config
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\Azure.Core.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\Azure.Identity.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\Humanizer.dll
@@ -115,3 +114,8 @@ C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets\msbu
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Servicios.props
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\visua\Desktop\Penca.NET\Servicios\obj\Debug\net6.0\Servicios.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\RestSharp.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\FubarCoder.RestSharp.Portable.Core.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\FubarCoder.RestSharp.Portable.HttpClient.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\JsonSubTypes.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\sib_api_v3_sdk.dll

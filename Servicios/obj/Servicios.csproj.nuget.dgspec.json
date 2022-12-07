@@ -367,6 +367,10 @@
               "target": "Package",
               "version": "[1.15.1, )"
             },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[108.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -378,6 +382,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.4, )"
+            },
+            "sib_api_v3_sdk": {
+              "target": "Package",
+              "version": "[3.3.0, )"
             }
           },
           "imports": [

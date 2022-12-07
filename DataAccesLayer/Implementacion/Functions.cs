@@ -264,11 +264,11 @@ namespace DataAccesLayer.Implementacion
             return false;
         }
 
-        bool I_Functions.existeUsuarioPuntaje(string s, int id_Penca)
+        bool I_Functions.existeUsuarioPuntaje(string s, int id_Penca, bool esCompartida)
         {
             foreach (UsuarioPuntajes up in _db.usuarioPuntajes)
             {
-                if (up.username.Equals(s) && up.id_Penca == id_Penca)
+                if (up.username.Equals(s) && up.id_Penca == id_Penca && up.esCompartida == esCompartida)
                     return true;
             }
 

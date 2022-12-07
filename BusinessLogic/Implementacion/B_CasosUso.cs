@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.Interfaces;
 using DataAccesLayer.Interfaces;
+using DataAccesLayer.Models;
 using Dominio.DT;
 using Dominio.Entidades;
 using System;
@@ -111,6 +112,11 @@ namespace BusinessLogic.Implementacion
         bool IB_CasosUso.actualizarUsuario(string username, string pass)
         {
             return _dal.updateUsuario(username, pass);
+        }
+
+        Users IB_CasosUso.obtenerUsuario(string username)
+        {
+            return _dal.getUsuario(username);
         }
     }
 }
