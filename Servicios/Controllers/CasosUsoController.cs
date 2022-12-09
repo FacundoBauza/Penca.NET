@@ -13,8 +13,13 @@ using sib_api_v3_sdk.Api;
 
 public class test
 {
-    public List<String> emails { get; set; }
+    public String email { get; set; }
     public String link { get; set; }
+}
+public class estadisticas
+{
+    public List<DTPencaCompartida> compartidas { get; set; }
+    public List<DTPencaEmpresarial> empresariales { get; set; }
 }
 
 namespace Servicios.Controllers
@@ -24,11 +29,13 @@ namespace Servicios.Controllers
     public class CasosUsoController : ControllerBase
     {
         private IB_CasosUso fu;
+        private IB_Penca pe;
         private readonly UserManager<Users> _userManager;
-        public CasosUsoController(IB_CasosUso _fu, UserManager<Users> userManager)
+        public CasosUsoController(IB_CasosUso _fu, UserManager<Users> userManager, IB_Penca pe)
         {
             fu = _fu;
             _userManager = userManager;
+            this.pe = pe;
         }
 
         //Listar Eventos/Torneo
@@ -82,7 +89,7 @@ namespace Servicios.Controllers
         }
 
         [HttpPost("/api/enviarInvitaciones")]
-        public ActionResult<PencaEmpresarial> Post([FromBody] test body)
+        public ActionResult<PencaEmpresarial> Post([FromBody] List<test> body)
         {
             var apiInstance = new TransactionalEmailsApi();
             //De donde lo envio
@@ -90,74 +97,59 @@ namespace Servicios.Controllers
             string SenderEmail = "leandro.marrero03@gmail.com";
             SendSmtpEmailSender Email = new SendSmtpEmailSender(SenderName, SenderEmail);
             //A quien lo envio
-            List<SendSmtpEmailTo> To = new List<SendSmtpEmailTo>();
-            foreach (var i in body.emails)
+            
+            foreach (var i in body)
             {
-                string ToEmail = i;
+                List<SendSmtpEmailTo> To = new List<SendSmtpEmailTo>();
+                string ToEmail = i.email;
                 string ToName = "John Doe";
                 SendSmtpEmailTo smtpEmailTo = new SendSmtpEmailTo(ToEmail, ToName);
                 To.Add(smtpEmailTo);
-            }
-            Debug.WriteLine(To);
-            //Cuerpo del email
-            string HtmlContent = "<html><body><h1>This is my first transactional email " + body.link + "</h1></body></html>";
-            string TextContent = null;
-            string Subject = "Invitacion a Penca";
-            string ReplyToName = "John Doe";
-            string ReplyToEmail = "replyto@domain.com";
-            SendSmtpEmailReplyTo ReplyTo = new SendSmtpEmailReplyTo(ReplyToEmail, ReplyToName);
 
-            //Agregar cabeceras
-            JObject Headers = new JObject();
-            Headers.Add("Some-Custom-Name", "unique-id-1234");
-            long? TemplateId = null;
-            JObject Params = new JObject();
-            Params.Add("parameter", "My param value");
-            Params.Add("subject", "New Subject");
+                Debug.WriteLine(To);
+                //Cuerpo del email
+                string HtmlContent = "<html><body><h1>This is my first transactional email " + i.link + "</h1></body></html>";
+                string TextContent = null;
+                string Subject = "Invitacion a Penca";
+                string ReplyToName = "John Doe";
+                string ReplyToEmail = "replyto@domain.com";
+                SendSmtpEmailReplyTo ReplyTo = new SendSmtpEmailReplyTo(ReplyToEmail, ReplyToName);
 
-            Dictionary<string, object> _parmas = new Dictionary<string, object>();
-            _parmas.Add("params", Params);
-            try
-            {
-                var sendSmtpEmail = new SendSmtpEmail(Email, To, null, null, HtmlContent, TextContent, Subject, ReplyTo, null, Headers, TemplateId, _parmas, null, null);
-                CreateSmtpEmail result = apiInstance.SendTransacEmail(sendSmtpEmail);
-                Debug.WriteLine(result.ToJson());
+                //Agregar cabeceras
+                JObject Headers = new JObject();
+                Headers.Add("Some-Custom-Name", "unique-id-1234");
+                long? TemplateId = null;
+                JObject Params = new JObject();
+                Params.Add("parameter", "My param value");
+                Params.Add("subject", "New Subject");
 
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                Console.WriteLine(e.Message);
+                Dictionary<string, object> _parmas = new Dictionary<string, object>();
+                _parmas.Add("params", Params);
+                try
+                {
+                    var sendSmtpEmail = new SendSmtpEmail(Email, To, null, null, HtmlContent, TextContent, Subject, ReplyTo, null, Headers, TemplateId, _parmas, null, null);
+                    CreateSmtpEmail result = apiInstance.SendTransacEmail(sendSmtpEmail);
+                    Debug.WriteLine(result.ToJson());
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                    Console.WriteLine(e.Message);
+                }
             }
             return null;
             //return fu.listarUsuariosPenca(id_Penca, esCompartida);
         }
 
-        //Nueva Pass
-        [HttpGet("/api/pedidoNuevaPass")]
-        public async void pedidoNuevaPass(string username)
+        [HttpGet("/api/estadisticas")]
+        public estadisticas estadisticas()
         {
-            /*int longitud = 7;
-            Guid miGuid = Guid.NewGuid();
-            string String = Convert.ToBase64String(miGuid.ToByteArray());
-            String = String.Replace("=", "").Replace("+", "");
-            string nuevaPass = String.Substring(0, longitud);
-
-            //Users u = fu.obtenerUsuario(username);
-            Users u = _userManager.FindByNameAsync(username).Result;
-            List<string> emails = new List<string>
-            {
-                username
-            };
-            test t = new test()
-            {
-                emails = emails,
-                link = nuevaPass
-            };
-         
-            Post(t);
-            var result = _userManager.RemovePasswordAsync(u);
-            var result1 = _userManager.AddPasswordAsync(u, nuevaPass);*/
+            List<DTPencaCompartida> listCompartidas = pe.listar_PencaCompartida();
+            List<DTPencaEmpresarial> listEmpresarial = pe.listar_PencaEmpresarial();
+            estadisticas e = new estadisticas();
+            e.empresariales = listEmpresarial;
+            e.compartidas = listCompartidas;
+            return e;
         }
     }
 }

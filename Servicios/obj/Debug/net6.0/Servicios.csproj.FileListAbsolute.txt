@@ -119,3 +119,14 @@ C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\FubarCoder.RestSharp
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\FubarCoder.RestSharp.Portable.HttpClient.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\JsonSubTypes.dll
 C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\sib_api_v3_sdk.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\DnsClient.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\Snappier.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\visua\Desktop\Penca.NET\Servicios\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll

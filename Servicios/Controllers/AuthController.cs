@@ -9,7 +9,11 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using Servicios.Models;
+using sib_api_v3_sdk.Api;
+using sib_api_v3_sdk.Model;
 using System.Data;
+using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -279,5 +283,82 @@ namespace WebAPI.Controllers
             Users user2 = await _userManager.FindByNameAsync(user.email);
             return Ok(user2);
         }
+
+        [HttpGet]
+        [Route("OlvidoPass")]
+        public async Task<IActionResult> OlvidoPass([FromBody] string username)
+        {
+            Users user = await _userManager.FindByNameAsync(username);
+            if (user != null)
+            {
+                await _userManager.RemovePasswordAsync(user);
+                await _userManager.AddPasswordAsync(user, "123Abc*!");
+                var apiInstance = new TransactionalEmailsApi();
+                //De donde lo envio
+                string SenderName = "Leandro Marrero";
+                string SenderEmail = "leandro.marrero03@gmail.com";
+                SendSmtpEmailSender Email = new SendSmtpEmailSender(SenderName, SenderEmail);
+                //A quien lo envio
+                List<SendSmtpEmailTo> To = new List<SendSmtpEmailTo>();
+                string ToEmail = username;
+                string ToName = "John Doe";
+                SendSmtpEmailTo smtpEmailTo = new SendSmtpEmailTo(ToEmail, ToName);
+                To.Add(smtpEmailTo);
+                Debug.WriteLine(To);
+                //Cuerpo del email
+                string HtmlContent = "<html><body><p>Nueva Password: <b>123Abc*!</b></p><br/> <p>Link: https://tupenca.netlify.app/editarPass</p></body></html>";
+                string TextContent = null;
+                string Subject = "Recuperar Password";
+                string ReplyToName = "John Doe";
+                string ReplyToEmail = "replyto@domain.com";
+                SendSmtpEmailReplyTo ReplyTo = new SendSmtpEmailReplyTo(ReplyToEmail, ReplyToName);
+
+                //Agregar cabeceras
+                JObject Headers = new JObject();
+                Headers.Add("Some-Custom-Name", "unique-id-1234");
+                long? TemplateId = null;
+                JObject Params = new JObject();
+                Params.Add("parameter", "My param value");
+                Params.Add("subject", "New Subject");
+
+                Dictionary<string, object> _parmas = new Dictionary<string, object>();
+                _parmas.Add("params", Params);
+                try
+                {
+                    var sendSmtpEmail = new SendSmtpEmail(Email, To, null, null, HtmlContent, TextContent, Subject, ReplyTo, null, Headers, TemplateId, _parmas, null, null);
+                    CreateSmtpEmail result = apiInstance.SendTransacEmail(sendSmtpEmail);
+                    Debug.WriteLine(result.ToJson());
+
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                    Console.WriteLine(e.Message);
+                }
+
+                return Ok(new StatusResponse { StatusOk = true, StatusMessage = "Se envio su nueva password a su email" });
+            }
+            return Ok(new StatusResponse { StatusOk = true, StatusMessage = "El usuario no existe" });
+
+        }
+
+        [HttpPost]
+        [Route("EditarPass")]
+        public async Task<IActionResult> EditarPass([FromBody] RestarPassword data)
+        {
+            Users user = await _userManager.FindByNameAsync(data.email);
+            if (user != null)
+            {
+                bool check = await _userManager.CheckPasswordAsync(user, data.pass);
+                if (check == true)
+                {
+                    await _userManager.ChangePasswordAsync(user, data.pass, data.newPass);
+                    return Ok(new StatusResponse { StatusOk = true, StatusMessage = "Ok" });
+                }
+                return Ok(new StatusResponse { StatusOk = true, StatusMessage = "La password es incorrecta" });
+            }
+            return Ok(new StatusResponse { StatusOk = true, StatusMessage = "El usuario no existe" });
+        }
+
     }
 }

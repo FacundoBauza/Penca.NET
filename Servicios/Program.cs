@@ -136,7 +136,7 @@ builder.Services.AddTransient<I_CasosUso, CasosUso>();
 
 // EMAIL CONFIGURATION
 // Configure API key authorization: api-key
-Configuration.Default.ApiKey.Add("api-key", "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");
+Configuration.Default.ApiKey.Add("api-key", "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");
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // Configuration.Default.ApiKeyPrefix.Add("api-key", "Bearer");
 // Configure API key authorization: partner-key

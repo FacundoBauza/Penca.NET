@@ -172,7 +172,6 @@ namespace DataAccesLayer.Implementacion
                     }
                 }
             }
-            Console.WriteLine(aux.Count());
 
             if (esCompartida == true)
             {

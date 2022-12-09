@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "7pyT3IBrJvraFgVyzFujIbirqdHYWO6g6dv9cs81ORriTGxcT3EFbg530Mw0lKRv5ARp2S1ADqia0FnHXPtPVQ==",
+  "dgSpecHash": "nc+CzfCFpXAb3T/oCIJd5yEbhxrSB8VPDKjzfxPL9PLEEhrewHI5Zp34RBAuGt7lRJ8+XANr9HJHHPkXVIIn3Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\visua\\Desktop\\Penca.NET\\Servicios\\Servicios.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\visua\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\visua\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\fubarcoder.restsharp.portable.core\\4.0.8\\fubarcoder.restsharp.portable.core.4.0.8.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\fubarcoder.restsharp.portable.httpclient\\4.0.8\\fubarcoder.restsharp.portable.httpclient.4.0.8.nupkg.sha512",
@@ -79,6 +80,10 @@
     "C:\\Users\\visua\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.15.1\\microsoft.visualstudio.azure.containers.tools.targets.1.15.1.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0-rc.2.22472.3\\microsoft.win32.systemevents.7.0.0-rc.2.22472.3.nupkg.sha512",
+    "C:\\Users\\visua\\.nuget\\packages\\mongodb.bson\\2.18.0\\mongodb.bson.2.18.0.nupkg.sha512",
+    "C:\\Users\\visua\\.nuget\\packages\\mongodb.driver\\2.18.0\\mongodb.driver.2.18.0.nupkg.sha512",
+    "C:\\Users\\visua\\.nuget\\packages\\mongodb.driver.core\\2.18.0\\mongodb.driver.core.2.18.0.nupkg.sha512",
+    "C:\\Users\\visua\\.nuget\\packages\\mongodb.libmongocrypt\\1.6.0\\mongodb.libmongocrypt.1.6.0.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\netstandard.library\\2.0.0-preview1-25301-01\\netstandard.library.2.0.0-preview1-25301-01.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\newtonsoft.json\\10.0.3\\newtonsoft.json.10.0.3.nupkg.sha512",
@@ -91,7 +96,9 @@
     "C:\\Users\\visua\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\visua\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\sib_api_v3_sdk\\3.3.0\\sib_api_v3_sdk.3.3.0.nupkg.sha512",
+    "C:\\Users\\visua\\.nuget\\packages\\snappier\\1.0.0\\snappier.1.0.0.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
@@ -172,7 +179,8 @@
     "C:\\Users\\visua\\.nuget\\packages\\system.windows.extensions\\7.0.0-rc.2.22472.3\\system.windows.extensions.7.0.0-rc.2.22472.3.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\visua\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\visua\\.nuget\\packages\\system.xml.xmlserializer\\4.0.11\\system.xml.xmlserializer.4.0.11.nupkg.sha512"
+    "C:\\Users\\visua\\.nuget\\packages\\system.xml.xmlserializer\\4.0.11\\system.xml.xmlserializer.4.0.11.nupkg.sha512",
+    "C:\\Users\\visua\\.nuget\\packages\\zstdsharp.port\\0.6.2\\zstdsharp.port.0.6.2.nupkg.sha512"
   ],
   "logs": [
     {
